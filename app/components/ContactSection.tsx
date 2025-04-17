@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FiPhone } from 'react-icons/fi';
+import { FiPhone, FiMapPin } from 'react-icons/fi';
 
 export default function ContactSection() {
   return (
@@ -13,12 +13,21 @@ export default function ContactSection() {
               <p className="text-lg text-gray-600 mb-4">
                 每個品牌、每位工作者的需求都不同，我們希望能了解你的情況，提供最適合你的解決方案。歡迎加入我們的 LINE，一起聊聊！
               </p>
-              <div className="flex items-center mb-6 text-gray-700">
-                <FiPhone className="mr-2" />
-                <span>電話：</span>
-                <a href="tel:0928836163" className="text-[rgb(var(--primary-color))] hover:underline ml-1">
-                  0928-836-163
-                </a>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-gray-700">
+                  <FiPhone className="mr-2" />
+                  <span>電話：</span>
+                  <a href="tel:0928836163" className="text-[rgb(var(--primary-color))] hover:underline ml-1">
+                    0928-836-163
+                  </a>
+                </div>
+                <div className="flex items-center text-gray-700">
+                  <FiMapPin className="mr-2" />
+                  <span>地址：</span>
+                  <a href="https://maps.app.goo.gl/V3uCz1jLPCUB6L4L7" target="_blank" className="text-[rgb(var(--primary-color))] hover:underline ml-1">
+                    宜蘭縣冬山鄉武淵三路120號
+                  </a>
+                </div>
               </div>
               <div className="space-y-4">
                 <Link 

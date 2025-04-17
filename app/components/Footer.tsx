@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FiMail, FiMessageSquare, FiPhone } from 'react-icons/fi';
+import { FiMail, FiMessageSquare, FiPhone, FiMapPin } from 'react-icons/fi';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,6 +22,9 @@ export default function Footer() {
               </Link>
               <Link href="tel:0928836163" className="text-white hover:text-[rgb(var(--secondary-color))]">
                 <FiPhone className="h-6 w-6" />
+              </Link>
+              <Link href="https://maps.app.goo.gl/V3uCz1jLPCUB6L4L7" target="_blank" className="text-white hover:text-[rgb(var(--secondary-color))]">
+                <FiMapPin className="h-6 w-6" />
               </Link>
             </div>
           </div>
@@ -54,12 +57,14 @@ export default function Footer() {
           
           <div>
             <h3 className="text-xl font-bold mb-4">聯絡我們</h3>
-            <p className="text-gray-300 mb-2">
-              有任何問題或合作機會？
-            </p>
-            <p className="text-gray-300 mb-4">
-              電話：<a href="tel:0928836163" className="hover:text-white">0928-836-163</a>
-            </p>
+            <div className="text-gray-300 space-y-2 mb-4">
+              <p>
+                電話：<a href="tel:0928836163" className="hover:text-white">0928-836-163</a>
+              </p>
+              <p>
+                地址：<a href="https://maps.app.goo.gl/V3uCz1jLPCUB6L4L7" target="_blank" className="hover:text-white">宜蘭縣冬山鄉武淵三路120號</a>
+              </p>
+            </div>
             <Link 
               href="https://lin.ee/N4ukE55" 
               target="_blank" 
