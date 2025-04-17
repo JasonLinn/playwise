@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 智遊工作室官方網站
 
-## Getting Started
+這是智遊工作室的官方網站專案，使用 Next.js 和 Tailwind CSS 建立的現代化網站。
 
-First, run the development server:
+## 🌟 專案簡介
 
+智遊工作室致力於幫助小型品牌、個人工作者、民宿、店家，把繁瑣的日常工作變得更聰明、更簡單。我們提供自動化流程、智能客服小幫手和工作模式規劃服務。
+
+## 🚀 功能特點
+
+- 響應式設計，適配各種螢幕大小
+- 現代化 UI 介面
+- 優化的頁面載入效能
+- 直觀的導航結構
+
+## 🛠️ 使用技術
+
+- [Next.js](https://nextjs.org/) - React 框架
+- [Tailwind CSS](https://tailwindcss.com/) - 實用優先的 CSS 框架
+- [React Icons](https://react-icons.github.io/react-icons/) - 流行的圖標庫
+- [Headless UI](https://headlessui.dev/) - 無樣式 UI 組件庫
+
+## 📦 安裝與運行
+
+1. 克隆專案
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/playwise.git
+cd playwise
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 安裝依賴
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. 啟動開發伺服器
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. 訪問開發網站
+```
+http://localhost:3000
+```
 
-## Learn More
+## 🌐 部署
 
-To learn more about Next.js, take a look at the following resources:
+網站可以使用 Vercel、Netlify 或其他支持 Next.js 的服務進行部署。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 授權
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 智遊工作室. 保留所有權利。
