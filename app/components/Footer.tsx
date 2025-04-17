@@ -55,11 +55,6 @@ export default function Footer() {
                   聯絡我們
                 </Link>
               </li>
-              <li>
-                <Link href="/line" className="text-gray-300 hover:text-white">
-                  LINE QR 碼
-                </Link>
-              </li>
             </ul>
           </div>
           
@@ -80,12 +75,6 @@ export default function Footer() {
                 className="inline-block bg-[rgb(var(--secondary-color))] text-white py-2 px-4 rounded-md hover:opacity-90 transition-opacity"
               >
                 加入 LINE 好友
-              </Link>
-              <Link 
-                href="/line" 
-                className="inline-block bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-500 transition-colors"
-              >
-                查看 QR 碼
               </Link>
             </div>
           </div>
