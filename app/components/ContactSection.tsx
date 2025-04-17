@@ -41,12 +41,12 @@ export default function ContactSection() {
             </div>
             
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-10 flex items-center justify-center">
-              <div className="relative w-48 h-48">
+              <div className="relative w-64 h-64">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-40 h-40 rounded-md bg-white shadow-lg p-4 flex items-center justify-center">
-                    <div className="relative w-32 h-32">
+                  <div className="w-56 h-56 rounded-md bg-white shadow-lg p-4 flex items-center justify-center">
+                    <div className="relative w-48 h-48">
                       <Image 
-                        src="/line-qr.png" 
+                        src="/line-qr-real.png" 
                         alt="LINE QR 碼" 
                         fill
                         sizes="100%"

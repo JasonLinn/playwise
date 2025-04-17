@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FiMail, FiMessageSquare, FiPhone, FiMapPin } from 'react-icons/fi';
+import { FiMail, FiMessageSquare, FiPhone, FiMapPin, FiCode } from 'react-icons/fi';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,6 +25,9 @@ export default function Footer() {
               </Link>
               <Link href="https://maps.app.goo.gl/V3uCz1jLPCUB6L4L7" target="_blank" className="text-white hover:text-[rgb(var(--secondary-color))]">
                 <FiMapPin className="h-6 w-6" />
+              </Link>
+              <Link href="/line" className="text-white hover:text-[rgb(var(--secondary-color))]">
+                <FiCode className="h-6 w-6" />
               </Link>
             </div>
           </div>
@@ -52,6 +55,11 @@ export default function Footer() {
                   聯絡我們
                 </Link>
               </li>
+              <li>
+                <Link href="/line" className="text-gray-300 hover:text-white">
+                  LINE QR 碼
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -65,13 +73,21 @@ export default function Footer() {
                 地址：<a href="https://maps.app.goo.gl/V3uCz1jLPCUB6L4L7" target="_blank" className="hover:text-white">宜蘭縣冬山鄉武淵三路120號</a>
               </p>
             </div>
-            <Link 
-              href="https://lin.ee/N4ukE55" 
-              target="_blank" 
-              className="inline-block bg-[rgb(var(--secondary-color))] text-white py-2 px-4 rounded-md hover:opacity-90 transition-opacity"
-            >
-              加入 LINE 好友
-            </Link>
+            <div className="flex space-x-3">
+              <Link 
+                href="https://lin.ee/N4ukE55" 
+                target="_blank" 
+                className="inline-block bg-[rgb(var(--secondary-color))] text-white py-2 px-4 rounded-md hover:opacity-90 transition-opacity"
+              >
+                加入 LINE 好友
+              </Link>
+              <Link 
+                href="/line" 
+                className="inline-block bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-500 transition-colors"
+              >
+                查看 QR 碼
+              </Link>
+            </div>
           </div>
         </div>
         
