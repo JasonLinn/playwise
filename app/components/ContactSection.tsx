@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { FiPhone } from 'react-icons/fi';
 
 export default function ContactSection() {
   return (
@@ -9,9 +10,16 @@ export default function ContactSection() {
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="p-10 md:p-12 lg:p-16 flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">想知道我們能怎麼幫你？</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-gray-600 mb-4">
                 每個品牌、每位工作者的需求都不同，我們希望能了解你的情況，提供最適合你的解決方案。歡迎加入我們的 LINE，一起聊聊！
               </p>
+              <div className="flex items-center mb-6 text-gray-700">
+                <FiPhone className="mr-2" />
+                <span>電話：</span>
+                <a href="tel:0928836163" className="text-[rgb(var(--primary-color))] hover:underline ml-1">
+                  0928-836-163
+                </a>
+              </div>
               <div className="space-y-4">
                 <Link 
                   href="https://lin.ee/N4ukE55" 

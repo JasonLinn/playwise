@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FiMail, FiMessageSquare } from 'react-icons/fi';
+import { FiMail, FiMessageSquare, FiPhone } from 'react-icons/fi';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,6 +19,9 @@ export default function Footer() {
               </Link>
               <Link href="mailto:contact@playwise.studio" className="text-white hover:text-[rgb(var(--secondary-color))]">
                 <FiMail className="h-6 w-6" />
+              </Link>
+              <Link href="tel:0928836163" className="text-white hover:text-[rgb(var(--secondary-color))]">
+                <FiPhone className="h-6 w-6" />
               </Link>
             </div>
           </div>
@@ -53,6 +56,9 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">聯絡我們</h3>
             <p className="text-gray-300 mb-2">
               有任何問題或合作機會？
+            </p>
+            <p className="text-gray-300 mb-4">
+              電話：<a href="tel:0928836163" className="hover:text-white">0928-836-163</a>
             </p>
             <Link 
               href="https://lin.ee/N4ukE55" 
