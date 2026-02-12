@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 import ServicesSection from "./components/ServicesSection";
 import ClientsSection from "./components/ClientsSection";
 import TestimonialsSection from "./components/TestimonialsSection";
+import PortfolioSection from "./components/PortfolioSection";
 import ContactSection from "./components/ContactSection";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <div className="flex-grow">
         <HeroSection />
         <ServicesSection />
+        <PortfolioSection />
         <ClientsSection />
         <TestimonialsSection />
         <ContactSection />
