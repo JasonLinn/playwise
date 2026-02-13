@@ -224,7 +224,7 @@ export default function BNBPage() {
                 <div className={`${styles.roomCard} ${activeRoom === 'double' ? styles.visible : ''}`} style={{ display: activeRoom === 'double' ? 'block' : 'none' }}>
                     <div className={styles.roomCardHeader}>
                         <h3>｜ 玩宜蘭 雙人套房 ｜</h3>
-                        <button className={styles.roomPriceBtn}>💲 房價</button>
+                        <button className={styles.roomPriceBtn}>房價</button>
                     </div>
                     <div className={styles.roomCardTagline}>
                         ✽ GUEST ROOM ✽ &nbsp; Being in the same room with people and creating something together is a good thing.
@@ -245,7 +245,7 @@ export default function BNBPage() {
                 <div className={`${styles.roomCard} ${activeRoom === 'japanese' ? styles.visible : ''}`} style={{ display: activeRoom === 'japanese' ? 'block' : 'none' }}>
                     <div className={styles.roomCardHeader}>
                         <h3>｜ 玩宜蘭 日式四人房 ｜</h3>
-                        <button className={styles.roomPriceBtn}>💲 房價</button>
+                        <button className={styles.roomPriceBtn}>房價</button>
                     </div>
                     <div className={styles.roomCardTagline}>
                         ✽ GUEST ROOM ✽ &nbsp; Experience the authentic Japanese tatami lifestyle.
@@ -266,7 +266,7 @@ export default function BNBPage() {
                 <div className={`${styles.roomCard} ${activeRoom === 'quad' ? styles.visible : ''}`} style={{ display: activeRoom === 'quad' ? 'block' : 'none' }}>
                     <div className={styles.roomCardHeader}>
                         <h3>｜ 玩宜蘭 四人套房 ｜</h3>
-                        <button className={styles.roomPriceBtn}>💲 房價</button>
+                        <button className={styles.roomPriceBtn}>房價</button>
                     </div>
                     <div className={styles.roomCardTagline}>
                         ✽ GUEST ROOM ✽ &nbsp; A spacious retreat for friends and family.
@@ -287,7 +287,7 @@ export default function BNBPage() {
                 <div className={`${styles.roomCard} ${activeRoom === 'family' ? styles.visible : ''}`} style={{ display: activeRoom === 'family' ? 'block' : 'none' }}>
                     <div className={styles.roomCardHeader}>
                         <h3>｜ 玩宜蘭 親子套房 ｜</h3>
-                        <button className={styles.roomPriceBtn}>💲 房價</button>
+                        <button className={styles.roomPriceBtn}>房價</button>
                     </div>
                     <div className={styles.roomCardTagline}>
                         ✽ GUEST ROOM ✽ &nbsp; Create unforgettable memories with your loved ones.
