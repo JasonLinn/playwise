@@ -78,7 +78,7 @@ export default function BNBPage() {
             {/* Preloader */}
             <div className={`${styles.preloader} ${!loading ? styles.hidden : ''}`}>
                 <div className={styles.preloaderContent}>
-                    <div className={styles.preloaderKanji}>檜 日 林</div>
+                    <div className={styles.preloaderKanji}>玩 宜 蘭</div>
                 </div>
             </div>
 
@@ -388,7 +388,7 @@ export default function BNBPage() {
                     </div>
                 </div>
                 <div className={`${styles.spotsGrid} ${styles.reveal}`} ref={addToRefs}>
-                    <SpotCard img="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop" name="幾米廣場" time="車程約 10 分鐘" />
+                    <SpotCard img="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=500&h=400&fit=crop" name="幾米廣場" time="車程約 10 分鐘" />
                     <SpotCard img="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=500&h=400&fit=crop" name="羅東夜市" time="車程約 15 分鐘" />
                     <SpotCard img="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&h=400&fit=crop" name="太平山國家森林遊樂區" time="車程約 60 分鐘" />
                     <SpotCard img="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=400&fit=crop" name="冬山河親水公園" time="車程約 10 分鐘" />
