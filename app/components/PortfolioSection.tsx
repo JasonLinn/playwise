@@ -9,8 +9,14 @@ export default function PortfolioSection() {
             image: "https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=900&h=1200&fit=crop",
             link: "/works/bnb",
             tags: ["Website", "Design", "RWD"]
+        },
+        {
+            title: "洗衣廠 LIFF 訂單系統",
+            description: "整合 LINE LIFF 技術，讓用戶在 LINE 內直接完成送洗衣物選擇、取件預約與付款，訂單全程自動推播通知。",
+            image: "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=900&h=1200&fit=crop",
+            link: "/works/laundry",
+            tags: ["LINE LIFF", "自動化", "訂單系統"]
         }
-        // Future works can be added here
     ];
 
     return (
