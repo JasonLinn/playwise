@@ -3,21 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 248, 248, 248;
-  --background-end-rgb: 255, 255, 255;
-  --primary-color: 24, 144, 255;
-  --secondary-color: 0, 191, 165;
+  --foreground-rgb: 26, 24, 22;
+  --background-start-rgb: 250, 249, 246;
+  --background-end-rgb: 250, 249, 246;
+  --primary-color: 26, 24, 22;
+  --accent-color: 232, 96, 44;
+  --secondary-color: 232, 96, 44;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-start-rgb));
   min-height: 100vh;
 }
 
@@ -29,14 +25,14 @@ body {
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto px-5 sm:px-8 lg:px-10;
   }
-  
+
   .btn-primary {
-    @apply bg-[rgb(var(--primary-color))] text-white py-2 px-4 rounded-md hover:opacity-90 transition-opacity;
+    @apply bg-[#1a1816] text-white py-3 px-6 text-sm font-semibold hover:bg-[#333] transition-colors inline-flex items-center justify-center;
   }
-  
+
   .btn-secondary {
-    @apply bg-white text-[rgb(var(--primary-color))] border border-[rgb(var(--primary-color))] py-2 px-4 rounded-md hover:bg-gray-50 transition-colors;
+    @apply border border-[#1a1816] text-[#1a1816] py-3 px-6 text-sm font-semibold hover:bg-[#1a1816] hover:text-white transition-colors inline-flex items-center justify-center;
   }
 }
