@@ -17,6 +17,13 @@ export default function PortfolioSection() {
       link: '/works/laundry',
       tags: ['LINE LIFF', '自動化', '訂單系統'],
     },
+    {
+      title: "洗務通 WashPass",
+      description: "專為大型洗被單廠打造的數位化 SaaS 系統，串接 LINE LIFF 讓民宿業者一鍵完成預約，廠端後台批次審核輕鬆排程。",
+      image: 'https://images.unsplash.com/photo-1635274605638-d44babc08a4f?w=900&h=1200&fit=crop',
+      link: "/works/washpass",
+      tags: ["SaaS", "B2B", "Full-Stack"]
+    }
   ];
 
   return (
@@ -28,12 +35,12 @@ export default function PortfolioSection() {
           <h2 className="text-2xl md:text-3xl font-bold text-[#1a1816]">精選作品</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e8e4df]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {works.map((work, index) => (
             <Link
               href={work.link}
               key={index}
-              className="group bg-white block overflow-hidden"
+              className="group bg-white block overflow-hidden border border-[#e8e4df]"
             >
               <div className="relative h-56 overflow-hidden">
                 <Image

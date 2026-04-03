@@ -11,6 +11,10 @@
   --secondary-color: 232, 96, 44;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-start-rgb));
