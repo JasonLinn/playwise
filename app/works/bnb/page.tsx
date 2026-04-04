@@ -96,7 +96,7 @@ export default function BNBPage() {
             <nav className={`${styles.navOverlay} ${navActive ? styles.active : ''}`}>
                 <div className={styles.navMenu}>
                     <div className={styles.navLogoArea}>
-                        <div className={styles.kanji}>玩宜蘭</div>
+                        <div className={styles.kanji}>日式</div>
                         <div className={styles.en}>Hinoki Forest Guesthouse</div>
                     </div>
                     <a onClick={() => scrollToSection('about')} href="#about">關於我們 <span className={styles.enSub}>About Us</span></a>
@@ -113,7 +113,7 @@ export default function BNBPage() {
             <section className={styles.hero} id="home">
                 <div className={styles.heroLeft}>
                     <div className={styles.heroLogo}>
-                        <div className={styles.mainKanji}>玩宜蘭</div>
+                        <div className={styles.mainKanji}>日式</div>
                         <div className={styles.subText}>
                             <span className={styles.jpStyle}>日式民宿</span>
                             <span className={styles.dot}></span>
@@ -148,7 +148,7 @@ export default function BNBPage() {
                     </div>
                 </div>
                 <div className={styles.heroRight}>
-                    <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=900&h=1200&fit=crop" alt="玩宜蘭民宿外觀" />
+                    <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=900&h=1200&fit=crop" alt="日式民宿外觀" />
                 </div>
             </section>
 
@@ -182,7 +182,7 @@ export default function BNBPage() {
                     </div>
                     <div className={styles.aboutText}>
                         <h3>檜木香氣中的寧靜時光</h3>
-                        <p>玩宜蘭民宿座落於宜蘭美麗的田園風光之中，以台灣珍貴的檜木為設計主軸，融合日式美學與現代舒適，打造出一處遠離城市喧囂的療癒空間。</p>
+                        <p>日式民宿座落於宜蘭美麗的田園風光之中，以台灣珍貴的檜木為設計主軸，融合日式美學與現代舒適，打造出一處遠離城市喧囂的療癒空間。</p>
                         <p>每一間客房都瀰漫著淡淡的檜木清香，搭配精心挑選的日式家具與暖色調燈光，讓您在旅途中找到如家般的溫暖與自在。</p>
                         <p>在這裡，您可以聆聽蟲鳴鳥叫、欣賞田園風景、品味在地美食，感受宜蘭最純粹的生活節奏。</p>
                     </div>
@@ -223,7 +223,7 @@ export default function BNBPage() {
                 {/* Room Card: Double */}
                 <div className={`${styles.roomCard} ${activeRoom === 'double' ? styles.visible : ''}`} style={{ display: activeRoom === 'double' ? 'block' : 'none' }}>
                     <div className={styles.roomCardHeader}>
-                        <h3>｜ 玩宜蘭 雙人套房 ｜</h3>
+                        <h3>｜ 日式 雙人套房 ｜</h3>
                         <button className={styles.roomPriceBtn}>房價</button>
                     </div>
                     <div className={styles.roomCardTagline}>
@@ -244,7 +244,7 @@ export default function BNBPage() {
                 {/* Room Card: Japanese Quad */}
                 <div className={`${styles.roomCard} ${activeRoom === 'japanese' ? styles.visible : ''}`} style={{ display: activeRoom === 'japanese' ? 'block' : 'none' }}>
                     <div className={styles.roomCardHeader}>
-                        <h3>｜ 玩宜蘭 日式四人房 ｜</h3>
+                        <h3>｜ 日式 日式四人房 ｜</h3>
                         <button className={styles.roomPriceBtn}>房價</button>
                     </div>
                     <div className={styles.roomCardTagline}>
@@ -265,7 +265,7 @@ export default function BNBPage() {
                 {/* Room Card: Quad */}
                 <div className={`${styles.roomCard} ${activeRoom === 'quad' ? styles.visible : ''}`} style={{ display: activeRoom === 'quad' ? 'block' : 'none' }}>
                     <div className={styles.roomCardHeader}>
-                        <h3>｜ 玩宜蘭 四人套房 ｜</h3>
+                        <h3>｜ 日式 四人套房 ｜</h3>
                         <button className={styles.roomPriceBtn}>房價</button>
                     </div>
                     <div className={styles.roomCardTagline}>
@@ -286,7 +286,7 @@ export default function BNBPage() {
                 {/* Room Card: Family */}
                 <div className={`${styles.roomCard} ${activeRoom === 'family' ? styles.visible : ''}`} style={{ display: activeRoom === 'family' ? 'block' : 'none' }}>
                     <div className={styles.roomCardHeader}>
-                        <h3>｜ 玩宜蘭 親子套房 ｜</h3>
+                        <h3>｜ 日式 親子套房 ｜</h3>
                         <button className={styles.roomPriceBtn}>房價</button>
                     </div>
                     <div className={styles.roomCardTagline}>
@@ -348,7 +348,7 @@ export default function BNBPage() {
                                 allowFullScreen loading="lazy"></iframe>
                         </div>
                         <div className={styles.locationInfo}>
-                            <h3>如何抵達玩宜蘭</h3>
+                            <h3>如何抵達日式</h3>
                             <div className={styles.locationDetail}>
                                 <div className={styles.icon}>🚗</div>
                                 <div>
@@ -438,7 +438,7 @@ export default function BNBPage() {
 
             {/* Footer */}
             <footer className={styles.footer}>
-                <div className={styles.footerLogo}>玩宜蘭民宿</div>
+                <div className={styles.footerLogo}>日式民宿</div>
                 <div className={styles.footerEn}>Hinoki Forest Guesthouse</div>
                 <div className={styles.footerLegal}>宜蘭縣合法民宿 第XXXX號</div>
                 <div className={styles.footerShare}>
@@ -447,7 +447,7 @@ export default function BNBPage() {
                     <a href="#" title="Email">✉</a>
                 </div>
                 <div className={styles.footerCopyright}>
-                    玩宜蘭民宿 | Copyright© All Rights Reserved.
+                    日式民宿 | Copyright© All Rights Reserved.
                 </div>
             </footer>
 

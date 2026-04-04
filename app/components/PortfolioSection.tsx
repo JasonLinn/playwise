@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function PortfolioSection() {
   const works = [
     {
-      title: '玩宜蘭民宿',
+      title: '日式民宿',
       description: '以檜木為主題的日式風格民宿，融合日式美學與現代簡約，提供舒適寧靜的住宿體驗。',
       image: 'https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=900&h=1200&fit=crop',
       link: '/works/bnb',

@@ -363,7 +363,7 @@ export default function LaundryPage() {
                     <div className={styles.footerLogo}>Playwise Studio</div>
                     <div className={styles.footerLinks}>
                         <Link href="/">← 返回首頁</Link>
-                        <Link href="/works/bnb">玩宜蘭民宿</Link>
+                        <Link href="/works/bnb">日式民宿</Link>
                     </div>
                 </div>
                 <div className={styles.footerCopy}>© 2026 Playwise Studio. All rights reserved.</div>
