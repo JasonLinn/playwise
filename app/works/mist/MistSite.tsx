@@ -13,30 +13,30 @@ const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(mi
 
 // 二十四節氣（以常見的國曆日期近似，誤差約一天）
 const TERMS: { name: string; m: number; d: number; line: string }[] = [
-    { name: '小寒', m: 1, d: 5, line: '最冷的時候。圍爐、焙火，喝一壺熟香的老茶。' },
-    { name: '大寒', m: 1, d: 20, line: '山上偶爾結霜。茶樹休眠，我們也跟著休息。' },
-    { name: '立春', m: 2, d: 4, line: '茶芽還在睡，霧開始變得溫柔。' },
-    { name: '雨水', m: 2, d: 19, line: '春雨落進北勢溪，茶園冒出第一抹新綠。' },
-    { name: '驚蟄', m: 3, d: 5, line: '雷聲過後，茶芽醒了。' },
-    { name: '春分', m: 3, d: 20, line: '日夜等長，山上的茶開始抽芽。' },
-    { name: '清明', m: 4, d: 4, line: '明前的嫩芽最珍貴，採茶人天亮就上山。' },
-    { name: '穀雨', m: 4, d: 20, line: '春茶最好的時節，整座山都是製茶的香氣。' },
-    { name: '立夏', m: 5, d: 5, line: '螢火蟲出現在溪邊的草叢裡。' },
-    { name: '小滿', m: 5, d: 21, line: '夏茶開始採收，午後常有雷陣雨。' },
-    { name: '芒種', m: 6, d: 5, line: '梅雨季，一年裡霧最濃的月份之一。' },
-    { name: '夏至', m: 6, d: 21, line: '白天最長，傍晚到溪裡泡腳。' },
-    { name: '小暑', m: 7, d: 7, line: '蟬聲很大，綠茶很清涼。' },
-    { name: '大暑', m: 7, d: 22, line: '最熱的時候，山上仍比台北低五度。' },
-    { name: '立秋', m: 8, d: 7, line: '早晚開始有一點涼意。' },
-    { name: '處暑', m: 8, d: 23, line: '暑氣漸消，可以開始喝一點焙火的茶。' },
-    { name: '白露', m: 9, d: 7, line: '清晨的草葉掛滿露水，秋茶準備採收。' },
-    { name: '秋分', m: 9, d: 22, line: '秋茶的香氣，比春茶更沉一些。' },
-    { name: '寒露', m: 10, d: 8, line: '霧回來了，每天早上都有看見雲海的機會。' },
-    { name: '霜降', m: 10, d: 23, line: '早晚溫差大，霧最常在清晨出現。這是冬茶前的最後一段秋天。' },
-    { name: '立冬', m: 11, d: 7, line: '冬茶採收開始，產量少、香氣足。' },
-    { name: '小雪', m: 11, d: 22, line: '山上常常飄著細雨，適合窩在房裡讀書。' },
-    { name: '大雪', m: 12, d: 7, line: '壁爐生火的季節。' },
-    { name: '冬至', m: 12, d: 21, line: '吃一碗湯圓，配一杯冬茶。' },
+    { name: '小寒', m: 1, d: 5, line: '冬天上山，厚外套和襪子都帶著。晚上可以留在茶室喝熱茶。' },
+    { name: '大寒', m: 1, d: 20, line: '怕冷的客人，入住時可以先問電毯怎麼使用。' },
+    { name: '立春', m: 2, d: 4, line: '春天想看茶園，記得帶雙方便走路的鞋。' },
+    { name: '雨水', m: 2, d: 19, line: '行李裡放一把傘。下雨的下午，茶室也有地方坐。' },
+    { name: '驚蟄', m: 3, d: 5, line: '想在附近散步，抵達後再看天氣安排就好。' },
+    { name: '春分', m: 3, d: 20, line: '白天逛茶園，傍晚回房休息。春天的行程不用排得太滿。' },
+    { name: '清明', m: 4, d: 4, line: '連假上山，建議提早出發，也先安排好午餐。' },
+    { name: '穀雨', m: 4, d: 20, line: '喜歡喝茶，可以留一個下午在茶室，試試不同的茶款。' },
+    { name: '立夏', m: 5, d: 5, line: '天氣暖了，出門走走時記得帶水和防蚊用品。' },
+    { name: '小滿', m: 5, d: 21, line: '戶外行程留點彈性，下雨就回來泡茶。' },
+    { name: '芒種', m: 6, d: 5, line: '雨天石階容易濕滑，穿止滑的鞋會比較好走。' },
+    { name: '夏至', m: 6, d: 21, line: '白天出門記得防曬，散步可以安排在傍晚。' },
+    { name: '小暑', m: 7, d: 7, line: '中午先回房休息，等沒那麼曬了再出門。' },
+    { name: '大暑', m: 7, d: 22, line: '夏天上山也要補充水分，別把戶外行程排得太趕。' },
+    { name: '立秋', m: 8, d: 7, line: '帶件薄外套，晚上坐露台時用得上。' },
+    { name: '處暑', m: 8, d: 23, line: '想住露台房，可以先看看白露房的格局。' },
+    { name: '白露', m: 9, d: 7, line: '早起在露台喝杯茶，出門前再回房加件外套。' },
+    { name: '秋分', m: 9, d: 22, line: '兩人小旅行，住一晚也可以；想多逛幾處茶園，就留兩晚。' },
+    { name: '寒露', m: 10, d: 8, line: '山上起霧時能見度較低，開車請放慢，盡量白天抵達。' },
+    { name: '霜降', m: 10, d: 23, line: '這時候上山，記得多帶一件外套。晚餐後可以來茶室坐坐。' },
+    { name: '立冬', m: 11, d: 7, line: '冬天的行程可以簡單一點：吃早餐、走走，再回來喝茶。' },
+    { name: '小雪', m: 11, d: 22, line: '下雨天帶本書來，房裡和茶室都能坐上一下午。' },
+    { name: '大雪', m: 12, d: 7, line: '訂房前可以先問房內的保暖設備，帶長輩同行更好安排。' },
+    { name: '冬至', m: 12, d: 21, line: '冬天較早天黑，建議吃過午餐就慢慢往山上走。' },
 ];
 
 function termStart(year: number, i: number) {
@@ -68,8 +68,7 @@ function upcomingTerms(date: Date, count: number) {
 const md = (d: Date) => `${d.getMonth() + 1}/${d.getDate()}`;
 const money = (n: number) => `NT$ ${n.toLocaleString('en-US')}`;
 
-// 首屏只用內嵌的小字型；頁面 load 完、瀏覽器閒下來之後，才讓 CSS 引用完整的內文字型。
-// 實測：只要內文字型在首次繪製前被請求，手機 Lighthouse 就會掉 8–10 分。
+// 首屏字型獨立預載；頁面 load 後再啟用完整內文字型，減少首次載入競爭。
 function useFullFonts() {
     const [full, setFull] = useState(false);
     useEffect(() => {
@@ -115,13 +114,13 @@ const ROOMS: Room[] = [
         term: '清明',
         en: 'Qingming',
         name: '茶園雙人房',
-        season: '四月初・春茶初採',
+        season: '兩人入住・面向茶園',
         size: '8 坪',
         bed: 'Queen 雙人床',
         guests: '2 人',
         weekday: 4200,
         weekend: 5200,
-        text: '窗戶正對著茶園。四月的清晨，可以看見採茶人戴著斗笠，一個一個走進霧裡。',
+        text: '一張雙人床，窗戶面向茶園。兩個人來住，這間簡單、剛好；早上可以坐在窗邊喝茶。',
         img: '1617104678098-de229db51175',
         alt: '深色牆面的雙人房，大窗外是林木',
     },
@@ -130,13 +129,13 @@ const ROOMS: Room[] = [
         term: '穀雨',
         en: 'Guyu',
         name: '老茶廠四人房',
-        season: '四月下旬・春茶正好',
+        season: '四人同行・上下舖',
         size: '14 坪',
         bed: '木造上下舖兩組',
         guests: '4 人',
         weekday: 6800,
         weekend: 7800,
-        text: '原本是揉捻茶葉的二樓。我們留下檜木樑和老木架，改成四個床位——就像小時候在阿公家過夜。',
+        text: '位在老茶廠二樓，保留木樑與木架，設兩組上下舖。適合四位朋友同行，訂房時請留意上舖需要爬梯。',
         img: '1520277739336-7bf67edfa768',
         alt: '深色老木頭打造的上下舖客房',
     },
@@ -145,13 +144,13 @@ const ROOMS: Room[] = [
         term: '白露',
         en: 'Bailu',
         name: '露台雙人房',
-        season: '九月初・秋露初生',
+        season: '兩人入住・獨立露台',
         size: '10 坪',
         bed: 'King 雙人床',
         guests: '2 人',
         weekday: 5600,
         weekend: 6600,
-        text: '有一座面山的半戶外露台。秋天的清晨，欄杆上會掛滿一顆一顆的露水。',
+        text: '一張加大雙人床，房外有面山的半戶外露台。想在戶外喝茶、看看山景，可以選這間。',
         img: '1564078516393-cf04bd966897',
         alt: '黃昏時分的起居空間，大片落地窗外是山稜',
     },
@@ -160,13 +159,13 @@ const ROOMS: Room[] = [
         term: '霜降',
         en: 'Shuangjiang',
         name: '杉林獨棟木屋',
-        season: '十月下旬・冬茶之前',
+        season: '兩至三人・獨棟木屋',
         size: '16 坪',
         bed: 'King 雙人床＋臥榻',
         guests: '2–3 人',
         weekday: 8800,
         weekend: 9800,
-        text: '藏在杉木林裡的獨棟小屋，有自己的壁爐和茶席。最冷的夜裡，最好住。',
+        text: '獨棟木屋與主屋分開，房內有雙人床、臥榻和茶席。第三位入住需事先安排，也請先告知成人或孩子的人數。',
         img: '1595521624992-48a59aef95e3',
         alt: '林間的木造小屋，門前有木頭露台',
     },
@@ -182,7 +181,7 @@ const TEAS = [
         base: 45,
         step: 10,
         color: '#b9a64a',
-        note: '坪林的招牌。花香清揚，第一泡別泡太久。',
+        note: '茶香清爽，帶淡淡花香。第一次泡，可以先從這款開始。',
     },
     {
         id: 'beauty',
@@ -193,7 +192,7 @@ const TEAS = [
         base: 50,
         step: 15,
         color: '#c27a2e',
-        note: '被小綠葉蟬叮咬過的茶葉，帶著蜂蜜和熟果的香氣。',
+        note: '帶蜜香與熟果香，喜歡香氣濃一些的客人可以試試。',
     },
     {
         id: 'black',
@@ -204,18 +203,18 @@ const TEAS = [
         base: 60,
         step: 20,
         color: '#8e3b1d',
-        note: '用在地小葉種做的紅茶，適合下雨的午後。',
+        note: '味道較醇厚。泡好先喝一口，再依喜好調整下一泡的時間。',
     },
 ];
 
 const GALLERY = [
-    { id: '1542273917363-3b1817f69a2d', time: '06:10', text: '霧從北勢溪谷升起' },
+    { id: '1542273917363-3b1817f69a2d', time: '06:10', text: '清晨的山霧' },
     { id: '1571934811356-5cc061b6821f', time: '08:30', text: '文山包種，第三泡' },
-    { id: '1500534314209-a25ddb2bd429', time: '17:40', text: '遠方的雪山山脈' },
-    { id: '1473448912268-2022ce9509d8', time: '10:00', text: '北勢溪上游的早晨' },
+    { id: '1500534314209-a25ddb2bd429', time: '17:40', text: '傍晚的山景' },
+    { id: '1473448912268-2022ce9509d8', time: '10:00', text: '林間散步' },
     { id: '1563822249366-3efb23b8e0c9', time: '15:00', text: '春茶、冬茶、東方美人' },
-    { id: '1448375240586-882707db888b', time: '07:20', text: '茶園後方的杉木林' },
-    { id: '1519681393784-d120267933ba', time: '23:00', text: '沒有光害的夜' },
+    { id: '1448375240586-882707db888b', time: '07:20', text: '晨光裡的樹林' },
+    { id: '1519681393784-d120267933ba', time: '23:00', text: '山裡的星空' },
 ];
 
 const SECTIONS = [
@@ -337,7 +336,7 @@ export default function MistSite() {
                     ))}
                 </ol>
                 <div className={styles.railActions}>
-                    <MobileExplore tone="dark" links={[{ href: '#house', label: '霧裡的山房' }, { href: '#rooms', label: '四間節氣房' }, { href: '#tea', label: '一盞茶的時間' }, { href: '#views', label: '窗外風景' }, { href: '#reserve', label: '預約訊息預覽' }]} />
+                    <MobileExplore tone="dark" links={[{ href: '#house', label: '山房介紹' }, { href: '#rooms', label: '房型介紹' }, { href: '#tea', label: '泡茶計時器' }, { href: '#views', label: '山居風景' }, { href: '#reserve', label: '住宿詢問' }]} />
                     <a href="#reserve" className={styles.railCta}>預約</a>
                 </div>
             </nav>
@@ -358,7 +357,7 @@ export default function MistSite() {
                 </div>
                 <FogWipe hostRef={heroRef} />
                 <div className={styles.heroDusk} aria-hidden="true" />
-                <p className={styles.concept}>02 / CONCEPT STAY<span>虛構民宿・互動設計提案</span></p>
+                <p className={styles.concept}>02 / CONCEPT STAY<span>虛構民宿・官網設計作品</span></p>
 
                 <h1 className={styles.heroTitle}>
                     <span className={styles.srOnly}>霧裡山房 — 坪林茶園民宿</span>
@@ -371,18 +370,18 @@ export default function MistSite() {
                     <p className={styles.heroEn}>
                         A tea house <em>in the mist.</em>
                     </p>
-                    <p className={styles.heroZh}>坪林・北勢溪上游・三代茶農的老茶廠</p>
+                    <p className={styles.heroZh}>坪林茶山・四間客房・入住喝一杯茶</p>
                 </div>
 
                 <dl className={styles.heroData}>
-                    <div><dt>ALT</dt><dd>480 M</dd></div>
-                    <div><dt>LAT</dt><dd>24°56′N</dd></div>
-                    <div><dt>LNG</dt><dd>121°42′E</dd></div>
+                    <div><dt>ROOMS</dt><dd>4</dd></div>
+                    <div><dt>CHECK-IN</dt><dd>15:00</dd></div>
+                    <div><dt>CHECK-OUT</dt><dd>11:00</dd></div>
                     <div><dt>節氣</dt><dd>{term ? term.name : '—'}</dd></div>
                 </dl>
 
                 <a href="#house" className={styles.heroScroll}>
-                    <span>往霧裡走</span>
+                    <span>認識山房</span>
                     <i aria-hidden="true" />
                 </a>
             </header>
@@ -392,25 +391,25 @@ export default function MistSite() {
                 <section id="house" className={styles.house} aria-labelledby="house-title">
                     <h2 id="house-title" className={styles.srOnly}>關於霧裡山房</h2>
                     <div className={styles.poem} data-reveal>
-                        <p>山在霧裡，</p>
-                        <p>茶在杯裡，</p>
-                        <p>人在時間之外。</p>
+                        <p>到了，</p>
+                        <p>先坐下來</p>
+                        <p>喝杯茶。</p>
                     </div>
                     <div className={styles.houseBody}>
                         <p className={styles.kicker} data-reveal>
                             <span>01</span> The House
                         </p>
                         <p className={styles.houseLead} data-reveal>
-                            一九六二年，阿公在北勢溪上游蓋了這間製茶廠。六十年後，我們把揉茶的二樓改成客房，把烘焙間改成茶室，留下會吱嘎作響的檜木地板。
+                            我們把老茶廠整理成四間客房，保留木樑，也留了一間大家可以坐下喝茶的茶室。抵達後先放好行李，喝杯茶，再慢慢辦入住。
                         </p>
                         <p className={styles.houseText} data-reveal>
-                            這裡一年有兩百多天起霧。早上推開窗，常常什麼都看不見，只聽得到溪水聲和遠處的鳥。等太陽出來，霧會一層一層散開，茶園才慢慢浮出來——我們覺得，這就是住在山裡最好的時刻。
+                            山房適合想在山裡住一兩晚的客人。白天逛茶園、走走附近步道，下雨就留在屋裡。這裡離市區有段路，晚餐和交通先安排好，住起來會更自在。
                         </p>
                         <figure className={styles.houseFigure} data-reveal>
                             <div className={styles.houseImg}>
                                 <Image src={photo('1564890369478-c89ca6d9cde9', 1400)} alt="木托盤上的白色茶壺與一杯熱茶" fill sizes="(min-width: 1024px) 36vw, 90vw" />
                             </div>
-                            <figcaption>茶室的午後。每位客人入住時，都會先喝一杯今年的春茶。</figcaption>
+                            <figcaption>入住時先喝杯茶。喜歡哪一款，可以再向我們詢問。</figcaption>
                         </figure>
                     </div>
                 </section>
@@ -429,7 +428,7 @@ export default function MistSite() {
                         <p className={styles.kicker}><span>02</span> Rooms</p>
                         <h2 id="rooms-title" className={styles.title}>四間房，<br />四個節氣。</h2>
                         <p className={styles.lead}>
-                            每間房用一個節氣命名，那是它最好住的時候。當然，霧不分季節，任何時候來都可以。
+                            房名取自清明、穀雨、白露與霜降，全年都能入住。從兩人小旅行到四人同行，依照人數和喜歡的空間來選就好。
                         </p>
                     </header>
 
@@ -481,12 +480,12 @@ export default function MistSite() {
                 <TeaRitual />
 
                 {/* 數字 */}
-                <section className={styles.facts} aria-label="關於這座山的幾個數字">
+                <section className={styles.facts} aria-label="山房住宿資訊">
                     {[
-                        ['480', 'M', '海拔。比台北盆地涼五到六度'],
-                        ['200', '+', '一年裡起霧的天數'],
-                        ['40', 'MIN', '從台北走國道五號'],
-                        ['3', 'GEN', '三代茶農，自己種、自己做'],
+                        ['4', 'ROOMS', '四種格局，依同行人數選房'],
+                        ['3', 'TEAS', '包種、東方美人與紅茶'],
+                        ['15', ':00', '下午三點後入住'],
+                        ['11', ':00', '上午十一點前退房'],
                     ].map(([n, unit, label]) => (
                         <div key={label} className={styles.fact} data-reveal>
                             <p className={styles.factNum}>{n}<small>{unit}</small></p>
@@ -505,12 +504,12 @@ export default function MistSite() {
                         <h2 id="info-title" className={styles.title}>住之前，<br />先知道的事。</h2>
                     </header>
                     <dl className={styles.infoList} data-reveal>
-                        <div><dt>入住／退房</dt><dd>15:00 後入住，11:00 前退房。晚到請先告訴我們，山路沒有路燈。</dd></div>
-                        <div><dt>早餐</dt><dd>茶粥、山蘇、溪蝦與自家醃的醬菜。八點在茶室，九點半收。</dd></div>
-                        <div><dt>交通</dt><dd>國道五號坪林交流道下，車程約 8 分鐘。最後 1.2 公里是單線產業道路，會車請禮讓。</dd></div>
-                        <div><dt>公車</dt><dd>捷運新店站搭 923 至坪林站，可預約接駁（單程 NT$ 300）。</dd></div>
-                        <div><dt>山上的事</dt><dd>手機訊號偏弱，Wi-Fi 只在茶室。夜裡溫度低，房內備有電毯。</dd></div>
-                        <div><dt>取消</dt><dd>入住前 7 天可全額退款。颱風、豪雨等不可抗力，可免費改期。</dd></div>
+                        <div><dt>入住／退房</dt><dd>15:00 後入住，11:00 前退房。若會晚到，請提前告知預計抵達時間。</dd></div>
+                        <div><dt>早餐</dt><dd>08:00–09:30 在茶室供應，菜色依當日準備。有素食或食材過敏需求，請事先告知。</dd></div>
+                        <div><dt>交通</dt><dd>以自行開車為主，建議天黑前抵達。此為虛構民宿作品，未提供實際地址或導航位置。</dd></div>
+                        <div><dt>同行人數</dt><dd>請一併告知成人、孩子的人數與年齡，方便確認床位。杉林木屋的第三位入住需事先安排。</dd></div>
+                        <div><dt>房內設備</dt><dd>每間房備有茶具與電毯，Wi-Fi 在茶室使用。若需要穩定網路辦公，請先評估是否適合。</dd></div>
+                        <div><dt>訂房確認</dt><dd>選好房型後，還需要確認入住日期、房費與取消辦法。本頁僅示範詢問流程，不收取訂金。</dd></div>
                     </dl>
                 </section>
 
@@ -519,7 +518,7 @@ export default function MistSite() {
             </main>
 
             <footer className={styles.footer}>
-                <p className={styles.footerLine}>霧散了，再來。</p>
+                <p className={styles.footerLine}>下次有空，再上山住兩天。</p>
                 <div className={styles.footerGrid}>
                     <p>霧裡山房 Mist House<br />新北市坪林區（示範地址）</p>
                     <p>概念設計・未提供聯絡帳號<br />此頁不接受實際預訂</p>
@@ -738,9 +737,9 @@ function TeaRitual() {
         <section id="tea" className={styles.tea} aria-labelledby="tea-title">
             <div className={styles.teaIntro} data-reveal>
                 <p className={styles.kicker}><span>03</span> Tea</p>
-                <h2 id="tea-title" className={styles.title}>一盞茶的時間。</h2>
+                <h2 id="tea-title" className={styles.title}>泡一壺，坐一下。</h2>
                 <p className={styles.lead}>
-                    每間房都有一套茶席。選一款茶，照著水溫和秒數泡——第一泡短一點，之後每泡多等幾秒。這是阿公教我們的方法。
+                    房裡備有茶具，不常泡茶也沒關係。先選一款，照著下方的水溫、茶量與計時器試泡；味道太濃或太淡，下一泡再調整時間。
                 </p>
 
                 <div className={styles.teaPicker} role="radiogroup" aria-label="選擇茶款">
@@ -888,7 +887,7 @@ function Reserve({ today }: { today: Date | null }) {
     const t = terms[termPick];
 
     const message = t
-        ? `您好，我想預約霧裡山房：\n・節氣：${t.name}（${md(t.start)}–${md(t.end)}）\n・房型：${room.term}｜${room.name}\n・${nights} 晚\n想請問這段期間的空房，謝謝！`
+        ? `您好，想詢問 ${md(t.start)}–${md(t.end)} 之間的住宿：\n・房型：${room.term}｜${room.name}\n・入住 ${nights} 晚\n日期還沒確定，請問這段期間哪些日子有房？謝謝。`
         : '';
 
     const copy = async () => {
@@ -907,17 +906,17 @@ function Reserve({ today }: { today: Date | null }) {
             <div className={styles.reserveIntro} data-reveal>
                 <p className={styles.kicker}><span>06</span> Reserve</p>
                 <h2 id="reserve-title" className={styles.reserveTitle}>
-                    挑一個節氣，<br />上山來。
+                    想什麼時候來住？
                 </h2>
                 <p className={styles.lead}>
-                    選好節氣、房間和天數，寫一封上山的邀請。這是虛構民宿的設計提案，可預覽並複製詢問訊息；不會傳送 LINE、查詢真實空房或建立預訂。節氣日期採近似值，實際交節可能相差一天。
+                    日期還沒決定，可以先選大致時段、房型和住宿晚數，整理成詢問訊息。此處為流程示範，複製後不會自動傳送，也不會保留房間。
                 </p>
             </div>
 
             <div className={styles.reserveGrid} data-reveal>
                 <div className={styles.reserveForm}>
                     <fieldset>
-                        <legend>節氣</legend>
+                        <legend>預計入住時段</legend>
                         <div className={styles.chips}>
                             {terms.map((x, i) => (
                                 <label key={x.name} className={styles.chip} data-checked={i === termPick ? 'true' : 'false'}>
@@ -930,7 +929,7 @@ function Reserve({ today }: { today: Date | null }) {
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>房間</legend>
+                        <legend>房型</legend>
                         <div className={styles.chips}>
                             {ROOMS.map((r) => (
                                 <label key={r.id} className={styles.chip} data-checked={r.id === roomId ? 'true' : 'false'}>
@@ -942,7 +941,7 @@ function Reserve({ today }: { today: Date | null }) {
                         </div>
                     </fieldset>
                     <div className={styles.nights}>
-                        <span id="nights-label">天數</span>
+                        <span id="nights-label">住幾晚</span>
                         <div role="group" aria-labelledby="nights-label">
                             {[1, 2, 3].map((n) => (
                                 <button key={n} type="button" aria-pressed={n === nights} onClick={() => setNights(n)}>
@@ -952,8 +951,8 @@ function Reserve({ today }: { today: Date | null }) {
                         </div>
                     </div>
                     <p className={styles.estimate}>
-                        預估房價 <strong>{money(room.weekday * nights)}</strong> 起
-                        <span>假日每晚 {money(room.weekend)}</span>
+                        房費試算 <strong>{money(room.weekday * nights)}</strong> 起
+                        <span>以平日計算；假日每晚 {money(room.weekend)}。示範房價，非實際報價。</span>
                     </p>
                 </div>
 
@@ -961,13 +960,13 @@ function Reserve({ today }: { today: Date | null }) {
                     <div className={styles.chatBar}>
                         <span className={styles.chatAvatar} aria-hidden="true">霧</span>
                         <span>霧裡山房</span>
-                        <em>對話設計示意</em>
+                        <em>詢問範例</em>
                     </div>
                     <div className={styles.chatBody}>
                         <p className={styles.bubbleMe}>{message || ' '}</p>
                         <p className={styles.bubbleThem}>
-                            等你選好日子，我們再談一盞茶的時間。
-                            <small>回覆情境示意・未連接民宿或空房系統</small>
+                            您好，請問幾位入住？有小朋友的話，也請告訴我們年齡。平日或週末都可以嗎？我們再幫您確認可安排的日期與房費。
+                            <small>示範回覆，並非民宿實際回覆</small>
                         </p>
                     </div>
                     <button type="button" className={styles.chatCopy} onClick={copy}>

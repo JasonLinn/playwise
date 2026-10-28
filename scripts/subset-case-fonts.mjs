@@ -17,7 +17,7 @@ const SITES = [
         site: 'tide',
         sources: ['app/works/tide/TideSite.tsx', 'app/works/tide/page.tsx'],
         // 首屏（開場、導覽列、首屏標題）會出現的中文，依字重分開
-        heroText: { 500: '潮間', 300: '在潮汐之間，慢慢醒來' },
+        heroText: { 500: '潮間', 300: '來都蘭，住海邊。' },
         inline: [
             { family: 'Tide Title', google: 'Instrument Serif', weight: 400, style: 'normal', text: 'Between' },
             { family: 'Tide Title', google: 'Instrument Serif', weight: 400, style: 'italic', text: 'Tides' },
@@ -32,7 +32,7 @@ const SITES = [
         heroText: {
             500: '霧裡山房',
             300:
-                '坪林・北勢溪上游・三代茶農的老茶廠節氣一二三四五六霧山房一盞茶風景預約往霧裡走移動滑鼠，擦開窗上的霧用手指劃過' +
+                '坪林茶山・四間客房・入住喝一杯茶節氣一二三四五六霧裡山房風景預約認識山房移動滑鼠，擦開窗上的霧用手指劃過' +
                 '小寒大寒立春雨水驚蟄春分清明穀雨立夏小滿芒種夏至小暑大暑立秋處暑白露秋分寒露霜降立冬小雪大雪冬至—' +
                 // 右下角浮動的作品集按鈕、h1 的完整名稱
                 '智遊工作室・作品示範茶園民宿',

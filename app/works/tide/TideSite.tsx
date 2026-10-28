@@ -76,7 +76,7 @@ function daytimeLowTide(now: number) {
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
 const MANIFESTO =
-    '我們只有四間房。每一間都面向太平洋，窗外沒有別的建築，只有浪、礁岩，和每天準時換班的潮水。在這裡，時間不用時鐘計算——漲潮時起床，退潮時去散步，日落以後，把燈關小一點。';
+    '潮間在都蘭，是一間只有四間客房的小民宿。兩個人來，可以選海景房或浴缸套房；帶孩子出門，四人房住起來更寬敞。早上一起吃早餐，白天去附近走走，傍晚再回來看海。房裡沒有電視，想早點休息也很好。';
 
 type Room = {
     id: string;
@@ -107,7 +107,7 @@ const ROOMS: Room[] = [
         view: '正面海景・床尾看日出',
         weekday: 4800,
         weekend: 5800,
-        note: '窗台做成可以坐下的深度。早上六點，陽光會先照到你的腳。',
+        note: '一張雙人床，適合兩人入住。窗邊留了坐下喝咖啡的位置，拉開窗簾就能看海。',
         images: ['1617325247661-675ab4b64ae2', '1556020685-ae41abfc9365'],
     },
     {
@@ -122,7 +122,7 @@ const ROOMS: Room[] = [
         view: '面海獨立浴缸',
         weekday: 6800,
         weekend: 7800,
-        note: '浴缸對著海。滿潮時，浪聲會比水龍頭的聲音還近。',
+        note: '比雙人海景房多一些空間，窗邊有獨立浴缸。想把時間留在房裡，這間最合適。',
         images: ['1620626011761-996317b8d101', '1600210492486-724fe5c67fb0'],
     },
     {
@@ -137,7 +137,7 @@ const ROOMS: Room[] = [
         view: '側海景・專屬小露台',
         weekday: 7600,
         weekend: 8800,
-        note: '附一個水桶、兩支網子和一本潮間帶圖鑑，給想去礁岩探險的小孩。',
+        note: '兩張雙人床，可住四人。房外有小露台，從側面看得到海，適合一家人或朋友一起住。',
         images: ['1615874959474-d609969a20ed', '1505142468610-359e7d316be0'],
     },
     {
@@ -149,10 +149,10 @@ const ROOMS: Room[] = [
         size: '10 坪',
         bed: 'Queen 雙人床',
         guests: 2,
-        view: '天窗・躺著看星星',
+        view: '天窗・閣樓空間',
         weekday: 5600,
         weekend: 6600,
-        note: '屋頂開了一扇天窗。平潮的夜裡最安靜，適合什麼都不做。',
+        note: '天窗是這間房的特色。閣樓需走樓梯，帶大件行李或不方便上下樓的客人，建議選其他房型。',
         images: ['1618221195710-dd6b41faaea6', '1559827260-dc66d52bef19'],
     },
 ];
@@ -179,8 +179,7 @@ function priceFor(room: Room, checkIn: number, checkOut: number) {
 
 const money = (n: number) => `NT$ ${n.toLocaleString('en-US')}`;
 
-// 首屏只用內嵌的小字型；頁面 load 完、瀏覽器閒下來之後，才讓 CSS 引用完整的內文字型。
-// 實測：只要內文字型在首次繪製前被請求，手機 Lighthouse 就會掉 8–10 分。
+// 首屏字型獨立預載；頁面 load 後再啟用完整內文字型，減少首次載入競爭。
 function useFullFonts() {
     const [full, setFull] = useState(false);
     useEffect(() => {
@@ -333,23 +332,23 @@ export default function TideSite() {
             time: sun ? hhmm(sun.sunrise) : '05:50',
             title: '日出',
             en: 'Sunrise',
-            text: '拉開窗簾，太平洋就在床尾。東海岸的第一道光，會從綠島的方向上來。',
+            text: '想看日出的話，前一晚記得設鬧鐘。天氣好時在窗邊就能看，不用特地出門。',
             img: '1476673160081-cf065607f449',
         },
         {
             time: '07:30',
             title: '早餐',
             en: 'Breakfast',
-            text: '池上米、都蘭小農的放牧雞蛋、前一晚才上岸的鬼頭刀。菜單跟著漁獲每天換。',
+            text: '七點半開始供應早餐，有熱食、水果和咖啡。吃完再出門，不用一早趕行程。',
             img: '1509042239860-f550ce710b93',
         },
         {
             time: walkLow ? hhmm(walkLow) : '10:00',
-            title: walkLow ? '退潮散步' : '礁岩散步',
+            title: '海邊散步',
             en: 'Low Tide Walk',
             text: walkLow
-                ? '讓一段海岸散步，成為這天最慢的時刻。圖中的時間取自潮位示意模型，實際出行須另查官方潮汐與天候。'
-                : '把上午留給海岸步道，看浪打在黑色的石頭上。潮位曲線為設計示意，實際出行須另查官方潮汐與天候。',
+                ? '早餐後可以到海岸步道走走。圖上是示意潮位，出門前仍要確認天氣、海況與開放資訊。'
+                : '早餐後可以到海岸步道走走。海況不佳時，留在岸上看海就好；圖上的潮位不是預報。',
             img: '1500375592092-40eb2168fd21',
             chart: true,
         },
@@ -357,21 +356,21 @@ export default function TideSite() {
             time: '14:00',
             title: '午後',
             en: 'Afternoon',
-            text: '沿著木棧道走到沙灘，或回房間睡個午覺。這段時間，我們建議什麼都不安排。',
+            text: '下午回房睡個午覺，或到都蘭街上找間咖啡店。想去哪裡，入住時可以一起聊聊。',
             img: '1495954484750-af469f2f9be5',
         },
         {
             time: sun ? hhmm(sun.sunset) : '17:20',
-            title: '粉紫色的海',
+            title: '傍晚看海',
             en: 'Afterglow',
-            text: '東海岸的夕陽落在山的那一邊。海面不會變紅，而是一整片慢慢暗下來的粉紫。',
+            text: '傍晚沒那麼曬，適合在窗邊坐一會兒。晚餐可到街上吃，熱門店家建議先訂位。',
             img: '1475924156734-496f6cac6ec1',
         },
         {
             time: '21:00',
-            title: '關燈',
+            title: '回房休息',
             en: 'Lights Out',
-            text: '沒有光害的夜晚。浪聲是唯一的背景音樂，記得把窗戶留一條縫。',
+            text: '晚上回到房裡休息。海邊風大，睡前記得關好門窗；公共空間也請放低音量。',
             img: '1518837695005-2083093ee35b',
         },
     ].sort((a, b) => a.time.localeCompare(b.time));
@@ -414,7 +413,7 @@ export default function TideSite() {
                     <a href="#rooms">房間</a>
                     <a href="#day">一日</a>
                     <a href="#visit">交通</a>
-                    <MobileExplore links={[{ href: '#main', label: '關於潮間' }, { href: '#day', label: '海邊的一天' }, { href: '#rooms', label: '四種房間' }, { href: '#book', label: '住宿詢問預覽' }, { href: '#visit', label: '海岸位置' }]} />
+                    <MobileExplore links={[{ href: '#main', label: '關於潮間' }, { href: '#day', label: '附近走走' }, { href: '#rooms', label: '房型介紹' }, { href: '#book', label: '房價與住宿詢問' }, { href: '#visit', label: '交通方式' }]} />
                     <a href="#book" className={styles.navCta}>訂房</a>
                 </div>
             </nav>
@@ -431,7 +430,7 @@ export default function TideSite() {
                     />
                 </div>
                 <div className={styles.heroShade} />
-                <p className={styles.concept}>01 / CONCEPT STAY<span>虛構民宿・互動設計提案</span></p>
+                <p className={styles.concept}>01 / CONCEPT STAY<span>虛構民宿・官網設計作品</span></p>
 
                 <h1 className={styles.heroTitle}>
                     <span className={styles.srOnly}>潮間 — 台東都蘭海邊民宿</span>
@@ -439,12 +438,12 @@ export default function TideSite() {
                     <span className={styles.heroLine} aria-hidden="true"><em>Tides</em></span>
                 </h1>
 
-                <p className={styles.heroVertical}>在潮汐之間，慢慢醒來</p>
+                <p className={styles.heroVertical}>來都蘭，住海邊。</p>
 
                 <dl className={styles.heroMeta}>
                     <div><dt>地點</dt><dd>台東 · 都蘭</dd></div>
                     <div><dt>座標</dt><dd>22°52′N 121°13′E</dd></div>
-                    <div><dt>房間</dt><dd>四間，全部面海</dd></div>
+                    <div><dt>房間</dt><dd>四間・雙人與四人房</dd></div>
                 </dl>
 
                 <a href="#main" className={styles.heroScroll}>
@@ -500,12 +499,12 @@ export default function TideSite() {
                     <div className={styles.daySticky}>
                         <div ref={trackRef} className={styles.dayTrack}>
                             <div className={styles.dayHead}>
-                                <p className={styles.eyebrow}><span>No. 02</span> 一日潮汐</p>
+                                <p className={styles.eyebrow}><span>No. 02</span> 在都蘭住一天</p>
                                 <h2 id="day-title" className={styles.dayTitle}>
                                     A day, <em>measured in tides.</em>
                                 </h2>
                                 <p className={styles.dayIntro}>
-                                    想像在都蘭的一天，從日出到關燈。日出日落依日期估算，潮位與行程為設計示意。
+                                    看日出、吃早餐，再去附近走走。這是我們排的一日行程範例，時間可以照自己的步調調整。
                                 </p>
                                 <p className={styles.daySwipe} aria-hidden="true">左右滑動 →</p>
                             </div>
@@ -529,8 +528,8 @@ export default function TideSite() {
                                 </article>
                             ))}
                             <div className={styles.dayEnd} aria-hidden="true">
-                                <span>明天，</span>
-                                <span>潮水會再來一次。</span>
+                                <span>多住一晚，</span>
+                                <span>明天再去別處走走。</span>
                             </div>
                         </div>
                         <div className={styles.dayProgress} aria-hidden="true">
@@ -549,7 +548,7 @@ export default function TideSite() {
                             四種潮汐，<br />四間房。
                         </h2>
                         <p className={styles.sectionLead}>
-                            每間房以一種潮汐狀態命名。全部面海，全部只有一扇大窗——我們覺得一扇就夠了。
+                            三間雙人房、一間四人房，各有不同的窗景與格局。想泡澡選「滿」，一家人出遊選「退」，訂房前先看看哪間適合你。
                         </p>
                     </div>
 
@@ -636,25 +635,25 @@ export default function TideSite() {
                     </div>
                     <div className={styles.tableText} data-reveal>
                         <p className={styles.eyebrow}><span>No. 04</span> 餐桌</p>
-                        <h2 id="table-title" className={styles.sectionTitle}>早餐的菜單，<br />由昨晚的海決定。</h2>
+                        <h2 id="table-title" className={styles.sectionTitle}>吃過早餐，<br />再出門。</h2>
                         <p className={styles.sectionLead}>
-                            我們跟新港漁港的兩艘船買魚，跟都蘭部落的阿姨買野菜。天氣不好、船沒出海的日子，就是地瓜粥配醬菜——那也是很好的一天。
+                            早餐現做，搭配當季水果與飲品。連住的客人會換一些菜色；有不吃的食材，請在入住前告訴我們，好提前準備。
                         </p>
                         <ul className={styles.tableList}>
-                            <li><span>主食</span>池上米、都蘭小米麻糬</li>
-                            <li><span>海味</span>鬼頭刀、旗魚，依漁獲</li>
-                            <li><span>蔬果</span>部落野菜、東河鳳梨、釋迦</li>
-                            <li><span>咖啡</span>手沖，豆子來自太麻里</li>
+                            <li><span>時間</span>07:30–09:30</li>
+                            <li><span>餐點</span>現做熱食，菜色依當日準備</li>
+                            <li><span>水果</span>當季水果</li>
+                            <li><span>飲品</span>咖啡或茶</li>
                         </ul>
                     </div>
                 </section>
 
                 {/* 數字 */}
                 <section className={styles.numbers} aria-label="潮間的幾個數字">
-                    <Counter value={4} label="間房，全部面海" />
-                    <Counter value={38} label="步，從房門走到浪花" />
-                    <Counter value={312} label="個早晨，一年中看得見日出" />
-                    <Counter value={0} label="台電視。真的，一台都沒有" />
+                    <Counter value={4} label="間客房" />
+                    <Counter value={15} label="點後入住" />
+                    <Counter value={11} label="點前退房" />
+                    <Counter value={0} label="台電視，房內以休息為主" />
                 </section>
 
                 {/* 訂房 */}
@@ -664,18 +663,17 @@ export default function TideSite() {
                 <section id="visit" className={styles.visit} aria-labelledby="visit-title">
                     <div className={styles.visitText} data-reveal>
                         <p className={styles.eyebrow}><span>No. 06</span> 交通</p>
-                        <h2 id="visit-title" className={styles.sectionTitle}>台 11 線，<br />145 公里處。</h2>
+                        <h2 id="visit-title" className={styles.sectionTitle}>沿著海岸，<br />來都蘭。</h2>
                         <p className={styles.sectionLead}>
-                            從台東市區沿著台 11 線往北，海一直在右手邊。看到都蘭糖廠以後再開三分鐘，那棟白色的房子就是了。
+                            開車可從台東市區沿台 11 線往都蘭方向走。搭火車或飛機的客人，建議先安排租車或接駁，帶著行李會輕鬆一些。
                         </p>
                         <ol className={styles.routeList}>
-                            <li><span>都蘭糖廠</span><em>車程 3 分鐘</em></li>
-                            <li><span>加路蘭海岸</span><em>車程 15 分鐘</em></li>
-                            <li><span>台東市區 / 台東車站</span><em>車程 30 分鐘</em></li>
-                            <li><span>台東豐年機場</span><em>車程 35 分鐘</em></li>
-                            <li><span>三仙台</span><em>車程 50 分鐘</em></li>
+                            <li><span>自行開車</span><em>台 11 線往都蘭</em></li>
+                            <li><span>搭乘火車</span><em>台東站轉租車或接駁</em></li>
+                            <li><span>搭乘飛機</span><em>台東機場轉租車或接駁</em></li>
+                            <li><span>抵達時間</span><em>建議天黑前抵達</em></li>
                         </ol>
-                        <p className={styles.visitPs}>需要接駁？台東車站與機場皆可預約，單程 NT$ 800。</p>
+                        <p className={styles.visitPs}>此頁為虛構民宿作品，地圖僅示意都蘭周邊，未提供實際住宿地址或接駁服務。</p>
                     </div>
                     <CoastMap />
                 </section>
@@ -699,10 +697,10 @@ export default function TideSite() {
                     </div>
                     <div>
                         <p className={styles.footerLabel}>入住 / 退房</p>
-                        <p>15:00 後 / 11:00 前<br />全館禁菸・可帶毛小孩</p>
+                        <p>15:00 後 / 11:00 前<br />全館禁菸・攜帶寵物請先詢問</p>
                     </div>
                     <div>
-                        <p className={styles.footerLabel}>登記</p>
+                        <p className={styles.footerLabel}>關於本頁</p>
                         <p>虛構品牌・非營業旅宿<br />影像為情境素材，非實景</p>
                     </div>
                 </div>
@@ -1001,8 +999,8 @@ function Booking() {
         <section id="book" className={styles.book} aria-labelledby="book-title">
             <div className={styles.bookHead} data-reveal>
                 <p className={styles.eyebrow}><span>No. 05</span> 訂房</p>
-                <h2 id="book-title" className={styles.sectionTitle}>挑一段潮汐，<br />想像你的停留。</h2>
-                <p className={styles.sectionLead}>試選日期與房型，預覽一份住宿詢問。這是虛構民宿的設計提案，房價、空房與服務皆為示意，不會送出訂單或保留房間。</p>
+                <h2 id="book-title" className={styles.sectionTitle}>想住哪幾天？</h2>
+                <p className={styles.sectionLead}>選好入住、退房日期，再選房型與人數，就能查看房費。此處為訂房流程示範，不查詢實際空房，也不會成立訂單。</p>
             </div>
 
             <div className={styles.bookGrid} data-reveal>
@@ -1098,7 +1096,7 @@ function Booking() {
 
                     <p className={styles.bookStatus} role="status">
                         {sent
-                            ? `詢問預覽：${room.name}，${dateFmt(checkIn!)} 入住、${nights} 晚、${guests} 位。此訊息尚未傳送，沒有建立預訂。`
+                            ? `詢問預覽：您好，想詢問 ${dateFmt(checkIn!)} 入住、${dateFmt(checkOut!)} 退房，${room.name}住 ${nights} 晚，共 ${guests} 位，請問還有空房嗎？（示範訊息，尚未傳送）`
                             : '示範房價僅供試算，不代表實際報價或可訂空房。'}
                     </p>
                 </form>

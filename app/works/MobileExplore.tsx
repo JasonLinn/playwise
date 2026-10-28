@@ -15,7 +15,7 @@ export default function MobileExplore({ links, tone = 'light' }: {
     }}>
       <summary>探索<span aria-hidden="true">＋</span></summary>
       <div className={styles.panel}>
-        <p>慢慢看，或直接抵達。</p>
+        <p>房型、住宿資訊與交通</p>
         {links.map((link, i) => (
           <a key={link.href} href={link.href} onClick={(event) => {
             event.currentTarget.closest('details')?.removeAttribute('open');
