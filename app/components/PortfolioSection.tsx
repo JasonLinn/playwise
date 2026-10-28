@@ -13,10 +13,10 @@ export default function PortfolioSection() {
     },
     {
       title: '霧裡山房 Mist House｜坪林茶宿',
-      description: '茶山民宿官網設計示範。從入住喝茶、客房格局到住宿須知，讓客人先了解住起來的樣子，再整理詢問訊息。',
+      description: '茶山民宿官網設計示範。從入住喝茶、客房格局到住宿須知，搭配節氣選擇、泡茶計時與房費試算。',
       image: 'https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=900&h=1200&fit=crop',
       link: '/works/mist',
-      tags: ['概念設計', '節氣互動', '預約訊息預覽'],
+      tags: ['概念設計', '節氣互動', '房費試算'],
     },
     {
       title: '日式民宿',
