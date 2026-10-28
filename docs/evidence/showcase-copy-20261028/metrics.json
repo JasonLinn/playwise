@@ -1,0 +1,34 @@
+{
+  "runtimeCommit": "1d46367e9bc75e2570e155762614d548b0ba355e",
+  "lighthouseVersion": "12.6.1",
+  "throttling": "devtools",
+  "environment": "Local production build; Chrome mobile emulation; single sample per site",
+  "runs": [
+    {
+      "site": "tide",
+      "source": "output/showcase-review-20261028/tide-copy-final.json",
+      "sha256": "3BE6D3ADB2C07DE37370AAAB0AC227353FE11CD097CF1338C4E9E09045934563",
+      "fetchTime": "2026-10-28T06:16:12.831Z",
+      "performance": 93.0,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 2415.708,
+      "tbtMs": 127.75099999999975,
+      "cls": 0
+    },
+    {
+      "site": "mist",
+      "source": "output/showcase-review-20261028/mist-copy-final.json",
+      "sha256": "9266B487A94E84309661CFE0DC2D386C3AECFDAE6E59EBD796F10B9C52B2B590",
+      "fetchTime": "2026-10-28T06:16:42.335Z",
+      "performance": 93.0,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 2392.537,
+      "tbtMs": 67.00899999999956,
+      "cls": 0
+    }
+  ]
+}

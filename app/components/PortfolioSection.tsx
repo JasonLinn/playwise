@@ -4,6 +4,21 @@ import Image from 'next/image';
 export default function PortfolioSection() {
   const works = [
     {
+      title: '潮間 Between Tides｜台東海邊民宿',
+      description: '海邊民宿官網設計示範。以四種房型、早餐與周邊行程介紹住宿，搭配潮位示意、日期選擇與房費試算。',
+      image: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1600&h=1000&fit=crop',
+      link: '/works/tide',
+      tags: ['概念設計', '潮汐互動', '訂房流程示範'],
+      featured: true,
+    },
+    {
+      title: '霧裡山房 Mist House｜坪林茶宿',
+      description: '茶山民宿官網設計示範。從入住喝茶、客房格局到住宿須知，搭配節氣選擇、泡茶計時與房費試算。',
+      image: 'https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=900&h=1200&fit=crop',
+      link: '/works/mist',
+      tags: ['概念設計', '節氣互動', '房費試算'],
+    },
+    {
       title: '日式民宿',
       description: '以檜木為主題的日式風格民宿，融合日式美學與現代簡約，提供舒適寧靜的住宿體驗。',
       image: 'https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=900&h=1200&fit=crop',
@@ -40,18 +55,24 @@ export default function PortfolioSection() {
             <Link
               href={work.link}
               key={index}
-              className="group bg-white block overflow-hidden border border-[#e8e4df]"
+              className={`group bg-white block overflow-hidden border border-[#e8e4df] ${
+                work.featured ? 'md:col-span-2 md:grid md:grid-cols-[1.35fr_1fr]' : ''
+              }`}
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className={`relative h-56 overflow-hidden ${work.featured ? 'md:h-auto md:min-h-[340px]' : ''}`}>
                 <Image
                   src={work.image}
                   alt={work.title}
                   fill
+                  sizes={work.featured ? '(min-width: 768px) 60vw, 100vw' : '(min-width: 768px) 50vw, 100vw'}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
-              <div className="p-8">
+              <div className={`p-8 ${work.featured ? 'md:flex md:flex-col md:justify-center md:p-10' : ''}`}>
+                {work.featured && (
+                  <p className="text-[10px] font-bold text-[#e8602c] tracking-[0.15em] uppercase mb-4">New</p>
+                )}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {work.tags.map((tag, i) => (
                     <span key={i} className="text-[10px] font-semibold tracking-wide text-[#7a7674] uppercase border border-[#e8e4df] px-2 py-0.5">
@@ -62,7 +83,7 @@ export default function PortfolioSection() {
                 <h3 className="text-base font-bold text-[#1a1816] mb-2 group-hover:text-[#e8602c] transition-colors">
                   {work.title}
                 </h3>
-                <p className="text-sm text-[#5c5a58] leading-relaxed line-clamp-2">{work.description}</p>
+                <p className={`text-sm text-[#5c5a58] leading-relaxed ${work.featured ? 'md:line-clamp-none line-clamp-3' : 'line-clamp-2'}`}>{work.description}</p>
                 <div className="mt-5 text-xs font-semibold text-[#e8602c] flex items-center gap-1">
                   查看詳情
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

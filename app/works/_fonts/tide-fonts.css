@@ -1,0 +1,7 @@
+/* 由 scripts/subset-case-fonts.mjs 產生，請勿手動修改 */
+@font-face{font-family:'Tide Hero';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/showcases/tide-hero-300.woff2') format('woff2')}
+@font-face{font-family:'Tide Hero';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/showcases/tide-hero-500.woff2') format('woff2')}
+@font-face{font-family:'Tide Title';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/showcases/tide-title-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Tide Title';font-style:italic;font-weight:400;font-display:swap;src:url('/fonts/showcases/tide-title-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Tide Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/showcases/tide-display-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Tide Display';font-style:italic;font-weight:400;font-display:swap;src:url('/fonts/showcases/tide-display-400-italic.woff2') format('woff2')}
