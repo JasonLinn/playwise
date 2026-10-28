@@ -190,6 +190,7 @@
 }
 
 .brandZh {
+  white-space: nowrap;
   font-family: var(--f-hero);
   font-weight: 500;
   font-size: 22px;
@@ -1994,6 +1995,11 @@
 
   .nav {
     grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .navLinks {
+    gap: 12px;
   }
 
   .navLinks > a:not(.navCta) {
