@@ -610,7 +610,7 @@ export default function TideSite() {
                                                     className={styles.textLink}
                                                     onClick={() => window.dispatchEvent(new CustomEvent('tide:pick-room', { detail: room.id }))}
                                                 >
-                                                    查詢這間房的空房 <span aria-hidden="true">→</span>
+                                                    選擇這間房型 <span aria-hidden="true">→</span>
                                                 </a>
                                             </div>
                                         </div>
