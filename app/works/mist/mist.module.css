@@ -477,14 +477,6 @@
 
 .concept span { display: block; letter-spacing: 0.1em; }
 
-.copyStatus {
-  margin: 0;
-  padding: 12px 20px;
-  font: 13px/1.7 var(--f-sans);
-  color: var(--ink);
-  background: var(--paper-2);
-}
-
 .heroTitle {
   position: absolute;
   top: clamp(56px, 9vh, 110px);
@@ -1462,11 +1454,13 @@
   letter-spacing: 0.08em;
 }
 
+.reserveIntro,
 .reserveGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(32px, 6vw, 96px);
-  align-items: start;
+  max-width: 840px;
+  margin-inline: auto;
+}
+
+.reserveGrid {
   margin-top: clamp(48px, 8vh, 88px);
 }
 
@@ -1613,105 +1607,6 @@
   color: var(--mute-dark);
 }
 
-.chat {
-  display: flex;
-  flex-direction: column;
-  border-radius: 22px;
-  overflow: hidden;
-  background: #a9b8c4;
-  box-shadow: 0 30px 60px -30px rgba(20, 26, 22, 0.45);
-  font-family: system-ui, -apple-system, 'PingFang TC', 'Noto Sans TC', sans-serif;
-  font-weight: 400;
-}
-
-.chatBar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  background: #2b3a46;
-  color: #fff;
-  font-size: 15px;
-}
-
-.chatBar em {
-  margin-left: auto;
-  font-style: normal;
-  font-size: 11px;
-  opacity: 0.6;
-}
-
-.chatAvatar {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--f-serif);
-  font-size: 15px;
-}
-
-.chatBody {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-height: 300px;
-  padding: 22px 18px;
-}
-
-.bubbleMe,
-.bubbleThem {
-  max-width: 86%;
-  margin: 0;
-  padding: 12px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  line-height: 1.7;
-  white-space: pre-line;
-}
-
-.bubbleMe {
-  align-self: flex-end;
-  border-top-right-radius: 6px;
-  background: #8fdc7a;
-  color: #10210d;
-}
-
-.bubbleThem {
-  align-self: flex-start;
-  border-top-left-radius: 6px;
-  background: #fff;
-  color: #1d1d1d;
-}
-
-.bubbleThem small {
-  display: block;
-  margin-top: 6px;
-  font-size: 11px;
-  color: #8a8a8a;
-}
-
-.chatCopy {
-  margin: 0 18px 18px;
-  height: 52px;
-  border: 0;
-  border-radius: 99px;
-  background: #06c755;
-  color: #fff;
-  font: inherit;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  transition: filter 0.3s;
-}
-
-.chatCopy:hover {
-  filter: brightness(0.94);
-}
-
 /* ===== 頁尾 ===== */
 .footer {
   padding: clamp(100px, 18vh, 200px) var(--gutter) 32px;
@@ -1820,8 +1715,7 @@
 
   .house,
   .tea,
-  .info,
-  .reserveGrid {
+  .info {
     grid-template-columns: 1fr;
   }
 

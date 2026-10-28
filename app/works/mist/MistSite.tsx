@@ -880,26 +880,8 @@ function Reserve({ today }: { today: Date | null }) {
     const [termPick, setTermPick] = useState(0);
     const [roomId, setRoomId] = useState(ROOMS[3].id);
     const [nights, setNights] = useState(1);
-    const [copiedMessage, setCopiedMessage] = useState('');
-    const [copyError, setCopyError] = useState(false);
 
     const room = ROOMS.find((r) => r.id === roomId) ?? ROOMS[0];
-    const t = terms[termPick];
-
-    const message = t
-        ? `您好，想詢問 ${md(t.start)}–${md(t.end)} 之間的住宿：\n・房型：${room.term}｜${room.name}\n・入住 ${nights} 晚\n日期還沒確定，請問這段期間哪些日子有房？謝謝。`
-        : '';
-
-    const copy = async () => {
-        setCopyError(false);
-        try {
-            await navigator.clipboard.writeText(message);
-            setCopiedMessage(message);
-        } catch {
-            setCopiedMessage('');
-            setCopyError(true);
-        }
-    };
 
     return (
         <section id="reserve" className={styles.reserve} aria-labelledby="reserve-title">
@@ -909,7 +891,7 @@ function Reserve({ today }: { today: Date | null }) {
                     想什麼時候來住？
                 </h2>
                 <p className={styles.lead}>
-                    日期還沒決定，可以先選大致時段、房型和住宿晚數，整理成詢問訊息。此處為流程示範，複製後不會自動傳送，也不會保留房間。
+                    日期還沒決定，可以先選大致時段、房型和住宿晚數，看看房費。此處為試算示範，不會保留房間。
                 </p>
             </div>
 
@@ -956,24 +938,6 @@ function Reserve({ today }: { today: Date | null }) {
                     </p>
                 </div>
 
-                <div className={styles.chat} aria-label="LINE 訊息預覽">
-                    <div className={styles.chatBar}>
-                        <span className={styles.chatAvatar} aria-hidden="true">霧</span>
-                        <span>霧裡山房</span>
-                        <em>詢問範例</em>
-                    </div>
-                    <div className={styles.chatBody}>
-                        <p className={styles.bubbleMe}>{message || ' '}</p>
-                        <p className={styles.bubbleThem}>
-                            您好，請問幾位入住？有小朋友的話，也請告訴我們年齡。平日或週末都可以嗎？我們再幫您確認可安排的日期與房費。
-                            <small>示範回覆，並非民宿實際回覆</small>
-                        </p>
-                    </div>
-                    <button type="button" className={styles.chatCopy} onClick={copy}>
-                        {copiedMessage === message && message ? '已複製示範訊息' : '複製這段訊息'}
-                    </button>
-                    <p className={styles.copyStatus} role="status">{copyError ? '瀏覽器未允許複製，請選取上方訊息後手動複製。' : copiedMessage === message && message ? '訊息已複製；沒有送出預約。' : '僅產生訊息預覽，不會送出預約。'}</p>
-                </div>
             </div>
         </section>
     );
