@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import MobileExplore from '../MobileExplore';
 import styles from './tide.module.css';
 
 const photo = (id: string, w = 1800) =>
@@ -212,7 +213,6 @@ export default function TideSite() {
     const previewRef = useRef<HTMLDivElement>(null);
 
     const fullFonts = useFullFonts();
-    const [intro, setIntro] = useState(true);
     const [now, setNow] = useState<number | null>(null);
     const [scrolled, setScrolled] = useState(false);
     const [openRoom, setOpenRoom] = useState<string | null>('rising');
@@ -225,12 +225,6 @@ export default function TideSite() {
         return () => window.clearInterval(id);
     }, []);
 
-    // 開場
-    useEffect(() => {
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const id = window.setTimeout(() => setIntro(false), reduce ? 0 : 1900);
-        return () => window.clearTimeout(id);
-    }, []);
 
     // 進場淡入
     useEffect(() => {
@@ -354,8 +348,8 @@ export default function TideSite() {
             title: walkLow ? '退潮散步' : '礁岩散步',
             en: 'Low Tide Walk',
             text: walkLow
-                ? '今天白天的乾潮在這個時間。潮水退到最低時，主人會帶你下到礁岩，認識寄居蟹、海膽和潮池裡的小魚。'
-                : '今天的乾潮在清早或晚上，不在散步的時段；白天就沿著礁岩走一段，看浪打在黑色的石頭上。',
+                ? '讓一段海岸散步，成為這天最慢的時刻。圖中的時間取自潮位示意模型，實際出行須另查官方潮汐與天候。'
+                : '把上午留給海岸步道，看浪打在黑色的石頭上。潮位曲線為設計示意，實際出行須另查官方潮汐與天候。',
             img: '1500375592092-40eb2168fd21',
             chart: true,
         },
@@ -396,20 +390,12 @@ export default function TideSite() {
     const manifestoChars = useMemo(() => Array.from(MANIFESTO), []);
 
     return (
-        <div ref={rootRef} className={styles.site} data-intro={intro ? 'on' : 'off'} data-fonts={fullFonts ? 'full' : 'hero'}>
+        <div ref={rootRef} className={styles.site} data-fonts={fullFonts ? 'full' : 'hero'}>
             <a href="#main" className={styles.skip}>跳到主要內容</a>
             <noscript>
-                <style>{`.${styles.site}{--f-serif:'Tide Hero',var(--font-zh-serif),serif}.${styles.intro}{display:none}.${styles.site} [data-reveal]{opacity:1;transform:none;clip-path:none}`}</style>
+                <style>{`.${styles.site}{--f-serif:'Tide Hero',var(--font-zh-serif),serif}.${styles.site} [data-reveal]{opacity:1;transform:none;clip-path:none}`}</style>
             </noscript>
 
-            {/* 開場：潮水漲滿字形 */}
-            <div className={styles.intro} aria-hidden="true">
-                <div className={styles.introMark}>
-                    <span className={styles.introGhost}>潮間</span>
-                    <span className={styles.introFill}>潮間</span>
-                </div>
-                <div className={styles.introSub}>Between Tides · Dulan, Taitung</div>
-            </div>
 
             {/* 導覽列 */}
             <nav className={styles.nav} data-scrolled={scrolled ? 'true' : 'false'} aria-label="主選單">
@@ -421,13 +407,14 @@ export default function TideSite() {
                     <span className={styles.navDot} data-rising={tide?.rising ? 'true' : 'false'} />
                     <span>都蘭 {now ? hhmm(now) : '--:--'}</span>
                     <span className={styles.navSep}>/</span>
-                    <span>{tide ? (tide.rising ? '漲潮中' : '退潮中') : '潮汐計算中'}</span>
+                    <span>{tide ? (tide.rising ? '漲潮示意' : '退潮示意') : '潮位示意'}</span>
                 </div>
                 <div className={styles.navLinks}>
                     <SurfToggle level={tide?.level ?? 0.5} />
                     <a href="#rooms">房間</a>
                     <a href="#day">一日</a>
                     <a href="#visit">交通</a>
+                    <MobileExplore links={[{ href: '#main', label: '關於潮間' }, { href: '#day', label: '海邊的一天' }, { href: '#rooms', label: '四種房間' }, { href: '#book', label: '住宿詢問預覽' }, { href: '#visit', label: '海岸位置' }]} />
                     <a href="#book" className={styles.navCta}>訂房</a>
                 </div>
             </nav>
@@ -439,11 +426,12 @@ export default function TideSite() {
                         src={photo('1473116763249-2faaef81ccda', 2400)}
                         alt="黃昏時的沙灘，海浪退回大海，天空是淡淡的粉橘色"
                         fill
-                        loading="eager"
+                        preload
                         sizes="100vw"
                     />
                 </div>
                 <div className={styles.heroShade} />
+                <p className={styles.concept}>01 / CONCEPT STAY<span>虛構民宿・互動設計提案</span></p>
 
                 <h1 className={styles.heroTitle}>
                     <span className={styles.srOnly}>潮間 — 台東都蘭海邊民宿</span>
@@ -491,7 +479,7 @@ export default function TideSite() {
                             />
                         </div>
                         <div className={styles.tideReadout}>
-                            <p className={styles.tideLabel}>此刻的都蘭</p>
+                            <p className={styles.tideLabel}>此刻的潮位示意</p>
                             <p className={styles.tideBig}>
                                 {tide ? `${Math.round(tide.level * 100)}%` : '—'}
                                 <small>{tide ? (tide.rising ? '漲潮中 ↑' : '退潮中 ↓') : ''}</small>
@@ -502,7 +490,7 @@ export default function TideSite() {
                                 <div><dt>今日日出</dt><dd>{sun ? hhmm(sun.sunrise) : '--:--'}</dd></div>
                                 <div><dt>今日日落</dt><dd>{sun ? hhmm(sun.sunset) : '--:--'}</dd></div>
                             </dl>
-                            <p className={styles.tideNote}>潮汐為示意模型；日出日落依都蘭座標即時計算。</p>
+                            <p className={styles.tideNote}>潮位由週期模型產生，非實測或預報，不供海邊活動判斷；日出日落依都蘭座標估算。</p>
                         </div>
                     </div>
                 </section>
@@ -517,7 +505,7 @@ export default function TideSite() {
                                     A day, <em>measured in tides.</em>
                                 </h2>
                                 <p className={styles.dayIntro}>
-                                    今天在都蘭，從日出到關燈。時間是依今天的日出、日落與潮汐即時算出來的。
+                                    想像在都蘭的一天，從日出到關燈。日出日落依日期估算，潮位與行程為設計示意。
                                 </p>
                                 <p className={styles.daySwipe} aria-hidden="true">左右滑動 →</p>
                             </div>
@@ -707,7 +695,7 @@ export default function TideSite() {
                     </div>
                     <div>
                         <p className={styles.footerLabel}>聯絡</p>
-                        <p>LINE @betweentides<br />hello@betweentides.tw</p>
+                        <p>概念設計・未提供聯絡帳號<br />此頁不接受實際預訂</p>
                     </div>
                     <div>
                         <p className={styles.footerLabel}>入住 / 退房</p>
@@ -715,7 +703,7 @@ export default function TideSite() {
                     </div>
                     <div>
                         <p className={styles.footerLabel}>登記</p>
-                        <p>台東縣合法民宿 第 000 號<br />（示範）</p>
+                        <p>虛構品牌・非營業旅宿<br />影像為情境素材，非實景</p>
                     </div>
                 </div>
                 <div className={styles.footerWord} data-word="潮間" aria-hidden="true" />
@@ -726,7 +714,7 @@ export default function TideSite() {
             </footer>
 
             <Link href="/#portfolio" className={styles.studioBadge}>
-                <span aria-hidden="true">←</span> 智遊工作室・作品示範
+                <span aria-hidden="true">←</span> 智遊工作室・概念民宿
             </Link>
         </div>
     );
@@ -853,7 +841,7 @@ function TideChart({ now, walk }: { now: number; walk: number | null }) {
     const nowLevel = tideAt(now).level;
 
     return (
-        <svg className={styles.tideChart} viewBox={`0 0 ${W} ${H}`} role="img" aria-label="今天都蘭的潮位曲線">
+        <svg className={styles.tideChart} viewBox={`0 0 ${W} ${H}`} role="img" aria-label="週期模型的潮位示意曲線">
             <text x="24" y="48" className={styles.chartTitle}>Today&apos;s tide</text>
             <text x="24" y="76" className={styles.chartSub}>都蘭・{dateFmtTPE.format(now)}</text>
             {[0, 6, 12, 18, 24].map((h) => (
@@ -1013,7 +1001,8 @@ function Booking() {
         <section id="book" className={styles.book} aria-labelledby="book-title">
             <div className={styles.bookHead} data-reveal>
                 <p className={styles.eyebrow}><span>No. 05</span> 訂房</p>
-                <h2 id="book-title" className={styles.sectionTitle}>挑一段潮汐，<br />我們幫你留著。</h2>
+                <h2 id="book-title" className={styles.sectionTitle}>挑一段潮汐，<br />想像你的停留。</h2>
+                <p className={styles.sectionLead}>試選日期與房型，預覽一份住宿詢問。這是虛構民宿的設計提案，房價、空房與服務皆為示意，不會送出訂單或保留房間。</p>
             </div>
 
             <div className={styles.bookGrid} data-reveal>
@@ -1104,13 +1093,13 @@ function Booking() {
                     </dl>
 
                     <button type="submit" className={styles.bookSubmit} disabled={!nights}>
-                        {nights ? '送出空房詢問' : '請先選擇日期'}
+                        {nights ? '預覽住宿詢問' : '請先選擇日期'}
                     </button>
 
                     <p className={styles.bookStatus} role="status">
                         {sent
-                            ? `已收到：${room.name}，${dateFmt(checkIn!)} 入住、${nights} 晚、${guests} 位。正式上線時，這份詢問會直接送進民宿的 LINE 官方帳號，由系統自動回覆空房結果。`
-                            : '訂金 30%，入住前 7 天可免費取消。'}
+                            ? `詢問預覽：${room.name}，${dateFmt(checkIn!)} 入住、${nights} 晚、${guests} 位。此訊息尚未傳送，沒有建立預訂。`
+                            : '示範房價僅供試算，不代表實際報價或可訂空房。'}
                     </p>
                 </form>
             </div>

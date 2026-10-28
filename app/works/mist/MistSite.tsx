@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import MobileExplore from '../MobileExplore';
 import styles from './mist.module.css';
 
 const photo = (id: string, w = 1800) =>
@@ -335,7 +336,10 @@ export default function MistSite() {
                         </li>
                     ))}
                 </ol>
-                <a href="#reserve" className={styles.railCta}>預約</a>
+                <div className={styles.railActions}>
+                    <MobileExplore tone="dark" links={[{ href: '#house', label: '霧裡的山房' }, { href: '#rooms', label: '四間節氣房' }, { href: '#tea', label: '一盞茶的時間' }, { href: '#views', label: '窗外風景' }, { href: '#reserve', label: '預約訊息預覽' }]} />
+                    <a href="#reserve" className={styles.railCta}>預約</a>
+                </div>
             </nav>
 
             {/* 首屏 */}
@@ -345,7 +349,7 @@ export default function MistSite() {
                         src={photo('1418065460487-3e41a6c84dc5', 2400)}
                         alt="被濃霧籠罩的杉木林，樹梢消失在白霧中"
                         fill
-                        loading="eager"
+                        preload
                         sizes="100vw"
                     />
                 </div>
@@ -354,6 +358,7 @@ export default function MistSite() {
                 </div>
                 <FogWipe hostRef={heroRef} />
                 <div className={styles.heroDusk} aria-hidden="true" />
+                <p className={styles.concept}>02 / CONCEPT STAY<span>虛構民宿・互動設計提案</span></p>
 
                 <h1 className={styles.heroTitle}>
                     <span className={styles.srOnly}>霧裡山房 — 坪林茶園民宿</span>
@@ -517,14 +522,14 @@ export default function MistSite() {
                 <p className={styles.footerLine}>霧散了，再來。</p>
                 <div className={styles.footerGrid}>
                     <p>霧裡山房 Mist House<br />新北市坪林區（示範地址）</p>
-                    <p>LINE @misthouse<br />hello@misthouse.tw</p>
-                    <p>新北市民宿登記 第 000 號（示範）<br />© Mist House</p>
+                    <p>概念設計・未提供聯絡帳號<br />此頁不接受實際預訂</p>
+                    <p>虛構品牌・非營業旅宿<br />影像為情境素材，非實景</p>
                     <p><Link href="/#portfolio">Website by 智遊工作室<br />Concept work ←</Link></p>
                 </div>
             </footer>
 
             <Link href="/#portfolio" className={styles.studioBadge}>
-                <span aria-hidden="true">←</span> 智遊工作室・作品示範
+                <span aria-hidden="true">←</span> 智遊工作室・概念民宿
             </Link>
         </div>
     );
@@ -876,7 +881,8 @@ function Reserve({ today }: { today: Date | null }) {
     const [termPick, setTermPick] = useState(0);
     const [roomId, setRoomId] = useState(ROOMS[3].id);
     const [nights, setNights] = useState(1);
-    const [copied, setCopied] = useState(false);
+    const [copiedMessage, setCopiedMessage] = useState('');
+    const [copyError, setCopyError] = useState(false);
 
     const room = ROOMS.find((r) => r.id === roomId) ?? ROOMS[0];
     const t = terms[termPick];
@@ -886,12 +892,13 @@ function Reserve({ today }: { today: Date | null }) {
         : '';
 
     const copy = async () => {
+        setCopyError(false);
         try {
             await navigator.clipboard.writeText(message);
-            setCopied(true);
-            window.setTimeout(() => setCopied(false), 2400);
+            setCopiedMessage(message);
         } catch {
-            setCopied(false);
+            setCopiedMessage('');
+            setCopyError(true);
         }
     };
 
@@ -903,7 +910,7 @@ function Reserve({ today }: { today: Date | null }) {
                     挑一個節氣，<br />上山來。
                 </h2>
                 <p className={styles.lead}>
-                    我們用 LINE 接受預約。選好節氣、房間和天數，下面會幫你寫好訊息；正式網站上，這段訊息會直接送進民宿的 LINE，由系統自動回覆空房。
+                    選好節氣、房間和天數，寫一封上山的邀請。這是虛構民宿的設計提案，可預覽並複製詢問訊息；不會傳送 LINE、查詢真實空房或建立預訂。節氣日期採近似值，實際交節可能相差一天。
                 </p>
             </div>
 
@@ -954,19 +961,19 @@ function Reserve({ today }: { today: Date | null }) {
                     <div className={styles.chatBar}>
                         <span className={styles.chatAvatar} aria-hidden="true">霧</span>
                         <span>霧裡山房</span>
-                        <em>LINE 官方帳號</em>
+                        <em>對話設計示意</em>
                     </div>
                     <div className={styles.chatBody}>
                         <p className={styles.bubbleMe}>{message || ' '}</p>
                         <p className={styles.bubbleThem}>
-                            收到！系統正在查詢 {t ? t.name : ''}期間「{room.term}」的空房，
-                            房務人員會在 10 分鐘內回覆確認。先為您泡好茶 🍵
-                            <small>自動回覆・示意</small>
+                            等你選好日子，我們再談一盞茶的時間。
+                            <small>回覆情境示意・未連接民宿或空房系統</small>
                         </p>
                     </div>
                     <button type="button" className={styles.chatCopy} onClick={copy}>
-                        {copied ? '已複製，貼到 LINE 就可以了' : '複製這段訊息'}
+                        {copiedMessage === message && message ? '已複製示範訊息' : '複製這段訊息'}
                     </button>
+                    <p className={styles.copyStatus} role="status">{copyError ? '瀏覽器未允許複製，請選取上方訊息後手動複製。' : copiedMessage === message && message ? '訊息已複製；沒有送出預約。' : '僅產生訊息預覽，不會送出預約。'}</p>
                 </div>
             </div>
         </section>

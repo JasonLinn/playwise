@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-// 首屏字型（首屏中文＋英文展示字型）以 base64 內嵌，不產生額外請求。由 scripts/subset-case-fonts.mjs 產生
+// 首屏字型獨立預載，讓 CSS 保持輕量。由 scripts/subset-case-fonts.mjs 產生。
 import '../_fonts/tide-fonts.css';
 import TideSite from './TideSite';
 
@@ -19,10 +19,10 @@ const zhSerif = localFont({
 
 export const metadata: Metadata = {
     title: '潮間 Between Tides｜台東都蘭海邊民宿 — 智遊工作室作品',
-    description: '四間面向太平洋的房，跟著潮汐生活。台東都蘭海邊民宿官網設計示範：即時潮汐鐘、日出時間、一日行程與線上訂房詢問。',
+    description: '以台東都蘭海岸為靈感的虛構民宿官網設計。潮位示意、日出日落估算、一日行程與訂房詢問預覽；不提供實際訂房。',
     openGraph: {
-        title: '潮間 Between Tides｜台東都蘭海邊民宿',
-        description: '四間面向太平洋的房，跟著潮汐生活。',
+        title: '潮間 Between Tides｜民宿官網概念設計',
+        description: '以都蘭海岸為靈感的虛構民宿提案。潮位互動與住宿詢問預覽，不提供實際訂房。',
         images: ['https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1200&h=630&q=80'],
     },
 };
@@ -30,6 +30,10 @@ export const metadata: Metadata = {
 export default function TidePage() {
     return (
         <div className={zhSerif.variable}>
+            <link rel="preload" href="/fonts/showcases/tide-title-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+            <link rel="preload" href="/fonts/showcases/tide-title-400-italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+            <link rel="preload" href="/fonts/showcases/tide-hero-500.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+            <link rel="preload" href="/fonts/showcases/tide-hero-300.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
             <TideSite />
         </div>
     );

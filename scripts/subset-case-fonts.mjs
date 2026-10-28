@@ -1,18 +1,16 @@
-// 為作品案例頁產生字型，輸出到 app/works/_fonts/。
+// 為作品案例頁產生自託管子集字型。
 // 修改案例頁文案後重新執行：node scripts/subset-case-fonts.mjs
 //
-// 為什麼要這樣做（Lighthouse 實測）：
-// - 完整的 Noto Serif/Sans TC 一頁要下載 30 多個檔案、約 3MB，手機首次繪製要 16 秒。
-// - 就算換成子集，只要字型是獨立請求，就會卡在首次繪製之前；把字型擋掉後手機分數從 86 → 94。
-// 所以分兩層：
-// 1. 「首屏」字型：首屏會出現的中文字 + 英文展示字型（只含用到的字元），以 base64 內嵌進
-//    {site}-fonts.css，不產生任何額外請求。
+// 1. 「首屏」字型：輸出至 public/fonts/showcases/，由各頁 preload 與樣式並行下載。
+//    不把二進位塞進阻塞繪製的 CSS；重訪亦可獨立快取。授權見該目錄下 licenses/。
 // 2. 「內文」字型：整頁用到的中文字子集，輸出成 woff2，由頁面在 load 之後才啟用（見各頁的 data-fonts）。
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/(\w:)/, '$1')), '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'app/works/_fonts');
+const PUBLIC = path.join(ROOT, 'public/fonts/showcases');
 
 const SITES = [
     {
@@ -21,6 +19,8 @@ const SITES = [
         // 首屏（開場、導覽列、首屏標題）會出現的中文，依字重分開
         heroText: { 500: '潮間', 300: '在潮汐之間，慢慢醒來' },
         inline: [
+            { family: 'Tide Title', google: 'Instrument Serif', weight: 400, style: 'normal', text: 'Between' },
+            { family: 'Tide Title', google: 'Instrument Serif', weight: 400, style: 'italic', text: 'Tides' },
             { family: 'Tide Display', google: 'Instrument Serif', weight: 400, style: 'normal' },
             { family: 'Tide Display', google: 'Instrument Serif', weight: 400, style: 'italic' },
         ],
@@ -38,6 +38,8 @@ const SITES = [
                 '智遊工作室・作品示範茶園民宿',
         },
         inline: [
+            { family: 'Mist Title', google: 'Cormorant Garamond', weight: 300, style: 'normal', text: 'A tea house' },
+            { family: 'Mist Title', google: 'Cormorant Garamond', weight: 400, style: 'italic', text: 'in the mist.' },
             { family: 'Mist Display', google: 'Cormorant Garamond', weight: 300, style: 'normal' },
             { family: 'Mist Display', google: 'Cormorant Garamond', weight: 400, style: 'italic' },
             { family: 'Mist Mono', google: 'IBM Plex Mono', weight: 400, style: 'normal' },
@@ -53,17 +55,24 @@ const isCjk = (ch) => /[⺀-鿿豈-﫿＀-￯　-〿]/.test(ch);
 async function subset(family, weight, style, text) {
     const axis = style === 'italic' ? `ital,wght@1,${weight}` : `wght@${weight}`;
     const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:${axis}&text=${encodeURIComponent(text)}`;
-    const css = await (await fetch(url, { headers: { 'User-Agent': UA } })).text();
+    const response = await fetch(url, { headers: { 'User-Agent': UA } });
+    if (!response.ok) throw new Error(`Font CSS request failed: ${response.status}`);
+    const css = await response.text();
     const fontUrl = css.match(/url\((https:[^)]+)\)/)?.[1];
     if (!fontUrl) throw new Error(`No font URL for ${family} ${weight} ${style}:\n${css.slice(0, 300)}`);
-    return Buffer.from(await (await fetch(fontUrl)).arrayBuffer());
+    const fontResponse = await fetch(fontUrl);
+    if (!fontResponse.ok) throw new Error(`Font download failed: ${fontResponse.status}`);
+    const data = Buffer.from(await fontResponse.arrayBuffer());
+    if (data.subarray(0, 4).toString() !== 'wOF2') throw new Error(`Expected WOFF2 for ${family}`);
+    return data;
 }
 
-const face = (family, weight, style, buf) =>
+const face = (family, weight, style, filename) =>
     `@font-face{font-family:'${family}';font-style:${style};font-weight:${weight};font-display:swap;` +
-    `src:url(data:font/woff2;base64,${buf.toString('base64')}) format('woff2')}`;
+    `src:url('/fonts/showcases/${filename}') format('woff2')}`;
 
 mkdirSync(OUT, { recursive: true });
+mkdirSync(PUBLIC, { recursive: true });
 
 for (const cfg of SITES) {
     const source = cfg.sources.map((s) => readFileSync(path.join(ROOT, s), 'utf8')).join('');
@@ -78,20 +87,24 @@ for (const cfg of SITES) {
         console.log(`${cfg.site}-serif-${w}.woff2  ${cjk.size} 字  ${(buf.length / 1024).toFixed(1)} KB`);
     }
 
-    // 2. 首屏：內嵌進 CSS
+    // 2. 首屏：獨立檔案，由頁面 preload
     const faces = [];
     let bytes = 0;
     for (const w of [300, 500]) {
         const buf = await subset('Noto Serif TC', w, 'normal', cfg.heroText[w]);
-        faces.push(face(`${cfg.site === 'tide' ? 'Tide' : 'Mist'} Hero`, w, 'normal', buf));
+        const filename = `${cfg.site}-hero-${w}.woff2`;
+        writeFileSync(path.join(PUBLIC, filename), buf);
+        faces.push(face(`${cfg.site === 'tide' ? 'Tide' : 'Mist'} Hero`, w, 'normal', filename));
         bytes += buf.length;
     }
     for (const f of cfg.inline) {
-        const buf = await subset(f.google, f.weight, f.style, ASCII + symbols);
-        faces.push(face(f.family, f.weight, f.style, buf));
+        const buf = await subset(f.google, f.weight, f.style, f.text ?? ASCII + symbols);
+        const filename = `${f.family.toLowerCase().replaceAll(' ', '-')}-${f.weight}-${f.style}.woff2`;
+        writeFileSync(path.join(PUBLIC, filename), buf);
+        faces.push(face(f.family, f.weight, f.style, filename));
         bytes += buf.length;
     }
     const header = `/* 由 scripts/subset-case-fonts.mjs 產生，請勿手動修改 */\n`;
     writeFileSync(path.join(OUT, `${cfg.site}-fonts.css`), header + faces.join('\n') + '\n');
-    console.log(`${cfg.site}-fonts.css  內嵌 ${faces.length} 個字型  ${(bytes / 1024).toFixed(1)} KB`);
+    console.log(`${cfg.site}-fonts.css  引用 ${faces.length} 個字型  ${(bytes / 1024).toFixed(1)} KB`);
 }

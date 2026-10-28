@@ -5,18 +5,18 @@ export default function PortfolioSection() {
   const works = [
     {
       title: '潮間 Between Tides｜台東海邊民宿',
-      description: '依都蘭的座標即時計算日出、日落與潮汐，整個網站跟著當天的海一起變化；一日行程橫向捲動，雙月曆線上訂房詢問。',
+      description: '以都蘭海岸為靈感的虛構民宿提案。日出日落隨日期變化，搭配潮位示意、一日行程與可操作的雙月曆詢問預覽。',
       image: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1600&h=1000&fit=crop',
       link: '/works/tide',
-      tags: ['品牌官網', '即時潮汐', '線上訂房'],
+      tags: ['概念設計', '潮汐互動', '訂房流程示範'],
       featured: true,
     },
     {
       title: '霧裡山房 Mist House｜坪林茶宿',
-      description: '往下捲動就像走進霧裡。四間以節氣命名的房、會倒數的泡茶計時器，預約訊息自動寫好，直接送進 LINE。',
+      description: '以坪林茶山為靈感的虛構民宿提案。霧氣、節氣與泡茶計時器串起慢住體驗，選好房型後可預覽並複製詢問訊息。',
       image: 'https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=900&h=1200&fit=crop',
       link: '/works/mist',
-      tags: ['品牌官網', '節氣互動', 'LINE 預約'],
+      tags: ['概念設計', '節氣互動', '預約訊息預覽'],
     },
     {
       title: '日式民宿',

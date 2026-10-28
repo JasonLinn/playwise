@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-// 首屏字型（首屏中文＋英文展示字型）以 base64 內嵌，不產生額外請求。由 scripts/subset-case-fonts.mjs 產生
+// 首屏字型獨立預載，讓 CSS 保持輕量。由 scripts/subset-case-fonts.mjs 產生。
 import '../_fonts/mist-fonts.css';
 import MistSite from './MistSite';
 
@@ -19,10 +19,10 @@ const zhSerif = localFont({
 
 export const metadata: Metadata = {
     title: '霧裡山房 Mist House｜坪林茶園民宿 — 智遊工作室作品',
-    description: '海拔 480 公尺、一年兩百天起霧的坪林茶園民宿。以節氣命名的四間房、一盞包種茶的時間。民宿官網設計示範：霧氣捲動、即時節氣、泡茶計時器與 LINE 預約。',
+    description: '以坪林茶山為靈感的虛構民宿官網設計。霧氣互動、節氣環、泡茶計時器與可複製的預約訊息；不提供實際訂房。',
     openGraph: {
-        title: '霧裡山房 Mist House｜坪林茶園民宿',
-        description: '山在霧裡，茶在杯裡，人在時間之外。',
+        title: '霧裡山房 Mist House｜民宿官網概念設計',
+        description: '以坪林茶山為靈感的虛構民宿提案。節氣、泡茶與詢問訊息互動，不提供實際訂房。',
         images: ['https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=1200&h=630&q=80'],
     },
 };
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
 export default function MistPage() {
     return (
         <div className={zhSerif.variable}>
+            <link rel="preload" href="/fonts/showcases/mist-title-300-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+            <link rel="preload" href="/fonts/showcases/mist-title-400-italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+            <link rel="preload" href="/fonts/showcases/mist-hero-500.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+            <link rel="preload" href="/fonts/showcases/mist-hero-300.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+            <link rel="preload" href="/fonts/showcases/mist-mono-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
             <MistSite />
         </div>
     );

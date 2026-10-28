@@ -14,11 +14,12 @@
   --line: rgba(221, 226, 218, 0.14);
   --line-dark: rgba(20, 26, 22, 0.14);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* 'Mist Display'、'Mist Mono'、'Mist Hero' 內嵌在 _fonts/mist-fonts.css；完整內文字型在 load 後才啟用 */
+  /* 首屏字型由頁面預載；完整內文字型在 load 後啟用。 */
   --f-display: 'Mist Display', 'Cormorant Garamond', Georgia, serif;
   --f-serif: 'Mist Hero', 'Noto Serif TC', 'Songti TC', serif;
   --f-hero: var(--f-serif);
   --f-mono: 'Mist Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  --f-sans: 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
   --rail: 88px;
   --gutter: clamp(20px, 5vw, 80px);
 
@@ -69,6 +70,7 @@
 }
 
 .srOnly {
+  font-family: system-ui, sans-serif;
   position: absolute;
   width: 1px;
   height: 1px;
@@ -288,6 +290,8 @@
   color: var(--night) !important;
 }
 
+.railActions { display: flex; align-items: center; gap: 12px; }
+
 /* ===== 首屏 ===== */
 .hero {
   --p: 0;
@@ -459,6 +463,28 @@
   opacity: calc(var(--p) * 0.9);
 }
 
+.concept {
+  position: absolute;
+  left: var(--gutter);
+  top: 104px;
+  margin: 0;
+  padding-left: 12px;
+  border-left: 1px solid var(--ink);
+  color: var(--ink);
+  font: 11px/1.8 var(--f-sans);
+  letter-spacing: 0.16em;
+}
+
+.concept span { display: block; letter-spacing: 0.1em; }
+
+.copyStatus {
+  margin: 0;
+  padding: 12px 20px;
+  font: 13px/1.7 var(--f-sans);
+  color: var(--ink);
+  background: var(--paper-2);
+}
+
 .heroTitle {
   position: absolute;
   top: clamp(56px, 9vh, 110px);
@@ -505,7 +531,7 @@
 
 .heroEn {
   margin: 0;
-  font-family: var(--f-display);
+  font-family: 'Mist Title', var(--f-display);
   font-weight: 300;
   font-size: clamp(2.6rem, 6.4vw, 6.4rem);
   line-height: 0.95;
@@ -1957,4 +1983,21 @@
     transform: none;
     filter: none;
   }
+}
+
+/* Keep the fog atmosphere on phones without repainting full-screen blur. */
+@media (max-width: 899px) {
+  .site main > section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1000px;
+  }
+  .site main > .rooms { contain-intrinsic-size: auto 4000px; }
+  .site main > .facts { contain-intrinsic-size: auto 600px; }
+  .site main > .reserve { contain-intrinsic-size: auto 1600px; }
+  .heroMedia { transform: none; }
+  .heroMedia img { animation: none; }
+  .heroTitle { filter: none; }
+  .heroTitle > span[aria-hidden] { animation: none; }
+  .fog i { inset: -10% -20%; }
+  .fog i:nth-child(3) { display: none; }
 }

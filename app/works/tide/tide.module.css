@@ -11,7 +11,7 @@
   --coral: #b64a25;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-io: cubic-bezier(0.76, 0, 0.24, 1);
-  /* 'Tide Display'、'Tide Hero' 內嵌在 _fonts/tide-fonts.css；完整內文字型在 load 後才啟用 */
+  /* 首屏字型由頁面預載；完整內文字型在 load 後啟用。 */
   --f-display: 'Tide Display', 'Times New Roman', serif;
   --f-serif: 'Tide Hero', 'Noto Serif TC', 'Songti TC', serif;
   --f-hero: var(--f-serif);
@@ -66,6 +66,7 @@
 }
 
 .srOnly {
+  font-family: system-ui, sans-serif;
   position: absolute;
   width: 1px;
   height: 1px;
@@ -155,90 +156,6 @@
 .site [data-reveal][data-visible] {
   opacity: 1;
   transform: none;
-}
-
-/* ===== 開場 ===== */
-.intro {
-  position: fixed;
-  inset: 0;
-  z-index: 150;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-  background: var(--ink);
-  color: var(--paper);
-  transition: transform 1.1s var(--ease-io), visibility 0s linear 1.1s;
-  /* JS 沒載入或太慢時，開場也會自己退場 */
-  animation: introOut 1.1s var(--ease-io) 4.5s forwards;
-}
-
-/* 首屏元素同樣有逾時保底 */
-.heroLine > *,
-.heroVertical,
-.heroMeta,
-.studioBadge {
-  animation: settle 1.2s var(--ease) 5s forwards;
-}
-
-@keyframes settle {
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes introOut {
-  to {
-    transform: translateY(-100%);
-    visibility: hidden;
-  }
-}
-
-.site[data-intro='off'] .intro {
-  transform: translateY(-100%);
-  visibility: hidden;
-}
-
-.introMark {
-  position: relative;
-  font-family: var(--f-hero);
-  font-weight: 500;
-  font-size: clamp(64px, 14vw, 150px);
-  line-height: 1;
-  letter-spacing: 0.12em;
-}
-
-.introGhost {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(245, 240, 232, 0.35);
-}
-
-.introFill {
-  position: absolute;
-  inset: 0;
-  color: var(--paper);
-  /* 海水帶著浪頭漲滿字形：遮罩上緣是一道波浪，往上推的同時左右流動 */
-  --wave-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400' preserveAspectRatio='none'><path d='M0 200 Q25 186 50 200 T100 200 T150 200 T200 200 V400 H0 Z'/></svg>");
-  -webkit-mask: var(--wave-mask) 0% 0% / 50% 200% repeat-x;
-  mask: var(--wave-mask) 0% 0% / 50% 200% repeat-x;
-  animation: tideFill 1.7s var(--ease-io) 0.15s forwards;
-}
-
-@keyframes tideFill {
-  to {
-    -webkit-mask-position: 300% 112%;
-    mask-position: 300% 112%;
-  }
-}
-
-.introSub {
-  font-family: var(--f-display);
-  font-style: italic;
-  font-size: 17px;
-  letter-spacing: 0.06em;
-  opacity: 0.6;
 }
 
 /* ===== 導覽 ===== */
@@ -349,11 +266,11 @@
   letter-spacing: 0.14em;
 }
 
-.navLinks a {
+.navLinks > a {
   position: relative;
 }
 
-.navLinks a:not(.navCta)::after {
+.navLinks > a:not(.navCta)::after {
   content: '';
   position: absolute;
   left: 0;
@@ -366,7 +283,7 @@
   transition: transform 0.5s var(--ease);
 }
 
-.navLinks a:hover::after {
+.navLinks > a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -473,11 +390,11 @@
 
 .heroMedia img {
   object-fit: cover;
-  transform: scale(1.22);
+  transform: scale(1);
   transition: transform 2.8s var(--ease);
 }
 
-.site[data-intro='off'] .heroMedia img {
+.heroMedia img {
   transform: scale(1);
 }
 
@@ -489,12 +406,27 @@
     linear-gradient(0deg, rgba(18, 32, 31, 0.5) 0%, rgba(18, 32, 31, 0) 55%);
 }
 
+.concept {
+  position: absolute;
+  left: var(--gutter);
+  top: 104px;
+  margin: 0;
+  padding: 9px 13px;
+  border-left: 1px solid rgba(245, 240, 232, 0.65);
+  background: rgba(18, 32, 31, 0.62);
+  font: 11px/1.8 var(--f-sans);
+  letter-spacing: 0.16em;
+  color: var(--paper);
+}
+
+.concept span { display: block; letter-spacing: 0.1em; }
+
 .heroTitle {
   position: absolute;
   left: var(--gutter);
   bottom: clamp(120px, 21vh, 220px);
   margin: 0;
-  font-family: var(--f-display);
+  font-family: 'Tide Title', var(--f-display);
   font-weight: 400;
   font-size: clamp(76px, 15.5vw, 260px);
   line-height: 0.84;
@@ -510,7 +442,7 @@
 
 .heroLine > * {
   display: inline-block;
-  transform: translateY(110%);
+  transform: none;
   transition: transform 1.4s var(--ease);
 }
 
@@ -526,7 +458,7 @@
   font-style: italic;
 }
 
-.site[data-intro='off'] .heroLine > * {
+.heroLine > * {
   transform: none;
 }
 
@@ -541,10 +473,10 @@
   font-size: clamp(17px, 1.5vw, 22px);
   letter-spacing: 0.5em;
   opacity: 0;
-  transition: opacity 1.6s var(--ease) 0.7s;
+  transition: opacity 0.6s var(--ease);
 }
 
-.site[data-intro='off'] .heroVertical {
+.heroVertical {
   opacity: 0.92;
 }
 
@@ -558,10 +490,10 @@
   font-size: 13px;
   letter-spacing: 0.12em;
   opacity: 0;
-  transition: opacity 1.4s var(--ease) 0.9s;
+  transition: opacity 0.6s var(--ease);
 }
 
-.site[data-intro='off'] .heroMeta {
+.heroMeta {
   opacity: 1;
 }
 
@@ -2030,7 +1962,7 @@
   transition: opacity 0.6s var(--ease) 1.2s, transform 0.6s var(--ease) 1.2s, background-color 0.3s;
 }
 
-.site[data-intro='off'] .studioBadge {
+.studioBadge {
   opacity: 1;
   transform: none;
 }
@@ -2064,7 +1996,7 @@
     grid-template-columns: 1fr auto;
   }
 
-  .navLinks a:not(.navCta) {
+  .navLinks > a:not(.navCta) {
     display: none;
   }
 
@@ -2232,4 +2164,16 @@
     opacity: 1;
     transform: none;
   }
+}
+
+/* Mobile keeps the composition without a full-screen parallax layer. */
+@media (max-width: 899px) {
+  .site main > section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1000px;
+  }
+  .site main > .rooms { contain-intrinsic-size: auto 1600px; }
+  .site main > .book { contain-intrinsic-size: auto 1400px; }
+  .heroMedia { transform: none; will-change: auto; }
+  .heroMedia img { transform: none; transition: none; }
 }
