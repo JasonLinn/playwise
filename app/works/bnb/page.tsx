@@ -105,7 +105,7 @@ export default function BNBPage() {
                     <a onClick={() => scrollToSection('location')} href="#location">交通位置 <span className={styles.enSub}>Location</span></a>
                     <a onClick={() => scrollToSection('spots')} href="#spots">鄰近景點 <span className={styles.enSub}>Scenic Spots</span></a>
                     <a onClick={() => scrollToSection('contact')} href="#contact">聯絡我們 <span className={styles.enSub}>Contact Us</span></a>
-                    <Link href="/" className="mt-8 block text-white opacity-50 hover:opacity-100">← 返回首頁 (Back to Portfolio)</Link>
+                    <Link href="/#portfolio" className="mt-8 block text-white opacity-50 hover:opacity-100">← 返回首頁 (Back to Portfolio)</Link>
                 </div>
             </nav>
 
@@ -121,10 +121,10 @@ export default function BNBPage() {
                         </div>
                     </div>
                     <div className={styles.heroContact}>
-                        <p>電話 | TEL 0912-345-678</p>
-                        <p>LINE ID @hinokiforest</p>
-                        <p>E-mail info@hinokiforest.com</p>
-                        <p>地址 | ADD 宜蘭縣XX鄉XX路XX號</p>
+                        <p>虛構旅宿・官網概念設計</p>
+                        <p>本頁不接受實際訂房</p>
+                        <p>影像與住宿資訊皆為情境示範</p>
+                        <p><Link href="/#portfolio">← 返回智遊作品集</Link></p>
                     </div>
                     <div className={styles.scrollHint}>
                         <div>
@@ -411,26 +411,26 @@ export default function BNBPage() {
                 </div>
                 <div className={styles.contactContent}>
                     <div className={`${styles.contactInfoGrid} ${styles.reveal}`} ref={addToRefs}>
-                        <ContactItem icon={<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />} label="電話" value="0912-345-678" />
-                        <ContactItem icon={<path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />} label="LINE ID" value="@hinokiforest" />
-                        <ContactItem icon={<><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></>} label="信箱" value="info@hinokiforest.com" />
-                        <ContactItem icon={<><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></>} label="地址" value="宜蘭縣XX鄉XX路XX號" />
+                        <ContactItem icon={<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />} label="品牌性質" value="虛構旅宿概念" />
+                        <ContactItem icon={<path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />} label="聯絡方式" value="未提供旅宿帳號" />
+                        <ContactItem icon={<><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></>} label="訂房服務" value="本頁不接受預訂" />
+                        <ContactItem icon={<><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></>} label="場景" value="影像非實際住宿地點" />
                     </div>
                     <div className={`${styles.contactActions} ${styles.reveal}`} ref={addToRefs}>
-                        <a href="#" className={styles.contactAction}>
+                        <a href="/#portfolio" className={styles.contactAction}>
                             <div className={styles.actionIcon}>📘</div>
-                            <div className={styles.actionLabel}>Facebook</div>
-                            <div className={styles.actionSub}>Our Facebook</div>
+                            <div className={styles.actionLabel}>更多作品</div>
+                            <div className={styles.actionSub}>Portfolio</div>
                         </a>
-                        <a href="tel:0912345678" className={styles.contactAction}>
+                        <a href="/#contact" className={styles.contactAction}>
                             <div className={styles.actionIcon}>📞</div>
-                            <div className={styles.actionLabel}>直接撥號</div>
-                            <div className={styles.actionSub}>Call Me</div>
+                            <div className={styles.actionLabel}>聊聊網站設計</div>
+                            <div className={styles.actionSub}>Contact Playwise</div>
                         </a>
-                        <a href="#" className={styles.contactAction}>
+                        <a href="/works/tide" className={styles.contactAction}>
                             <div className={styles.actionIcon}>💬</div>
-                            <div className={styles.actionLabel}>LINE 好友</div>
-                            <div className={styles.actionSub}>LINE Me</div>
+                            <div className={styles.actionLabel}>探索海邊風格</div>
+                            <div className={styles.actionSub}>Between Tides</div>
                         </a>
                     </div>
                 </div>
@@ -440,11 +440,11 @@ export default function BNBPage() {
             <footer className={styles.footer}>
                 <div className={styles.footerLogo}>日式民宿</div>
                 <div className={styles.footerEn}>Hinoki Forest Guesthouse</div>
-                <div className={styles.footerLegal}>宜蘭縣合法民宿 第XXXX號</div>
+                <div className={styles.footerLegal}>虛構品牌・非營業旅宿・未提供實際地址</div>
                 <div className={styles.footerShare}>
-                    <a href="#" title="LINE">L</a>
-                    <a href="#" title="Facebook">f</a>
-                    <a href="#" title="Email">✉</a>
+                    <a href="/#contact" title="聯絡智遊工作室">↗</a>
+                    <a href="/#portfolio" title="智遊作品集">←</a>
+
                 </div>
                 <div className={styles.footerCopyright}>
                     日式民宿 | Copyright© All Rights Reserved.
