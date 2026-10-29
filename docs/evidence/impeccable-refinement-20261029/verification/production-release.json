@@ -1,0 +1,20 @@
+{
+  "observed_at_utc": "2026-10-29T12:14:50.795610+00:00",
+  "production_url": "https://playwise-nine.vercel.app/",
+  "deployment_id": "dpl_3XQiwj6HPaENedD9UFJvQKwDSv2V",
+  "deployment_status": "READY",
+  "release_commit": "72b597b47dc4d3cfb5bc2e24e1405c6ffbeae830",
+  "application_commit": "ee549b9ae54958d6a9ff7c498725db3c8f5f4330",
+  "application_diff_ee549b9_to_release": "empty",
+  "pr": 3,
+  "pr_status": "MERGED",
+  "verified": [
+    "service context carried into contact",
+    "contact text uses rgb(22,25,16)",
+    "edited message copied and read back exactly",
+    "laundry prototype opens and returns",
+    "draft survives portfolio visit",
+    "reset restores template"
+  ],
+  "external_messages_sent": false
+}

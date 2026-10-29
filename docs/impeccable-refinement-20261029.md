@@ -73,6 +73,12 @@ Method: dual-agent (A: /root/impeccable_refinement_a · B: /root/impeccable_refi
 - 未測完整 NVDA／VoiceOver、真實手機鍵盤／觸控、200% zoom、sessionStorage 被拒絕或關閉分頁後還原；clipboard 拒絕只有 handler 測試與樣式／原始碼證據。
 - 未傳送 LINE 訊息、建立真實訂單、扣款、串接 OAuth 或後台。智慧客服的真實案例仍需要另有可驗證資料，沒有捏造。
 
+## 正式站發布驗證
+
+[正式官網](https://playwise-nine.vercel.app/) 已於 2026-10-29 發布。PR #3 合併為 `72b597b`，Vercel production `dpl_3XQiwj6HPaENedD9UFJvQKwDSv2V` 為 READY，正式別名已指向該部署。應用程式內容與經覆核的 `ee549b9` 完全相同（其後為文件與證據）。
+
+在正式網址實測服務項目帶入、編輯與複製、原型入口、返回後草稿保留與重設；對比字色亦與驗證版相同。測試文字已重設，沒有傳送 LINE 訊息。發布證據見 `verification/production-release.json`、`production-draft-restoration.json` 與 `production-mobile-contact.png`。後續記錄提交僅更新文件與證據。
+
 ## 方法與證據
 
 依 Impeccable revision `5e745ace7e151feb2a93d360d0281fe39448b857` 的 critique／audit。A、B 各自新建分頁，未互讀結果與先前分數；A 完成前，父流程未讀 B 結果。最終各自依自己發現做定向覆核，沒有把局部重測宣稱為完整新一輪 audit。
