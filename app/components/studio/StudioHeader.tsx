@@ -20,7 +20,14 @@ export default function StudioHeader() {
     <header className={styles.header}>
       <a href="/" className={styles.brand} aria-label="playwise 智遊工作室首頁">
         <span className={styles.brandMark} aria-hidden="true">
-          p↗
+          <svg viewBox="0 0 64 64" width="40" height="40" fill="none">
+            <path
+              d="M18 47V24h8a9 9 0 0 1 0 18h-8m17-24h13v13m-1-12L31 35"
+              stroke="currentColor"
+              strokeWidth="5"
+              strokeLinecap="square"
+            />
+          </svg>
         </span>
         <span>
           playwise<small>智遊工作室</small>

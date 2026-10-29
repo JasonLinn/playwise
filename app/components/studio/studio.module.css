@@ -96,6 +96,7 @@
   z-index: 10;
 }
 .brand {
+  min-height: 44px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -121,7 +122,6 @@
   border-radius: 50%;
   font-size: 24px;
   letter-spacing: -4px;
-  padding-right: 4px;
 }
 .nav {
   display: flex;
@@ -1498,7 +1498,7 @@
 }
 .composer {
   min-width: 0;
-  color: var(--ink);
+  color: inherit;
 }
 .composer label {
   display: block;
@@ -1617,5 +1617,29 @@
   }
   .boardTop {
     flex-wrap: wrap;
+  }
+}
+
+.draftOptions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 12px;
+}
+.draftOptions p {
+  font-size: 13px;
+  flex: 1;
+  min-width: 180px;
+}
+.draftOptions button {
+  min-height: 44px;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 760px) {
+  .artCaption {
+    display: none;
   }
 }

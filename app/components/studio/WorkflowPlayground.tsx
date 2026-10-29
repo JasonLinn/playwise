@@ -123,7 +123,7 @@ export default function WorkflowPlayground() {
           </summary>
           <ConsultationBrief
             key={selected}
-            id="workflow-message"
+            id={`workflow-message-${selected}`}
             initialText={scenario.question + "\n目前最常卡住的地方："}
           />
         </details>

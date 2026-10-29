@@ -5,6 +5,7 @@ import mist from "../../../public/images/studio/mist.jpg";
 import StudioHeader from "./StudioHeader";
 import WorkflowPlayground from "./WorkflowPlayground";
 import ConsultationBrief from "./ConsultationBrief";
+import ConsultationLink from "./ConsultationLink";
 import AutomationShowcase from "./AutomationShowcase";
 import styles from "./studio.module.css";
 
@@ -181,7 +182,7 @@ export default function StudioHome() {
           <AutomationShowcase />
           <div className={styles.moreWorks}>
             {[
-              ["03", "日式民宿", "住宿品牌網站 · 概念設計", "/works/bnb"],
+              ["04", "日式民宿", "住宿品牌網站 · 概念設計", "/works/bnb"],
               ["05", "洗務通 WashPass", "洗滌管理系統展示", "/works/washpass"],
             ].map(([n, title, desc, href]) => (
               <Link href={href} prefetch={false} key={href}>
@@ -228,7 +229,7 @@ export default function StudioHome() {
                       <Link href={example} prefetch={false}>
                         {exampleLabel} <span aria-hidden="true">↗</span>
                       </Link>
-                      <a href="#contact">聊聊{label}需求</a>
+                      <ConsultationLink service={label} />
                     </div>
                     {n === "03" && (
                       <p className={styles.scopeNote}>

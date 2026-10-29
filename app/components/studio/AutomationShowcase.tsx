@@ -5,7 +5,9 @@ export default function AutomationShowcase() {
   return (
     <article className={styles.automation} aria-labelledby="automation-title">
       <div className={styles.automationCopy}>
-        <p className={styles.serviceLabel}>洗衣廠 LINE 訂單原型 · 互動展示</p>
+        <p className={styles.serviceLabel}>
+          03 / 洗衣廠 LINE 訂單原型 · 互動展示
+        </p>
         <h3 id="automation-title">
           從一則訊息，
           <br />

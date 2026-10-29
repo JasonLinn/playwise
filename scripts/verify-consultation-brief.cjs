@@ -22,12 +22,14 @@ function fixture(writeText, initialText = "我經營小店，想整理取貨流�
   const module = { exports: {} };
   const context = {
     exports: module.exports,
+    sessionStorage: { setItem() {} },
     navigator: { clipboard: { writeText } },
     require: (id) => {
       if (id === "react/jsx-runtime")
         return { jsx: createElement, jsxs: createElement };
       if (id === "react")
         return {
+          useEffect: () => {},
           useState: (value) => {
             const slot = cursor++;
             values[slot] = value;
