@@ -1053,3 +1053,10 @@
     font-size: 1.4rem;
   }
 }
+
+/* Visible keyboard focus for the interactive prototype. */
+.page button:focus-visible,
+.page a:focus-visible {
+    outline: 3px solid #6651d9;
+    outline-offset: 3px;
+}

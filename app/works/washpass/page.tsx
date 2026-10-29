@@ -60,7 +60,7 @@ export default function LaundryPage() {
 
             {/* Navigation */}
             <nav className={styles.navbar}>
-                <Link href="/" className={styles.navBack}>
+                <Link href="/#portfolio" className={styles.navBack}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M19 12H5M12 5l-7 7 7 7" />
                     </svg>
@@ -79,7 +79,7 @@ export default function LaundryPage() {
                     <div className={styles.heroBgDots}></div>
                 </div>
                 <div className={styles.heroContent}>
-                    <div className={styles.heroTag}>SaaS · B2B · LINE Integration</div>
+                    <div className={styles.heroTag}>產品功能展示 · 畫面數據為示意</div>
                     <h1 className={styles.heroTitle}>
                         洗務通
                         <span className={styles.heroTitleEn}>WashPass</span>
@@ -221,7 +221,7 @@ export default function LaundryPage() {
                         <h2>洗務通如何改變一切</h2>
                         <div className={styles.solutions}>
                             {[
-                                { step: '01', title: '廠端申請專屬連結', desc: '5 分鐘完成設定，獲得專屬 LINE 預約頁面' },
+                                { step: '01', title: '廠端申請專屬連結', desc: '依流程完成設定，獲得專屬 LINE 預約頁面' },
                                 { step: '02', title: '加入原有 LINE 群組', desc: '不改變業者習慣，在熟悉的 LINE 環境完成預約' },
                                 { step: '03', title: '自動同步後台行事曆', desc: '所有預約即時進入廠端系統，批次審核一次搞定' },
                             ].map((s, i) => (
@@ -252,7 +252,7 @@ export default function LaundryPage() {
                             </svg>
                         </div>
                         <h3>專屬 LINE LIFF 介面</h3>
-                        <p>民宿業者無須額外下載繁瑣的 App，直接從營業用的 LINE 群組進入專屬預約書布，防呆日曆設計，一次點選多天預約無比直覺。</p>
+                        <p>民宿業者無須額外下載繁瑣的 App，直接從營業用的 LINE 群組進入專屬預約頁面，防呆日曆設計，一次點選多天預約無比直覺。</p>
                         <div className={styles.featureTags}>
                             <span>LINE LIFF</span>
                             <span>防呆日曆</span>
@@ -266,7 +266,7 @@ export default function LaundryPage() {
                             </svg>
                         </div>
                         <h3>廠端智慧批次管理</h3>
-                        <p>洗衣廠後台將所有預約統整為清單，預設自動核准減低人工工業，只需在繁忙無法調度、車輛滿載時點選「批次取消」即可。</p>
+                        <p>洗衣廠後台將所有預約統整為清單，預設自動核准減少人工作業，只需在繁忙無法調度、車輛滿載時點選「批次取消」即可。</p>
                         <div className={styles.featureTags}>
                             <span>批次審核</span>
                             <span>智慧排程</span>
@@ -324,7 +324,7 @@ export default function LaundryPage() {
                     <div className={styles.valueStats}>
                         <div className={styles.valueStat}>
                             <div className={styles.valueStatIcon}>⏱️</div>
-                            <div className={styles.valueStatTitle}>節省 80% 客服時間</div>
+                            <div className={styles.valueStatTitle}>減少重複客服工作</div>
                             <div className={styles.valueStatDesc}>自動化預約流程，告別電話轟炸</div>
                         </div>
                         <div className={styles.valueStat}>
@@ -334,7 +334,7 @@ export default function LaundryPage() {
                         </div>
                         <div className={styles.valueStat}>
                             <div className={styles.valueStatIcon}>🔗</div>
-                            <div className={styles.valueStatTitle}>零學習成本導入</div>
+                            <div className={styles.valueStatTitle}>沿用熟悉的 LINE 操作</div>
                             <div className={styles.valueStatDesc}>業者不需新 App，在 LINE 完成一切</div>
                         </div>
                     </div>
@@ -350,7 +350,7 @@ export default function LaundryPage() {
                         <a href="https://liff-laundry.vercel.app/introduce" target="_blank" rel="noopener noreferrer" className={styles.ctaBtnPrimary}>
                             查看介紹頁面
                         </a>
-                        <Link href="/" className={styles.ctaBtnSecondary}>
+                        <Link href="/#portfolio" className={styles.ctaBtnSecondary}>
                             回到作品集首頁
                         </Link>
                     </div>
@@ -362,7 +362,7 @@ export default function LaundryPage() {
                 <div className={styles.footerContent}>
                     <div className={styles.footerLogo}>Playwise Studio</div>
                     <div className={styles.footerLinks}>
-                        <Link href="/">← 返回首頁</Link>
+                        <Link href="/#portfolio">← 返回首頁</Link>
                         <Link href="/works/bnb">日式民宿</Link>
                     </div>
                 </div>

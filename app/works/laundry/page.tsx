@@ -13,10 +13,10 @@ const ITEMS = [
     { id: 'bedding', emoji: '🛏️', name: '床單被套', price: 250 },
 ];
 
-const DATES = ['今天', '明天', '後天', '3/26 (三)', '3/27 (四)'];
+const DATES = ['示範日 1', '示範日 2', '示範日 3', '示範日 4', '示範日 5'];
 const TIMES = ['09:00–11:00', '11:00–13:00', '13:00–15:00', '15:00–17:00', '17:00–19:00', '19:00–21:00'];
 const PAY_OPTS = [
-    { id: 'line-pay', icon: '💳', label: 'LINE Pay', sub: '快速付款，享折扣' },
+    { id: 'line-pay', icon: '💳', label: 'LINE Pay', sub: '付款選項示意' },
     { id: 'cash', icon: '💵', label: '現金付款', sub: '取件時付款' },
 ];
 
@@ -68,7 +68,7 @@ export default function LaundryPage() {
 
     return (
         <div className={styles.page}>
-            <Link href="/" className={styles.backBtn}>
+            <Link href="/#portfolio" className={styles.backBtn}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <polyline points="15 18 9 12 15 6" />
                 </svg>
@@ -79,7 +79,7 @@ export default function LaundryPage() {
             <div className={styles.intro}>
                 <div className={styles.introIcon}>🧺</div>
                 <h1 className={styles.introTitle}>洗衣廠 LIFF 訂單系統</h1>
-                <p className={styles.introSub}>在 LINE 裡完成送洗、預約取件，全程自動通知</p>
+                <p className={styles.introSub}>送洗與取件的前端互動示範，不會建立訂單、扣款或傳送 LINE 訊息</p>
                 <div className={styles.introBadge}>
                     <span>LIFF Demo</span>
                     <span style={{ opacity: 0.5 }}>|</span>
@@ -129,12 +129,12 @@ export default function LaundryPage() {
                                         <div className={styles.stepPanel}>
                                             <div className={styles.successScreen}>
                                                 <div className={styles.successIcon}>✓</div>
-                                                <div className={styles.successTitle}>訂單送出成功！</div>
+                                                <div className={styles.successTitle}>示範完成！</div>
                                                 <div className={styles.successSub}>
-                                                    感謝您的使用，我們將於<br />
-                                                    預約時間前來收取衣物。
+                                                    這是流程預覽，未送出訂單，<br />
+                                                    不會安排收件或收取費用。
                                                 </div>
-                                                <div className={styles.orderNum}>訂單編號：KJ-20260322-0147</div>
+                                                <div className={styles.orderNum}>示範編號：DEMO-0147（非實際訂單）</div>
 
                                                 {/* LINE Notification bubble */}
                                                 <div className={styles.lineNotif}>
@@ -146,7 +146,7 @@ export default function LaundryPage() {
                                                         <div className={styles.lineNotifTime}>剛剛</div>
                                                     </div>
                                                     <div className={styles.lineNotifBubble}>
-                                                        您好！您的送洗訂單已確認 ✅<br />
+                                                        通知內容示意（未傳送）<br />
                                                         <strong>取件時間：</strong>{pickupDate} {pickupTime}<br />
                                                         <strong>件數：</strong>{totalItems} 件<br />
                                                         <strong>預估金額：</strong>NT$ {totalPrice}<br />
@@ -186,7 +186,7 @@ export default function LaundryPage() {
                                                         <div className={styles.userAvatar}>👤</div>
                                                         <div>
                                                             <div className={styles.userName}>王小明</div>
-                                                            <div className={styles.userSub}>LINE 帳號已連結 · 台北市大安區</div>
+                                                            <div className={styles.userSub}>示範帳號 · 地址為示例</div>
                                                         </div>
                                                     </div>
 
@@ -196,10 +196,11 @@ export default function LaundryPage() {
 
                                                     <div className={styles.itemGrid}>
                                                         {ITEMS.map(item => (
-                                                            <div
+                                                            <button type="button"
                                                                 key={item.id}
                                                                 className={`${styles.itemCard} ${quantities[item.id] ? styles.selected : ''}`}
                                                                 onClick={() => changeQty(item.id, 1)}
+                                                                aria-label={`加入一件${item.name}`}
                                                             >
                                                                 {quantities[item.id] > 0 && (
                                                                     <div className={styles.itemCheck}>✓</div>
@@ -207,7 +208,7 @@ export default function LaundryPage() {
                                                                 <span className={styles.itemEmoji}>{item.emoji}</span>
                                                                 <div className={styles.itemName}>{item.name}</div>
                                                                 <div className={styles.itemPrice}>NT$ {item.price} / 件</div>
-                                                            </div>
+                                                            </button>
                                                         ))}
                                                     </div>
 
@@ -223,9 +224,9 @@ export default function LaundryPage() {
                                                                         <span>{item.name}</span>
                                                                     </div>
                                                                     <div className={styles.qtyControls}>
-                                                                        <button className={styles.qtyBtn} onClick={() => changeQty(item.id, -1)}>−</button>
+                                                                        <button aria-label={`減少一件${item.name}`} className={styles.qtyBtn} onClick={() => changeQty(item.id, -1)}>−</button>
                                                                         <span className={styles.qtyNum}>{quantities[item.id]}</span>
-                                                                        <button className={styles.qtyBtn} onClick={() => changeQty(item.id, 1)}>+</button>
+                                                                        <button aria-label={`增加一件${item.name}`} className={styles.qtyBtn} onClick={() => changeQty(item.id, 1)}>+</button>
                                                                     </div>
                                                                 </div>
                                                             ))}
@@ -243,12 +244,12 @@ export default function LaundryPage() {
                                                     <div className={styles.dateCard}>
                                                         <div className={styles.dateLabel}>取件日期</div>
                                                         <div className={styles.dateOptions}>
-                                                            {DATES.map(d => (
-                                                                <div
+                                                            {DATES.slice(0, 3).map(d => (
+                                                                <button type="button"
                                                                     key={d}
                                                                     className={`${styles.dateChip} ${pickupDate === d ? styles.selected : ''}`}
-                                                                    onClick={() => setPickupDate(d)}
-                                                                >{d}</div>
+                                                                    aria-pressed={pickupDate === d} onClick={() => { setPickupDate(d); setDeliverDate(''); }}
+                                                                >{d}</button>
                                                             ))}
                                                         </div>
                                                     </div>
@@ -256,11 +257,11 @@ export default function LaundryPage() {
                                                         <div className={styles.dateLabel}>取件時段</div>
                                                         <div className={styles.timeGrid}>
                                                             {TIMES.map(t => (
-                                                                <div
+                                                                <button type="button"
                                                                     key={t}
                                                                     className={`${styles.timeChip} ${pickupTime === t ? styles.selected : ''}`}
-                                                                    onClick={() => setPickupTime(t)}
-                                                                >{t}</div>
+                                                                    aria-pressed={pickupTime === t} onClick={() => setPickupTime(t)}
+                                                                >{t}</button>
                                                             ))}
                                                         </div>
                                                     </div>
@@ -269,14 +270,15 @@ export default function LaundryPage() {
                                                         <span>📦</span> 預約送件時間
                                                     </div>
                                                     <div className={styles.dateCard}>
-                                                        <div className={styles.dateLabel}>送件日期</div>
+                                                        <div className={styles.dateLabel}>送件日期（取件兩日後）</div>
+                                                        {!pickupDate && <p>請先選擇取件日期</p>}
                                                         <div className={styles.dateOptions}>
-                                                            {DATES.slice(2).map(d => (
-                                                                <div
+                                                            {(pickupDate ? DATES.slice(DATES.indexOf(pickupDate) + 2) : []).map(d => (
+                                                                <button type="button"
                                                                     key={d}
                                                                     className={`${styles.dateChip} ${deliverDate === d ? styles.selected : ''}`}
-                                                                    onClick={() => setDeliverDate(d)}
-                                                                >{d}</div>
+                                                                    aria-pressed={deliverDate === d} onClick={() => setDeliverDate(d)}
+                                                                >{d}</button>
                                                             ))}
                                                         </div>
                                                     </div>
@@ -284,11 +286,11 @@ export default function LaundryPage() {
                                                         <div className={styles.dateLabel}>送件時段</div>
                                                         <div className={styles.timeGrid}>
                                                             {TIMES.map(t => (
-                                                                <div
+                                                                <button type="button"
                                                                     key={t}
                                                                     className={`${styles.timeChip} ${deliverTime === t ? styles.selected : ''}`}
-                                                                    onClick={() => setDeliverTime(t)}
-                                                                >{t}</div>
+                                                                    aria-pressed={deliverTime === t} onClick={() => setDeliverTime(t)}
+                                                                >{t}</button>
                                                             ))}
                                                         </div>
                                                     </div>
@@ -296,8 +298,8 @@ export default function LaundryPage() {
                                                     <div className={styles.addressCard}>
                                                         <div className={styles.addressRow}>
                                                             <span className={styles.addressIcon}>📍</span>
-                                                            <span className={styles.addressText}>台北市大安區忠孝東路四段 100 號 5F</span>
-                                                            <span className={styles.addressChange}>更改</span>
+                                                            <span className={styles.addressText}>示範地址 · 不安排實際收送</span>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -335,10 +337,10 @@ export default function LaundryPage() {
                                                     </div>
                                                     <div className={styles.payOptions}>
                                                         {PAY_OPTS.map(opt => (
-                                                            <div
+                                                            <button type="button"
                                                                 key={opt.id}
                                                                 className={`${styles.payOption} ${payMethod === opt.id ? styles.selected : ''}`}
-                                                                onClick={() => setPayMethod(opt.id)}
+                                                                aria-pressed={payMethod === opt.id} onClick={() => setPayMethod(opt.id)}
                                                             >
                                                                 <span className={styles.payOptionIcon}>{opt.icon}</span>
                                                                 <div style={{ flex: 1 }}>
@@ -346,7 +348,7 @@ export default function LaundryPage() {
                                                                     <div className={styles.payOptionSub}>{opt.sub}</div>
                                                                 </div>
                                                                 <div className={`${styles.payRadio} ${payMethod === opt.id ? styles.checked : ''}`} />
-                                                            </div>
+                                                            </button>
                                                         ))}
                                                     </div>
 
@@ -354,7 +356,7 @@ export default function LaundryPage() {
                                                         <div className={styles.panelTitle} style={{ marginBottom: '0.5rem' }}>
                                                             <span>✏️</span> 備註
                                                         </div>
-                                                        <textarea
+                                                        <textarea aria-label="示範訂單備註"
                                                             className={styles.noteTextarea}
                                                             placeholder="例如：衣物有特殊污漬、需特別注意的材質..."
                                                             value={note}
@@ -400,7 +402,7 @@ export default function LaundryPage() {
                                     {step === 3 && (
                                         <>
                                             <button className={styles.actionBtn} onClick={handleConfirm}>
-                                                確認送出訂單
+                                                完成示範
                                             </button>
                                             <button className={styles.actionBtnSecondary} onClick={() => setStep(2)}>
                                                 上一步
@@ -412,7 +414,7 @@ export default function LaundryPage() {
                             {success && (
                                 <div className={styles.bottomAction}>
                                     <button className={styles.actionBtn} onClick={handleReset}>
-                                        再次送洗
+                                        重新體驗
                                     </button>
                                 </div>
                             )}
@@ -431,45 +433,45 @@ export default function LaundryPage() {
                         洗衣廠 LIFF<br />自動送洗訂單系統
                     </h2>
                     <p className={styles.infoDesc}>
-                        透過 LINE LIFF（LINE Front-end Framework）技術，讓用戶無需下載 App，直接在 LINE 聊天介面中完成送洗衣物的選擇、取件時間預約，以及付款確認。訂單成立後，系統自動發送 LINE 訊息通知，提升客戶服務體驗與營運效率。
+                        這個原型示範衣物選擇、取送預約與付款選項的操作流程。正式專案可再評估 LINE 登入、金流與通知串接；本頁以示例資料呈現，尚未連接這些服務。
                     </p>
 
                     <div className={styles.infoSection}>
-                        <div className={styles.infoSectionTitle}>核心功能</div>
+                        <div className={styles.infoSectionTitle}>整合規劃</div>
                         <div className={styles.featureList}>
                             <div className={styles.featureItem}>
                                 <div className={styles.featureIcon}>🔗</div>
                                 <div className={styles.featureText}>
                                     <h4>LINE 帳號綁定</h4>
-                                    <p>自動讀取用戶 LINE 資料，免填帳號資訊，一鍵登入快速完成訂單。</p>
+                                    <p>可規劃 LINE 登入並在使用者授權後讀取必要資料；此處為示範帳號。</p>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
                                 <div className={styles.featureIcon}>📅</div>
                                 <div className={styles.featureText}>
                                     <h4>智慧預約排程</h4>
-                                    <p>依照洗衣廠產能自動顯示可預約時段，避免過度預約導致的塞單問題。</p>
+                                    <p>示範取送時段選擇與先後順序；正式服務需串接店家產能與工作日。</p>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
                                 <div className={styles.featureIcon}>🔔</div>
                                 <div className={styles.featureText}>
                                     <h4>全程自動通知</h4>
-                                    <p>訂單確認、取件提醒、洗滌完成、送件通知，每個環節自動推播 LINE 訊息。</p>
+                                    <p>可規劃訂單與取件提醒；本頁只展示通知樣式，不會傳送訊息。</p>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
                                 <div className={styles.featureIcon}>💳</div>
                                 <div className={styles.featureText}>
                                     <h4>LINE Pay 整合</h4>
-                                    <p>支援 LINE Pay 線上付款，也可選擇現金付款，結帳流程順暢自然。</p>
+                                    <p>展示線上與現金付款選項；正式金流須另行申請與串接，本頁不會扣款。</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className={styles.infoSection}>
-                        <div className={styles.infoSectionTitle}>訂單流程</div>
+                        <div className={styles.infoSectionTitle}>正式服務流程構想</div>
                         <div className={styles.flowSteps}>
                             {[
                                 { title: '點擊 LINE 選單', desc: '用戶從 LINE 官方帳號選單開啟 LIFF App' },
@@ -493,7 +495,7 @@ export default function LaundryPage() {
                     </div>
 
                     <div className={styles.infoSection}>
-                        <div className={styles.infoSectionTitle}>技術架構</div>
+                        <div className={styles.infoSectionTitle}>可評估的整合技術</div>
                         <div className={styles.techStack}>
                             {['LINE LIFF SDK', 'LINE Messaging API', 'Next.js', 'LINE Pay API', 'Node.js', 'PostgreSQL', 'Vercel'].map(t => (
                                 <span key={t} className={styles.techChip}>{t}</span>
