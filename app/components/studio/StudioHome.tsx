@@ -4,6 +4,8 @@ import tide from "../../../public/images/studio/tide.jpg";
 import mist from "../../../public/images/studio/mist.jpg";
 import StudioHeader from "./StudioHeader";
 import WorkflowPlayground from "./WorkflowPlayground";
+import ConsultationBrief from "./ConsultationBrief";
+import AutomationShowcase from "./AutomationShowcase";
 import styles from "./studio.module.css";
 
 const services = [
@@ -13,6 +15,8 @@ const services = [
     "品牌網站設計",
     "把品牌的個性、服務與體驗，整理成一個清楚、好看、好操作的網站。從手機閱讀到聯絡入口，每一步都為你的客人想。",
     "品牌官網 / 旅宿網站 / 網站改版",
+    "/works/tide",
+    "看網站設計範例",
   ],
   [
     "02",
@@ -20,6 +24,8 @@ const services = [
     "工作流程自動化",
     "從表單、預約到提醒，找出值得串接的重複工作。先解決最常卡住的一步，再逐步擴充，讓系統配合你的工作方式。",
     "表單整合 / 訂單整理 / 通知提醒",
+    "/works/laundry",
+    "試用訂單流程原型",
   ],
   [
     "03",
@@ -27,6 +33,8 @@ const services = [
     "LINE 與智慧客服",
     "整理常見問題與品牌語氣，規劃 LINE 服務及客服助理。能自動處理的先處理，需要人判斷的，留下明確的接手方式。",
     "LINE LIFF / 常見問答 / 人工接手",
+    "/works/laundry",
+    "看 LINE 訂單介面示範",
   ],
 ];
 
@@ -58,9 +66,14 @@ export default function StudioHome() {
                 <br />
                 把心力留給真正喜歡的事。
               </p>
-              <a className={styles.roundLink} href="#portfolio">
-                探索我們的作品 <span aria-hidden="true">↗</span>
-              </a>
+              <div className={styles.heroActions}>
+                <a className={styles.roundLink} href="#portfolio">
+                  探索我們的作品 <span aria-hidden="true">↗</span>
+                </a>
+                <a className={styles.heroConsult} href="#contact">
+                  先聊聊需求
+                </a>
+              </div>
             </div>
             <div className={styles.heroArt} aria-hidden="true">
               <div className={styles.artCaption}>
@@ -165,10 +178,10 @@ export default function StudioHome() {
           <p className={styles.conceptNote}>
             潮間與霧裡山房為虛構旅宿概念作品，用來展示設計與互動，不提供實際訂房。
           </p>
+          <AutomationShowcase />
           <div className={styles.moreWorks}>
             {[
-              ["03", "日式民宿", "住宿品牌網站", "/works/bnb"],
-              ["04", "洗衣廠 LIFF", "LINE 訂單流程展示", "/works/laundry"],
+              ["03", "日式民宿", "住宿品牌網站 · 概念設計", "/works/bnb"],
               ["05", "洗務通 WashPass", "洗滌管理系統展示", "/works/washpass"],
             ].map(([n, title, desc, href]) => (
               <Link href={href} prefetch={false} key={href}>
@@ -200,19 +213,33 @@ export default function StudioHome() {
             </p>
           </div>
           <div className={styles.serviceRows}>
-            {services.map(([n, title, label, desc, tags]) => (
-              <article key={n} className={styles.serviceRow}>
-                <span>{n}</span>
-                <div>
-                  <p className={styles.serviceLabel}>{label}</p>
-                  <h3>{title}</h3>
-                </div>
-                <div>
-                  <p>{desc}</p>
-                  <small>{tags}</small>
-                </div>
-              </article>
-            ))}
+            {services.map(
+              ([n, title, label, desc, tags, example, exampleLabel]) => (
+                <article key={n} className={styles.serviceRow}>
+                  <span>{n}</span>
+                  <div>
+                    <p className={styles.serviceLabel}>{label}</p>
+                    <h3>{title}</h3>
+                  </div>
+                  <div>
+                    <p>{desc}</p>
+                    <small>{tags}</small>
+                    <div className={styles.serviceActions}>
+                      <Link href={example} prefetch={false}>
+                        {exampleLabel} <span aria-hidden="true">↗</span>
+                      </Link>
+                      <a href="#contact">聊聊{label}需求</a>
+                    </div>
+                    {n === "03" && (
+                      <p className={styles.scopeNote}>
+                        此範例展示 LINE
+                        訂單介面；智慧客服與人工接手依需求另行規劃。
+                      </p>
+                    )}
+                  </div>
+                </article>
+              ),
+            )}
           </div>
         </section>
         <WorkflowPlayground />
@@ -320,19 +347,19 @@ export default function StudioHome() {
             <span className={styles.serif}>從我們聊聊開始。</span>
           </h2>
           <div className={styles.contactBottom}>
-            <p>
-              一個網站，一段流程，或一個還沒成形的想法。
-              <br />
-              告訴我們，你想把時間留給什麼。
-            </p>
-            <a
-              href="https://lin.ee/N4ukE55"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.contactButton}
-            >
-              在 LINE 聊聊 <span aria-hidden="true">↗</span>
-            </a>
+            <div className={styles.contactGuide}>
+              <h3>先說說，哪件事最想改善？</h3>
+              <p>
+                一個網站，一段流程，或一個還沒成形的想法。告訴我們你的工作，以及現在最常卡住的一步。
+              </p>
+              <p>我們會先釐清需求，再討論適合的做法、範圍與報價。</p>
+            </div>
+            <ConsultationBrief
+              id="contact-message"
+              initialText={
+                "我經營／從事：\n目前網站或品牌名稱（選填）：\n最想改善的問題：\n希望完成的時間（選填）："
+              }
+            />
           </div>
         </section>
       </main>

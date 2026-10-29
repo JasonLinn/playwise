@@ -4,6 +4,32 @@
   --muted: #65655b;
   --line: #cfcdc1;
   --orange: #d7491b;
+  --focus: #a83312;
+  --accent-text: #a53616;
+  --surface-dark: #282d27;
+  --surface-work: #e7e8de;
+  --surface-board: #f1f0e7;
+  --surface-card: #fffef7;
+  --state-selected: #d5e5ba;
+  --state-organized: #e3edcf;
+  --success-text: #425c2c;
+  --text-on-dark-muted: #c3c8bc;
+  --text-on-dark-subtle: #b6bdae;
+  --focus-on-dark: #e4f3ce;
+  --surface-contact: #df572d;
+  --text-on-accent: #161910;
+  --border-on-dark: #929d87;
+  --line-on-dark: #535c4d;
+  --line-work: #b8beb0;
+  --line-board: #c9cbbd;
+  --line-card: #d6d8c9;
+  --flow-line: #b1b9a5;
+  --text-selected: #22291f;
+  --button-hover: #444d3c;
+  --art-shadow: #bdb6a3;
+  --surface-tide: #c4cbbd;
+  --surface-mist: #bcc3b4;
+  --image-placeholder: #bdc4b4;
   background: var(--paper);
   color: var(--ink);
   font-family: Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
@@ -23,7 +49,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 .site :focus-visible {
-  outline: 3px solid #a83312;
+  outline: 3px solid var(--focus);
   outline-offset: 6px;
 }
 .site section {
@@ -107,7 +133,7 @@
   padding: 10px 0;
 }
 .nav a:hover {
-  color: var(--orange);
+  color: var(--accent-text);
 }
 .nav sup {
   font-size: 9px;
@@ -151,7 +177,7 @@
   font-size: clamp(36px, 4.7vw, 76px);
   font-weight: 500;
   line-height: 1.34;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
   white-space: nowrap;
 }
 .hero h1 .serif {
@@ -161,7 +187,7 @@
   max-width: 400px;
   margin-top: 32px !important;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.9;
 }
 .roundLink {
@@ -203,7 +229,7 @@
   transform: rotate(-8deg);
 }
 .ribbonBack {
-  stroke: #bdb6a3;
+  stroke: var(--art-shadow);
   stroke-width: 43;
   stroke-linecap: round;
   transform: translate(8px, 12px);
@@ -260,7 +286,7 @@
   font-size: 18px;
 }
 .workSection {
-  background: #e7e8de;
+  background: var(--surface-work);
   padding: 110px 4% 90px;
 }
 .sectionHeading {
@@ -278,12 +304,12 @@
 .sectionHeading h2 {
   font-size: clamp(30px, 3.6vw, 56px);
   font-weight: 500;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.04em;
   line-height: 1.35;
 }
 .sectionHeading > p:last-child {
   justify-self: end;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
 }
 .workGrid {
@@ -301,7 +327,7 @@
 .workImage {
   position: relative;
   overflow: hidden;
-  background: #bdc4b4;
+  background: var(--image-placeholder);
   padding: 6%;
   aspect-ratio: 1.35;
   display: flex;
@@ -309,10 +335,10 @@
   justify-content: center;
 }
 .tideImage {
-  background: #c4cbbd;
+  background: var(--surface-tide);
 }
 .mistImage {
-  background: #bcc3b4;
+  background: var(--surface-mist);
   aspect-ratio: 1.14;
 }
 .workImage img {
@@ -343,7 +369,7 @@
 .workMeta {
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 1px;
   margin-top: 24px;
   color: var(--muted);
@@ -368,23 +394,23 @@
   margin-left: auto;
 }
 .workCard > p {
-  font-size: 14px;
+  font-size: 15px;
   margin-top: 9px;
 }
 .workTags {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 15px;
 }
 .conceptNote {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 45px !important;
 }
 .moreWorks {
   margin-top: 45px;
-  border-top: 1px solid #b8beb0;
+  border-top: 1px solid var(--line-work);
 }
 .moreWorks > a {
   display: grid;
@@ -392,7 +418,7 @@
   align-items: center;
   gap: 20px;
   padding: 24px 0;
-  border-bottom: 1px solid #b8beb0;
+  border-bottom: 1px solid var(--line-work);
   transition: padding 0.2s;
 }
 .moreWorks > a:hover {
@@ -408,7 +434,7 @@
   font-weight: 400;
 }
 .moreWorks p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .moreWorks b {
@@ -433,8 +459,8 @@
   color: var(--muted);
 }
 .serviceLabel {
-  font-size: 11px;
-  color: #a53616;
+  font-size: 14px;
+  color: var(--accent-text);
   margin-bottom: 10px !important;
 }
 .serviceRow h3 {
@@ -443,18 +469,18 @@
   letter-spacing: -1px;
 }
 .serviceRow > div:last-child > p {
-  font-size: 14px;
+  font-size: 16px;
   max-width: 450px;
   color: var(--muted);
 }
 .serviceRow small {
   display: block;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 1px;
   margin-top: 22px;
 }
 .playground {
-  background: #282d27;
+  background: var(--surface-dark);
   color: var(--paper);
   padding: 95px 4%;
   display: grid;
@@ -462,7 +488,7 @@
   gap: 8%;
 }
 .playIntro > .eyebrow {
-  color: #b6bdae;
+  color: var(--text-on-dark-subtle);
 }
 .playIntro h2,
 .process h2 {
@@ -473,9 +499,9 @@
   margin: 32px 0;
 }
 .playIntro > p:not(.eyebrow) {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.9;
-  color: #c3c8bc;
+  color: var(--text-on-dark-muted);
 }
 .scenarios {
   display: flex;
@@ -485,22 +511,22 @@
 }
 .scenarios button {
   padding: 11px 16px;
-  border: 1px solid #929d87;
+  border: 1px solid var(--border-on-dark);
   border-radius: 30px;
-  font-size: 13px;
+  font-size: 14px;
   transition: background 0.2s;
 }
 .scenarios button[aria-pressed="true"] {
-  color: #22291f;
-  background: #d5e5ba;
-  border-color: #d5e5ba;
+  color: var(--text-selected);
+  background: var(--state-selected);
+  border-color: var(--state-selected);
 }
 .playIntro .demoNote {
-  font-size: 11px !important;
+  font-size: 13px !important;
   margin-top: 20px !important;
 }
 .flowBoard {
-  background: #f1f0e7;
+  background: var(--surface-board);
   color: var(--ink);
   padding: 28px 30px;
   align-self: start;
@@ -510,9 +536,9 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1px;
-  border-bottom: 1px solid #c9cbbd;
+  border-bottom: 1px solid var(--line-board);
   padding-bottom: 15px;
 }
 .flowStage {
@@ -529,7 +555,7 @@
   inset: 10px 0;
 }
 .flowLine path {
-  stroke: #b1b9a5;
+  stroke: var(--flow-line);
   stroke-width: 2;
   stroke-dasharray: 5 6;
 }
@@ -537,22 +563,22 @@
   position: relative;
   flex: 1;
   min-width: 0;
-  background: #fffef7;
+  background: var(--surface-card);
   padding: 18px 8px;
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   box-shadow: 0 8px 20px #2933230d;
   transform: translateY(15px) rotate(-9deg);
   transition:
     transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1),
     background 0.4s;
-  border: 1px solid #d6d8c9;
+  border: 1px solid var(--line-card);
 }
 .task span {
   display: block;
   margin-bottom: 10px;
   font-size: 16px;
-  color: #a53616;
+  color: var(--accent-text);
 }
 .task:nth-of-type(2) {
   transform: translateY(-23px) rotate(7deg);
@@ -562,10 +588,10 @@
 }
 .organized .task {
   transform: translateY(0) rotate(0);
-  background: #e3edcf;
+  background: var(--state-organized);
 }
 .organized .task span {
-  color: #425c2c;
+  color: var(--success-text);
 }
 .flowResult {
   min-height: 118px;
@@ -576,7 +602,7 @@
   letter-spacing: -0.5px;
 }
 .flowResult p {
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.9;
   color: var(--muted);
   margin-top: 12px;
@@ -593,10 +619,10 @@
   font-size: 13px !important;
 }
 .flowButton:hover {
-  background: #444d3c;
+  background: var(--button-hover);
 }
 .brief {
-  font-size: 11px;
+  font-size: 14px;
   margin-top: 20px;
 }
 .brief summary {
@@ -614,8 +640,8 @@
   margin: 14px 0;
   color: var(--muted);
 }
-.brief button,
-.brief a {
+.brief > button,
+.brief > a {
   display: inline-block;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -623,10 +649,10 @@
   margin-right: 20px;
 }
 .playground :focus-visible {
-  outline-color: #d7491b;
+  outline-color: var(--focus);
 }
 .scenarios :focus-visible {
-  outline-color: #e4f3ce;
+  outline-color: var(--focus-on-dark);
 }
 .process {
   padding: 110px 4%;
@@ -635,7 +661,7 @@
   gap: 8%;
 }
 .processIntro > p:not(.eyebrow) {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
 }
 .textLink {
@@ -660,7 +686,7 @@
 }
 .steps li > span {
   font-size: 11px;
-  color: #a53616;
+  color: var(--accent-text);
   margin-top: 6px;
 }
 .steps h3 {
@@ -668,7 +694,7 @@
   font-weight: 500;
 }
 .steps p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
   margin-top: 10px;
   max-width: 430px;
@@ -698,7 +724,7 @@
   justify-content: space-between;
   gap: 25px;
   min-height: 80px;
-  font-size: 14px;
+  font-size: 15px;
   list-style: none;
 }
 .faq summary::-webkit-details-marker {
@@ -712,15 +738,15 @@
   transform: rotate(45deg);
 }
 .faq details p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.9;
   padding-bottom: 25px;
   color: var(--muted);
 }
 .contact {
-  background: #df572d;
+  background: var(--surface-contact);
   padding: 50px 4% 65px;
-  color: #161910;
+  color: var(--text-on-accent);
 }
 .contactTop {
   display: flex;
@@ -735,7 +761,7 @@
   font-size: clamp(36px, 5.6vw, 85px);
   font-weight: 500;
   line-height: 1.3;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
   margin: 40px 0 45px;
 }
 .contactBottom {
@@ -745,7 +771,7 @@
   gap: 30px;
 }
 .contactBottom > p {
-  font-size: 14px;
+  font-size: 15px;
 }
 .contactButton {
   display: flex;
@@ -767,11 +793,11 @@
   color: var(--paper);
 }
 .contact :focus-visible {
-  outline-color: #161910;
+  outline-color: var(--text-on-accent);
 }
 .footer {
   padding: 65px 4% 20px;
-  background: #282d27;
+  background: var(--surface-dark);
   color: var(--paper);
 }
 .footerTop {
@@ -794,9 +820,9 @@
   letter-spacing: 0;
 }
 .footerTop p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
-  color: #c3c8bc;
+  color: var(--text-on-dark-muted);
 }
 .footerTop > div {
   justify-self: end;
@@ -813,16 +839,16 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  border-top: 1px solid #535c4d;
+  border-top: 1px solid var(--line-on-dark);
   padding-top: 20px;
-  font-size: 10px;
-  color: #c3c8bc;
+  font-size: 12px;
+  color: var(--text-on-dark-muted);
 }
 .footerBottom a {
   padding: 10px 0;
 }
 .footer :focus-visible {
-  outline-color: #e4f3ce;
+  outline-color: var(--focus-on-dark);
 }
 @keyframes draw {
   from {
@@ -911,7 +937,7 @@
   }
   .mobileMenu > summary {
     padding: 10px 14px;
-    font-size: 12px;
+    font-size: 14px;
     border: 1px solid var(--line);
     border-radius: 30px;
     cursor: pointer;
@@ -988,17 +1014,17 @@
   .hero h1 {
     font-size: clamp(32px, 7.6vw, 58px);
     line-height: 1.45;
-    letter-spacing: -0.065em;
+    letter-spacing: -0.04em;
   }
   .heroDescription {
     margin-top: 24px !important;
-    font-size: 13px;
+    font-size: 16px;
     max-width: 330px;
   }
   .roundLink {
     margin-top: 27px;
     gap: 25px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .roundLink > span {
     width: 44px;
@@ -1006,7 +1032,7 @@
     font-size: 22px;
   }
   .heroArt {
-    height: 310px;
+    height: 240px;
     max-width: 420px;
     width: 100%;
     justify-self: center;
@@ -1061,7 +1087,7 @@
   }
   .sectionHeading > p:last-child {
     grid-column: auto;
-    font-size: 12px;
+    font-size: 15px;
   }
   .workGrid {
     grid-template-columns: 1fr;
@@ -1076,7 +1102,7 @@
   }
   .workMeta {
     margin-top: 20px;
-    font-size: 9px;
+    font-size: 13px;
   }
   .workCard h3 {
     font-size: 25px;
@@ -1086,13 +1112,13 @@
     font-size: 24px;
   }
   .workCard > p {
-    font-size: 13px;
+    font-size: 15px;
   }
   .workTags {
-    font-size: 10px;
+    font-size: 13px;
   }
   .conceptNote {
-    font-size: 10px;
+    font-size: 13px;
     margin-top: 30px !important;
   }
   .moreWorks {
@@ -1109,7 +1135,7 @@
   .moreWorks p {
     grid-column: 2;
     grid-row: 2;
-    font-size: 11px;
+    font-size: 14px;
   }
   .moreWorks b {
     grid-column: 3;
@@ -1119,21 +1145,24 @@
     margin-bottom: 35px;
   }
   .serviceRow {
-    grid-template-columns: 28px 1fr;
+    grid-template-columns: 1fr;
     gap: 15px;
     padding: 28px 0;
   }
+  .serviceRow > span {
+    display: none;
+  }
   .serviceRow > div:last-child {
-    grid-column: 2;
+    grid-column: 1;
   }
   .serviceRow h3 {
     font-size: 23px;
   }
   .serviceRow > div:last-child > p {
-    font-size: 13px;
+    font-size: 16px;
   }
   .serviceRow small {
-    font-size: 9px;
+    font-size: 13px;
     margin-top: 18px;
   }
   .playground,
@@ -1149,20 +1178,20 @@
     margin: 24px 0;
   }
   .playIntro > p:not(.eyebrow) {
-    font-size: 13px;
+    font-size: 15px;
   }
   .scenarios {
     margin-top: 25px;
   }
   .scenarios button {
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px 15px;
   }
   .flowBoard {
     padding: 20px 16px;
   }
   .boardTop {
-    font-size: 8px;
+    font-size: 11px;
   }
   .flowStage {
     height: 175px;
@@ -1172,7 +1201,7 @@
     height: 150px;
   }
   .task {
-    font-size: 10px;
+    font-size: 13px;
     padding: 13px 4px;
   }
   .task span {
@@ -1185,11 +1214,11 @@
     min-height: 115px;
   }
   .flowResult p {
-    font-size: 12px;
+    font-size: 15px;
   }
   .processIntro > p:not(.eyebrow),
   .steps p {
-    font-size: 13px;
+    font-size: 15px;
   }
   .steps li {
     gap: 25px;
@@ -1206,11 +1235,11 @@
     font-size: 27px;
   }
   .faq summary {
-    font-size: 13px;
+    font-size: 15px;
     min-height: 76px;
   }
   .faq details p {
-    font-size: 13px;
+    font-size: 15px;
   }
   .contact {
     padding: 35px 5% 45px;
@@ -1233,7 +1262,7 @@
     gap: 28px;
   }
   .contactBottom > p {
-    font-size: 12px;
+    font-size: 15px;
   }
   .contactButton {
     padding: 15px 25px;
@@ -1256,7 +1285,7 @@
     grid-column: 1;
   }
   .footerBottom {
-    font-size: 9px;
+    font-size: 12px;
     gap: 12px;
   }
   .footerBottom > span:nth-child(2) {
@@ -1276,9 +1305,317 @@
 
 .footerTop > div > a,
 .footerBottom a,
-.brief button,
-.brief a {
+.brief > button,
+.brief > a {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+}
+
+.site ::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+.nav > a,
+.heroBottom a,
+.mobileMenu > summary,
+.scenarios button,
+.brief summary {
+  min-height: 44px;
+  align-items: center;
+}
+.heroActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 30px;
+  margin-top: 32px;
+}
+.heroActions .roundLink {
+  margin-top: 0;
+}
+.heroConsult {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+.serviceActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 18px;
+}
+.serviceActions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  gap: 8px;
+}
+.serviceActions a:hover,
+.heroConsult:hover {
+  color: var(--accent-text);
+}
+.serviceRow .scopeNote {
+  font-size: 13px;
+  margin-top: 12px;
+}
+.automation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+  align-items: center;
+  border-top: 1px solid var(--line-work);
+  margin-top: 64px;
+  padding-top: 64px;
+}
+.automationCopy h3 {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+.automationCopy > p:not(.serviceLabel) {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 32em;
+}
+.scopeList {
+  margin: 28px 0 0;
+}
+.scopeList > div {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  gap: 18px;
+  border-top: 1px solid var(--line-work);
+  padding: 16px 0;
+  font-size: 14px;
+}
+.scopeList dt {
+  font-weight: 600;
+}
+.scopeList dd {
+  margin: 0;
+  color: var(--muted);
+}
+.orderPreview {
+  background: var(--surface-board);
+  padding: 32px;
+  border: 1px solid var(--line-work);
+}
+.orderHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line-board);
+  padding-bottom: 22px;
+  font-size: 18px;
+}
+.orderHeading > span:last-child {
+  font-size: 13px;
+  color: var(--muted);
+}
+.orderSteps {
+  list-style: none;
+  margin: 28px 0;
+  padding: 0;
+}
+.orderSteps li {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 28px;
+  position: relative;
+}
+.orderSteps li:last-child {
+  padding-bottom: 0;
+}
+.orderSteps li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 34px;
+  bottom: 0;
+  border-left: 1px solid var(--line-board);
+}
+.orderSteps li > span {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  border: 1px solid var(--line-work);
+  border-radius: 50%;
+  font-size: 14px;
+}
+.orderSteps h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 6px;
+}
+.orderSteps p {
+  font-size: 14px;
+  color: var(--muted);
+}
+.orderReceipt {
+  border-top: 1px solid var(--line-board);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+.orderReceipt strong {
+  font-size: 25px;
+  font-weight: 500;
+}
+.orderReceipt p {
+  flex-basis: 100%;
+  color: var(--muted);
+  font-size: 13px;
+}
+.contactBottom {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: start;
+  gap: 8%;
+}
+.contactGuide h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.contactGuide p {
+  font-size: 16px;
+  max-width: 28em;
+  margin-top: 18px;
+}
+.composer {
+  min-width: 0;
+  color: var(--ink);
+}
+.composer label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+}
+.composer > p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 10px 0;
+}
+.composer textarea {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.8;
+  resize: vertical;
+  min-height: 180px;
+}
+.composerActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 18px;
+}
+.composerActions button {
+  min-height: 48px;
+  padding: 12px 20px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 14px;
+  border: 1px solid var(--ink);
+}
+.composerActions button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.composerActions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  font-size: 14px;
+  gap: 16px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.composer [role="status"] {
+  min-height: 3.6em;
+}
+.brief .composer {
+  padding-top: 18px;
+  border-top: 1px solid var(--line-board);
+}
+@media (max-width: 1050px) {
+  .scopeList > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+@media (max-width: 760px) {
+  .heroCopy {
+    padding-top: 38px;
+  }
+  .heroActions {
+    gap: 12px 24px;
+    margin-top: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 7.6vw, 58px);
+    white-space: normal;
+  }
+  .heroBottom {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .heroBottom a {
+    font-size: 12px;
+  }
+  .automation {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 44px;
+    padding-top: 40px;
+  }
+  .orderPreview {
+    padding: 24px 20px;
+  }
+  .automationCopy .textLink {
+    margin-top: 8px;
+    font-size: 15px;
+  }
+  .contactBottom {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .contactGuide h3 {
+    font-size: 22px;
+  }
+  .composerActions {
+    gap: 12px 20px;
+  }
+  .flowStage {
+    height: 200px;
+    gap: 8px;
+  }
+  .task {
+    padding: 14px 6px;
+  }
+  .boardTop {
+    flex-wrap: wrap;
+  }
 }

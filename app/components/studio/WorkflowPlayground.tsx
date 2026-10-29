@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./studio.module.css";
+import ConsultationBrief from "./ConsultationBrief";
 
 const scenarios = [
   {
@@ -36,16 +37,7 @@ const scenarios = [
 export default function WorkflowPlayground() {
   const [selected, setSelected] = useState(0);
   const [organized, setOrganized] = useState(false);
-  const [copyState, setCopyState] = useState("");
   const scenario = scenarios[selected];
-  async function copyBrief() {
-    try {
-      await navigator.clipboard.writeText(scenario.question);
-      setCopyState("已複製。可貼到 LINE，補上你的情況。");
-    } catch {
-      setCopyState("無法自動複製，請選取下方文字後複製。");
-    }
-  }
   return (
     <section className={styles.playground} aria-labelledby="playground-title">
       <div className={styles.playIntro}>
@@ -68,7 +60,6 @@ export default function WorkflowPlayground() {
               onClick={() => {
                 setSelected(index);
                 setOrganized(false);
-                setCopyState("");
               }}
             >
               {item.label}
@@ -130,16 +121,11 @@ export default function WorkflowPlayground() {
           <summary>
             這也是我的困擾，準備諮詢內容 <span aria-hidden="true">＋</span>
           </summary>
-          <p>{scenario.question}</p>
-          <button onClick={copyBrief}>複製這段需求</button>
-          <a
-            href="https://lin.ee/N4ukE55"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            開啟 LINE ↗
-          </a>
-          <p role="status">{copyState || "內容由你確認後傳送。"}</p>
+          <ConsultationBrief
+            key={selected}
+            id="workflow-message"
+            initialText={scenario.question + "\n目前最常卡住的地方："}
+          />
         </details>
       </div>
     </section>
