@@ -54,7 +54,9 @@ export default function StudioHome() {
               <p className={styles.heroDescription}>
                 有個性的網站，懂日常的系統。
                 <br />
-                我們陪民宿、小店與獨立工作者，把心力留給真正喜歡的事。
+                我們陪民宿、小店與獨立工作者，
+                <br />
+                把心力留給真正喜歡的事。
               </p>
               <a className={styles.roundLink} href="#portfolio">
                 探索我們的作品 <span aria-hidden="true">↗</span>
