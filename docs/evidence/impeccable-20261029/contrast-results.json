@@ -1,0 +1,677 @@
+[
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "8px",
+    "text": "INDEPENDENT DIGITAL STUDIO",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "studio-module__8g0ZKG__serif",
+    "color": "rgb(215, 73, 27)",
+    "font": "32px",
+    "text": "有餘裕。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 3.7645109010275744
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "8px",
+    "text": "WEB DESIGN & DIGITAL AUTOMATION",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "studio-module__8g0ZKG__eyebrow",
+    "color": "rgb(41, 42, 37)",
+    "font": "10px",
+    "text": "01 / SELECTED WORK",
+    "weight": "600",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "studio-module__8g0ZKG__serif",
+    "color": "rgb(41, 42, 37)",
+    "font": "35px",
+    "text": "做成日常。",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "studio-module__8g0ZKG__visit",
+    "color": "rgb(41, 42, 37)",
+    "font": "12px",
+    "text": "探索作品 ↗",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "9px",
+    "text": "01 / HOSPITALITY",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "9px",
+    "text": "概念設計",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "24px",
+    "text": "Between Tides",
+    "weight": "500",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "13px",
+    "text": "把海的節奏，帶進一次住宿的開始。",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "studio-module__8g0ZKG__workTags",
+    "color": "rgb(101, 101, 91)",
+    "font": "10px",
+    "text": "品牌敘事 · 潮汐互動 · 訂房流程示範",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "studio-module__8g0ZKG__visit",
+    "color": "rgb(41, 42, 37)",
+    "font": "12px",
+    "text": "探索作品 ↗",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "9px",
+    "text": "02 / HOSPITALITY",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "9px",
+    "text": "概念設計",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "24px",
+    "text": "Mist House",
+    "weight": "500",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "13px",
+    "text": "讓一杯茶的時間，成為網站的節奏。",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "studio-module__8g0ZKG__workTags",
+    "color": "rgb(101, 101, 91)",
+    "font": "10px",
+    "text": "節氣體驗 · 泡茶計時 · 房費試算",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "studio-module__8g0ZKG__conceptNote",
+    "color": "rgb(101, 101, 91)",
+    "font": "10px",
+    "text": "潮間與霧裡山房為虛構旅宿概念作品，用來展示設計與互動，不提供實際訂房。",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "03",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "21px",
+    "text": "日式民宿",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "住宿品牌網站",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "04",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "21px",
+    "text": "洗衣廠 LIFF",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "LINE 訂單流程展示",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "05",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "21px",
+    "text": "洗務通 WashPass",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 11.703215270377425
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "洗滌管理系統展示",
+    "weight": "400",
+    "bg": "rgb(231, 232, 222)",
+    "ratio": 4.7660666117590855
+  },
+  {
+    "class": "studio-module__8g0ZKG__eyebrow",
+    "color": "rgb(41, 42, 37)",
+    "font": "10px",
+    "text": "02 / WHAT WE DO",
+    "weight": "600",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "studio-module__8g0ZKG__serif",
+    "color": "rgb(41, 42, 37)",
+    "font": "35px",
+    "text": "也要好用。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "01",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "studio-module__8g0ZKG__serviceLabel",
+    "color": "rgb(165, 54, 22)",
+    "font": "11px",
+    "text": "品牌網站設計",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.826146820141841
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "23px",
+    "text": "讓品牌，被好好看見。",
+    "weight": "500",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "13px",
+    "text": "把品牌的個性、服務與體驗，整理成一個清楚、好看、好操作的網站。從手機閱讀到聯絡入口，每一步都為你的客人想。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "02",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "studio-module__8g0ZKG__serviceLabel",
+    "color": "rgb(165, 54, 22)",
+    "font": "11px",
+    "text": "工作流程自動化",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.826146820141841
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "23px",
+    "text": "讓日常，自己走下去。",
+    "weight": "500",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "13px",
+    "text": "從表單、預約到提醒，找出值得串接的重複工作。先解決最常卡住的一步，再逐步擴充，讓系統配合你的工作方式。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "11px",
+    "text": "03",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "studio-module__8g0ZKG__serviceLabel",
+    "color": "rgb(165, 54, 22)",
+    "font": "11px",
+    "text": "LINE 與智慧客服",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.826146820141841
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "23px",
+    "text": "讓回應，多一位幫手。",
+    "weight": "500",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "13px",
+    "text": "整理常見問題與品牌語氣，規劃 LINE 服務及客服助理。能自動處理的先處理，需要人判斷的，留下明確的接手方式。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "studio-module__8g0ZKG__eyebrow",
+    "color": "rgb(182, 189, 174)",
+    "font": "10px",
+    "text": "LESS BUSY. MORE LIVING.",
+    "weight": "600",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 7.277704371949544
+  },
+  {
+    "class": "studio-module__8g0ZKG__serif",
+    "color": "rgb(243, 239, 229)",
+    "font": "39px",
+    "text": "餘裕。",
+    "weight": "400",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 12.234450728030529
+  },
+  {
+    "class": "",
+    "color": "rgb(34, 41, 31)",
+    "font": "12px",
+    "text": "民宿日常",
+    "weight": "400",
+    "bg": "rgb(213, 229, 186)",
+    "ratio": 11.207288203927714
+  },
+  {
+    "class": "",
+    "color": "rgb(243, 239, 229)",
+    "font": "12px",
+    "text": "小店經營",
+    "weight": "400",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 12.234450728030529
+  },
+  {
+    "class": "",
+    "color": "rgb(243, 239, 229)",
+    "font": "12px",
+    "text": "個人接案",
+    "weight": "400",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 12.234450728030529
+  },
+  {
+    "class": "studio-module__8g0ZKG__demoNote",
+    "color": "rgb(195, 200, 188)",
+    "font": "11px",
+    "text": "互動情境示範，實際串接依需求評估。",
+    "weight": "400",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 8.233667955165481
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "8px",
+    "text": "YOUR EVERYDAY / 01",
+    "weight": "400",
+    "bg": "rgb(241, 240, 231)",
+    "ratio": 12.641718485343215
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "8px",
+    "text": "忙碌的日常",
+    "weight": "400",
+    "bg": "rgb(241, 240, 231)",
+    "ratio": 12.641718485343215
+  },
+  {
+    "class": "",
+    "color": "rgb(165, 54, 22)",
+    "font": "14px",
+    "text": "01",
+    "weight": "400",
+    "bg": "rgb(255, 254, 247)",
+    "ratio": 6.617081487648059
+  },
+  {
+    "class": "",
+    "color": "rgb(165, 54, 22)",
+    "font": "14px",
+    "text": "02",
+    "weight": "400",
+    "bg": "rgb(255, 254, 247)",
+    "ratio": 6.617081487648059
+  },
+  {
+    "class": "",
+    "color": "rgb(165, 54, 22)",
+    "font": "14px",
+    "text": "03",
+    "weight": "400",
+    "bg": "rgb(255, 254, 247)",
+    "ratio": 6.617081487648059
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "21px",
+    "text": "事情很多，不必全靠你記住。",
+    "weight": "500",
+    "bg": "rgb(241, 240, 231)",
+    "ratio": 12.641718485343215
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "12px",
+    "text": "回覆入住問題、整理預約資料、提醒入住事項。讓每件事有自己的位置。",
+    "weight": "400",
+    "bg": "rgb(241, 240, 231)",
+    "ratio": 5.148266608472703
+  },
+  {
+    "class": "studio-module__8g0ZKG__eyebrow",
+    "color": "rgb(41, 42, 37)",
+    "font": "10px",
+    "text": "03 / WORKING TOGETHER",
+    "weight": "600",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "studio-module__8g0ZKG__serif",
+    "color": "rgb(41, 42, 37)",
+    "font": "39px",
+    "text": "再聊技術。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(165, 54, 22)",
+    "font": "11px",
+    "text": "01",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.826146820141841
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "22px",
+    "text": "聊聊現在",
+    "weight": "500",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "13px",
+    "text": "了解你的客人、工作方式，以及最想改善的問題。沒有規格書，也可以開始。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "",
+    "color": "rgb(165, 54, 22)",
+    "font": "11px",
+    "text": "02",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.826146820141841
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "22px",
+    "text": "一起釐清",
+    "weight": "500",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "13px",
+    "text": "確認服務範圍、所需素材、費用與時程。先把期待說清楚，再進入製作。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "",
+    "color": "rgb(165, 54, 22)",
+    "font": "11px",
+    "text": "03",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.826146820141841
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "22px",
+    "text": "做出來，試著用",
+    "weight": "500",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "13px",
+    "text": "從設計到開發，透過預覽與實際操作調整細節，確認手機上也順手。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "",
+    "color": "rgb(165, 54, 22)",
+    "font": "11px",
+    "text": "04",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.826146820141841
+  },
+  {
+    "class": "",
+    "color": "rgb(41, 42, 37)",
+    "font": "22px",
+    "text": "上線，也交接",
+    "weight": "500",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "",
+    "color": "rgb(101, 101, 91)",
+    "font": "13px",
+    "text": "確認內容與功能後上線，說明日常操作；後續維護依約定的範圍進行。",
+    "weight": "400",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 5.128880807096708
+  },
+  {
+    "class": "studio-module__8g0ZKG__eyebrow",
+    "color": "rgb(41, 42, 37)",
+    "font": "10px",
+    "text": "A FEW GOOD QUESTIONS",
+    "weight": "600",
+    "bg": "rgb(243, 239, 229)",
+    "ratio": 12.594116085886126
+  },
+  {
+    "class": "studio-module__8g0ZKG__eyebrow",
+    "color": "rgb(22, 25, 16)",
+    "font": "8px",
+    "text": "GOOD THINGS START WITH A CONVERSATION.",
+    "weight": "600",
+    "bg": "rgb(223, 87, 45)",
+    "ratio": 4.691288685242931
+  },
+  {
+    "class": "studio-module__8g0ZKG__serif",
+    "color": "rgb(22, 25, 16)",
+    "font": "31px",
+    "text": "從我們聊聊開始。",
+    "weight": "400",
+    "bg": "rgb(223, 87, 45)",
+    "ratio": 4.691288685242931
+  },
+  {
+    "class": "",
+    "color": "rgb(243, 239, 229)",
+    "font": "17px",
+    "text": "↗",
+    "weight": "700",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 12.234450728030529
+  },
+  {
+    "class": "",
+    "color": "rgb(195, 200, 188)",
+    "font": "12px",
+    "text": "宜蘭縣冬山鄉武淵三路 120 號",
+    "weight": "400",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 8.233667955165481
+  },
+  {
+    "class": "",
+    "color": "rgb(195, 200, 188)",
+    "font": "9px",
+    "text": "© 2026 PLAYWISE STUDIO",
+    "weight": "400",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 8.233667955165481
+  },
+  {
+    "class": "",
+    "color": "rgb(195, 200, 188)",
+    "font": "9px",
+    "text": "營業人名稱：智遊工作室 · 統一編號：60165085",
+    "weight": "400",
+    "bg": "rgb(40, 45, 39)",
+    "ratio": 8.233667955165481
+  }
+]
