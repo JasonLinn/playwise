@@ -1,0 +1,19 @@
+{
+  "commit": "f2f9552f5d85b979c80831afd5ec790feeaa33a7",
+  "url": "http://localhost:3101/",
+  "tabId": "1",
+  "tabCreatedFresh": true,
+  "tabClosed": true,
+  "viewportCleared": true,
+  "emulatedMediaCleared": true,
+  "touchEmulationDisabled": true,
+  "overlay": "not attempted: read-only evaluation only; no mutable injection available",
+  "server": "existing parent-owned production server reused; no new server",
+  "detectorCommand": "npx --yes impeccable@4.8.0 detect --json app/components/studio app/page.tsx",
+  "detectorInvocations": 1,
+  "detectorShellExitCode": 1,
+  "detectorValidJson": true,
+  "detectorFindings": 1,
+  "ignoreFile": "absent",
+  "independence": "A output, prior reports and snapshots not read"
+}

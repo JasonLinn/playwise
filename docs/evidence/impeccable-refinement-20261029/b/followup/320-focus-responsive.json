@@ -1,0 +1,28 @@
+{
+  "focus": {
+    "color": "rgb(22, 25, 16)",
+    "focusVisible": true,
+    "height": 44,
+    "offset": "6px",
+    "outline": "rgb(22, 25, 16) solid 3px",
+    "text": "重設範本",
+    "width": 52,
+    "x": 237.75,
+    "y": 397.78125
+  },
+  "hover": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(22, 25, 16)",
+    "hover": true
+  },
+  "narrow": {
+    "clientWidth": 305,
+    "overflow": [],
+    "scrollWidth": 305,
+    "smallTargets": [],
+    "viewport": [
+      320,
+      720
+    ]
+  }
+}

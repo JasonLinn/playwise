@@ -1,0 +1,20 @@
+Browser tab: 8, Title: "智遊工作室 | 讓工作更輕鬆，讓生活更自由", URL: "http://localhost:3101/works/laundry".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 13-14, 105, 107-113
+~		12 text ✕ 快潔洗衣 — 線上送洗 🧺 ✓
+~		101 text 示範完成！
+~		102 container
+~			103 text 這是流程預覽，未送出訂單，
+~			104 text 不會安排收件或收取費用。
++		105 text 示範編號：DEMO-0147（非實際訂單）
+~		106 text 🧺
++		107 text 快潔洗衣
++		108 text 剛剛
++		109 container
++			110 text 通知內容示意（未傳送）
++			111 text 取件時間： 示範日 1 09:00–11:00
++			112 text 件數： 2  件
++			113 text 預估金額： NT$  160
++			114 text 如需更改請回覆此訊息，謝謝！
++		115 button 重新體驗
+The focused UI element is 0 AXWebArea 智遊工作室 | 讓工作更輕鬆，讓生活更自由, URL: localhost:3101/works/laundry

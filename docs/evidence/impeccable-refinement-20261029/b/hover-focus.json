@@ -1,0 +1,17 @@
+{
+  "navHover": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(165, 54, 22)",
+    "hover": true
+  },
+  "flowFocus": {
+    "offset": "6px",
+    "outline": "rgb(168, 51, 18) solid 3px",
+    "text": "這也是我的困擾，準備諮詢內容 ＋"
+  },
+  "flowHover": {
+    "bg": "rgb(68, 77, 60)",
+    "color": "rgb(243, 239, 229)",
+    "hover": true
+  }
+}

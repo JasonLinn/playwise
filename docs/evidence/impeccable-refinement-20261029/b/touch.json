@@ -1,0 +1,9 @@
+{
+  "engine": "IAB Chromium",
+  "viewport": [
+    390,
+    720
+  ],
+  "tested": false,
+  "reason": "Input.dispatchTouchEvent unsupported in in-app browser; viewport and mouse/keyboard evidence only"
+}

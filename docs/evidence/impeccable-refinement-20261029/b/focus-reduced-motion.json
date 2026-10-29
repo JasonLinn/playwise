@@ -1,0 +1,57 @@
+{
+  "focus": {
+    "bg": "rgb(41, 42, 37)",
+    "color": "rgb(243, 239, 229)",
+    "focusVisible": true,
+    "offset": "6px",
+    "outline": "rgb(22, 25, 16) solid 3px",
+    "text": "複製諮詢內容"
+  },
+  "reducedMotion": {
+    "animations": [
+      {
+        "animation": "none",
+        "class": "studio-module__8g0ZKG__ribbonBack",
+        "duration": "0s",
+        "transform": "matrix(1, 0, 0, 1, 8, 12)"
+      },
+      {
+        "animation": "none",
+        "class": "studio-module__8g0ZKG__ribbon",
+        "duration": "0s",
+        "transform": "none"
+      },
+      {
+        "animation": "none",
+        "class": "",
+        "duration": "0s",
+        "transform": "none"
+      },
+      {
+        "animation": "none",
+        "class": "",
+        "duration": "0s",
+        "transform": "none"
+      },
+      {
+        "animation": "none",
+        "class": "studio-module__8g0ZKG__task",
+        "duration": "0s",
+        "transform": "matrix(0.987688, -0.156434, 0.156434, 0.987688, 0, 15)"
+      },
+      {
+        "animation": "none",
+        "class": "studio-module__8g0ZKG__task",
+        "duration": "0s",
+        "transform": "matrix(0.992546, 0.121869, -0.121869, 0.992546, 0, -23)"
+      },
+      {
+        "animation": "none",
+        "class": "studio-module__8g0ZKG__task",
+        "duration": "0s",
+        "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, 0, 24)"
+      }
+    ],
+    "reduce": true
+  }
+}

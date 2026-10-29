@@ -1,0 +1,96 @@
+{
+  "brand": [
+    {
+      "height": 44,
+      "hidden": "true",
+      "name": "playwise 智遊工作室首頁",
+      "svg": "<svg viewBox=\"0 0 64 64\" width=\"40\" height=\"40\" fill=\"none\"><path d=\"M18 47V24h8a9 9 0 0 1 0 18h-8m17-24h13v13m-1-12L31 35\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linecap=\"square\"></path></svg>",
+      "width": 144.0625
+    }
+  ],
+  "clientWidth": 375,
+  "contact": [
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "8px",
+      "height": 14,
+      "text": "GOOD THINGS START WITH A CONVERSATION."
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "16px",
+      "height": 56,
+      "text": "一個網站，一段流程，或一個還沒成形的想法。告訴我們你的工作，以及現在最常卡住的一步。"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "16px",
+      "height": 56,
+      "text": "我們會先釐清需求，再討論適合的做法、範圍與報價。"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "16px",
+      "height": 28,
+      "text": "第一則訊息，可以這樣開始"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "13px",
+      "height": 46.78125,
+      "text": "填寫你方便分享的資訊；還沒有網站，也可以直接描述問題。"
+    },
+    {
+      "background": "rgb(243, 239, 229)",
+      "color": "rgb(41, 42, 37)",
+      "font": "16px",
+      "height": 181.984375,
+      "text": "我經營／從事：\n目前網站或品牌名稱（選填）：\n最想改善的問題：\n希望完成的時間（選填）："
+    },
+    {
+      "background": "rgb(41, 42, 37)",
+      "color": "rgb(243, 239, 229)",
+      "font": "14px",
+      "height": 50.5,
+      "text": "複製諮詢內容"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "14px",
+      "height": 48,
+      "text": "開啟 LINE 聊聊 ↗"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "13px",
+      "height": 22.75,
+      "text": "草稿暫存在此瀏覽器分頁，不會自動傳送。"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "13px",
+      "height": 44,
+      "text": "重設範本"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "13px",
+      "height": 46.796875,
+      "text": "複製後開啟 LINE，貼上並確認內容再傳送。"
+    }
+  ],
+  "scrollWidth": 375,
+  "viewport": [
+    390,
+    720
+  ]
+}

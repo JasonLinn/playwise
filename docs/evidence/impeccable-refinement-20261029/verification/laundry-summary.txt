@@ -1,0 +1,18 @@
+Browser tab: 8, Title: "智遊工作室 | 讓工作更輕鬆，讓生活更自由", URL: "http://localhost:3101/works/laundry".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 103-105, 107-109, 114, 116-128
+~			14 text ✓ 選衣物 ✓ 預約時間 3 確認付款
+~		101 text 📋 訂單確認 👔 襯衫  ×  2 NT$  160 取件時間 示範日 1 09:00–11:00 送件時間 示範日 3 15:00–17:00 合計 NT$  160 💳 付款方式
+~		102 checkbox 💳 LINE Pay 付款選項示意, Value: 1
++			103 text 💳
++			104 text LINE Pay
++			105 text 付款選項示意
+~		106 checkbox 💵 現金付款 取件時付款, Value: 0
++			107 text 💵
++			108 text 現金付款
++			109 text 取件時付款
+~		110 text ✏️ 備註
+~		111 text entry area (settable) 示範訂單備註
+~		112 button 完成示範
+~		113 button 上一步
+The focused UI element is 0 AXWebArea 智遊工作室 | 讓工作更輕鬆，讓生活更自由, URL: localhost:3101/works/laundry

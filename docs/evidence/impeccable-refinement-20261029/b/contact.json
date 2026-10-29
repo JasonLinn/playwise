@@ -1,0 +1,54 @@
+{
+  "html": "<section id=\"contact\" class=\"studio-module__8g0ZKG__contact\" aria-labelledby=\"contact-title\"><div class=\"studio-module__8g0ZKG__contactTop\"><p class=\"studio-module__8g0ZKG__eyebrow\">GOOD THINGS START WITH A CONVERSATION.</p><span aria-hidden=\"true\">↗</span></div><h2 id=\"contact-title\">下一個好點子，<br><span class=\"studio-module__8g0ZKG__serif\">從我們聊聊開始。</span></h2><div class=\"studio-module__8g0ZKG__contactBottom\"><div class=\"studio-module__8g0ZKG__contactGuide\"><h3>先說說，哪件事最想改善？</h3><p>一個網站，一段流程，或一個還沒成形的想法。告訴我們你的工作，以及現在最常卡住的一步。</p><p>我們會先釐清需求，再討論適合的做法、範圍與報價。</p></div><div class=\"studio-module__8g0ZKG__composer\"><label for=\"contact-message\">第一則訊息，可以這樣開始</label><p id=\"contact-message-help\">填寫你方便分享的資訊；還沒有網站，也可以直接描述問題。</p><textarea id=\"contact-message\" rows=\"5\" aria-describedby=\"contact-message-help\">   </textarea><div class=\"studio-module__8g0ZKG__composerActions\"><button type=\"button\" disabled=\"\">複製諮詢內容</button><a href=\"https://lin.ee/N4ukE55\" target=\"_blank\" rel=\"noopener noreferrer\">開啟 LINE 聊聊 <span aria-hidden=\"true\">↗</span></a></div><p role=\"status\" aria-atomic=\"true\">內容只留在此頁，開啟 LINE 不會自動傳送。</p></div></div></section>",
+  "scrollY": 6410,
+  "styles": [
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "10px",
+      "text": "GOOD THINGS START WITH A CONVERSATION."
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "16px",
+      "text": "一個網站，一段流程，或一個還沒成形的想法。告訴我們你的工作，以及現在最常卡住的一步。"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(22, 25, 16)",
+      "font": "16px",
+      "text": "我們會先釐清需求，再討論適合的做法、範圍與報價。"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(41, 42, 37)",
+      "font": "16px",
+      "text": "第一則訊息，可以這樣開始"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(41, 42, 37)",
+      "font": "13px",
+      "text": "填寫你方便分享的資訊；還沒有網站，也可以直接描述問題。"
+    },
+    {
+      "bg": "rgb(41, 42, 37)",
+      "color": "rgb(243, 239, 229)",
+      "font": "14px",
+      "text": "複製諮詢內容"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(41, 42, 37)",
+      "font": "14px",
+      "text": "開啟 LINE 聊聊 ↗"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(41, 42, 37)",
+      "font": "13px",
+      "text": "內容只留在此頁，開啟 LINE 不會自動傳送。"
+    }
+  ]
+}

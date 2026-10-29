@@ -1,0 +1,15 @@
+{
+  "workflowReset": {
+    "focused": true,
+    "value": "我經營民宿，想整理預約、入住提醒與常見問題回覆的流程。\n目前最常卡住的地方："
+  },
+  "otherDraft": "小店草稿：整理取貨時間",
+  "blankCopyEnabled": false,
+  "reset": {
+    "color": "rgb(22, 25, 16)",
+    "focus": "contact-message",
+    "status": "已重設為起始範本。",
+    "value": "我經營／從事：\n目前網站或品牌名稱（選填）：\n最想改善的問題：\n希望完成的時間（選填）："
+  },
+  "resetReload": "我經營／從事：\n目前網站或品牌名稱（選填）：\n最想改善的問題：\n希望完成的時間（選填）："
+}
