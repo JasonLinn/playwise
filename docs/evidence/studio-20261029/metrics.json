@@ -1,0 +1,77 @@
+[
+  {
+    "name": "mobile-1",
+    "version": "12.6.1",
+    "fetchTime": "2026-10-29T10:09:53.598Z",
+    "scores": {
+      "performance": 99.0,
+      "accessibility": 96.0,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcpMs": 2172.7309999999998,
+    "tbtMs": 8.5,
+    "cls": 0,
+    "sha256": "21FA9F9122DC34D46DE870AED6C81473C3696B11DC9330211AF16953A89D2FB8"
+  },
+  {
+    "name": "mobile-2",
+    "version": "12.6.1",
+    "fetchTime": "2026-10-29T10:15:51.81Z",
+    "scores": {
+      "performance": 99.0,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcpMs": 2177.058,
+    "tbtMs": 6.5,
+    "cls": 0,
+    "sha256": "275920B5EFDE2865B4986E7C0192C62958D2A85B0F00CBB984DA8D68E2D57607"
+  },
+  {
+    "name": "mobile-c884163",
+    "version": "12.6.1",
+    "fetchTime": "2026-10-29T10:27:28.24Z",
+    "scores": {
+      "performance": 99.0,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcpMs": 2267.5412,
+    "tbtMs": 16.5,
+    "cls": 0,
+    "sha256": "D02C907C4EA4F977339C69439CD203202FF7359A29FAAEBE8A2C7D1464AABEDF"
+  },
+  {
+    "name": "desktop-c884163",
+    "version": "12.6.1",
+    "fetchTime": "2026-10-29T10:24:29.971Z",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcpMs": 469.0384,
+    "tbtMs": 0,
+    "cls": 0,
+    "sha256": "6C030CD76D2338B66D8D5608F3585B548F381C29363703A34FF64538E389E499"
+  },
+  {
+    "name": "mobile-45d57c4",
+    "version": "12.6.1",
+    "fetchTime": "2026-10-29T10:44:22.291Z",
+    "scores": {
+      "performance": 99.0,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcpMs": 2201.7055,
+    "tbtMs": 18,
+    "cls": 0,
+    "sha256": "f2775c4365bed2d5959c899613d8b7a01d0b2c0754493f1282f5e4b082c0a44f"
+  }
+]
