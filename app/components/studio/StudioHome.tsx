@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import tide from "../../../public/images/studio/tide.png";
-import mist from "../../../public/images/studio/mist.png";
+import tide from "../../../public/images/studio/tide.jpg";
+import mist from "../../../public/images/studio/mist.jpg";
 import StudioHeader from "./StudioHeader";
 import WorkflowPlayground from "./WorkflowPlayground";
 import styles from "./studio.module.css";
@@ -32,7 +32,7 @@ const services = [
 
 export default function StudioHome() {
   return (
-    <div className={styles.site}>
+    <div className={styles.site} id="top">
       <a className={styles.skip} href="#main-content">
         跳至主要內容
       </a>
@@ -352,7 +352,7 @@ export default function StudioHome() {
         <div className={styles.footerBottom}>
           <span>© {new Date().getFullYear()} PLAYWISE STUDIO</span>
           <span>營業人名稱：智遊工作室 · 統一編號：60165085</span>
-          <a href="#main-content">回到頂端 ↑</a>
+          <a href="#top">回到頂端 ↑</a>
         </div>
       </footer>
     </div>
