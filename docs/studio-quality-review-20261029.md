@@ -76,4 +76,8 @@ Lighthouse 12.6.1，對本機 production build 的 Chrome 模擬量測。不是�
 
 ## 發布紀錄
 
-待本次程式審閱與部署完成後補記正式版本及驗證結果。
+[PR #2](https://github.com/JasonLinn/playwise/pull/2) 已於 2026 年 10 月 29 日合併；功能發布 commit 為 `7f6be414124b8f943dabea3f960e8b355c962b36`，與上述 `45d57c4` 的應用程式內容相同。正式部署 `dpl_5ekR2bnN4v6yMtRJDJ7po1tnCCdo` 為 READY、target production，正式網域已指向新版。
+
+正式首頁、五個作品頁、分享圖與 favicon 共八個路由均回應 200。正式站已驗證個人接案情境整理、諮詢文字展開、390px 手機選單、作品卡進入潮間及返回作品區；手機文件寬與內容寬均為 375px，沒有水平溢出。桌機首屏、手機首屏與互動畫面更新為正式站截圖。[發布驗證資料](evidence/studio-20261029/production.json) 隨 repo 保存。
+
+功能發布後的提交只補充驗收文件與截圖，不修改應用程式。前一個正式版本 `f435b9c` 保留於 Git，可依 Vercel 正常回復流程退回。

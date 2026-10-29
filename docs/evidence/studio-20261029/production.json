@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-29",
+  "releaseCommit": "7f6be414124b8f943dabea3f960e8b355c962b36",
+  "verifiedSourceCommit": "45d57c48c6b94ffa58039dc47c1877ef8ed088b7",
+  "deploymentId": "dpl_5ekR2bnN4v6yMtRJDJ7po1tnCCdo",
+  "state": "READY",
+  "target": "production",
+  "url": "https://playwise-nine.vercel.app",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "success": true
+    },
+    {
+      "path": "/works/tide",
+      "status": 200,
+      "success": true
+    },
+    {
+      "path": "/works/mist",
+      "status": 200,
+      "success": true
+    },
+    {
+      "path": "/works/bnb",
+      "status": 200,
+      "success": true
+    },
+    {
+      "path": "/works/laundry",
+      "status": 200,
+      "success": true
+    },
+    {
+      "path": "/works/washpass",
+      "status": 200,
+      "success": true
+    },
+    {
+      "path": "/studio-share",
+      "status": 200,
+      "success": true
+    },
+    {
+      "path": "/icon.svg",
+      "status": 200,
+      "success": true
+    }
+  ],
+  "browserChecks": [
+    "Published homepage and final introductory line breaks",
+    "Freelancer scenario organizes tasks and expands matching consultation text",
+    "390px navigation opens, follows portfolio, enters Tide and returns to /#portfolio"
+  ],
+  "limitations": [
+    "Lighthouse measured on local production build in Chrome simulation",
+    "No physical iOS/Android or screen reader verification",
+    "Award readiness is internal design judgment, not an external award result"
+  ]
+}
