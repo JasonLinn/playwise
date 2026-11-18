@@ -3,11 +3,14 @@
 import { useRef } from "react";
 import styles from "./studio.module.css";
 
+const LINE_URL = "https://lin.ee/N4ukE55";
+
 const links = [
-  ["#portfolio", "精選作品"],
-  ["#services", "我們的服務"],
+  ["#portfolio", "作品案例"],
+  ["#services", "服務項目"],
+  ["#who", "適合對象"],
   ["#clients", "合作方式"],
-  ["#contact", "聊聊你的想法"],
+  ["#contact", "聯絡我們"],
 ];
 
 export default function StudioHeader() {
@@ -34,21 +37,30 @@ export default function StudioHeader() {
         </span>
       </a>
       <nav aria-label="主要導覽" className={styles.nav}>
-        {links.map(([href, label], index) => (
-          <a
-            key={href}
-            href={href}
-            className={index === 3 ? styles.navContact : undefined}
-          >
+        {links.map(([href, label]) => (
+          <a key={href} href={href}>
             {label}
-            {index === 0 ? (
-              <sup>05</sup>
-            ) : index === 3 ? (
-              <span aria-hidden="true">↗</span>
-            ) : null}
           </a>
         ))}
+        <a
+          href={LINE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.lineButton}
+        >
+          LINE 諮詢
+          <span className={styles.srOnly}>（另開新視窗）</span>
+        </a>
       </nav>
+      <a
+        href={LINE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${styles.lineButton} ${styles.lineButtonMobile}`}
+      >
+        LINE 諮詢
+        <span className={styles.srOnly}>（另開新視窗）</span>
+      </a>
       <details
         className={styles.mobileMenu}
         ref={menu}

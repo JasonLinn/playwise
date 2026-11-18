@@ -26,7 +26,6 @@
   --flow-line: #b1b9a5;
   --text-selected: #22291f;
   --button-hover: #444d3c;
-  --art-shadow: #bdb6a3;
   --surface-tide: #c4cbbd;
   --surface-mist: #bcc3b4;
   --image-placeholder: #bdc4b4;
@@ -214,59 +213,6 @@
   color: var(--paper);
   transform: rotate(45deg);
 }
-.heroArt {
-  position: relative;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  min-width: 0;
-}
-.heroArt > svg {
-  width: 115%;
-  max-width: none;
-  margin-left: -7%;
-  overflow: visible;
-  transform: rotate(-8deg);
-}
-.ribbonBack {
-  stroke: var(--art-shadow);
-  stroke-width: 43;
-  stroke-linecap: round;
-  transform: translate(8px, 12px);
-  opacity: 0.25;
-}
-.ribbon {
-  stroke: var(--orange);
-  stroke-width: 42;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 1800;
-  animation: draw 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
-}
-.artCaption {
-  position: absolute;
-  right: 5%;
-  top: 11%;
-  font-size: 10px;
-  line-height: 1.4;
-  letter-spacing: 1.2px;
-}
-.artLabel {
-  position: absolute;
-  bottom: 17%;
-  left: 16%;
-  font-size: 11px;
-  letter-spacing: 3px;
-  transform: rotate(-8deg);
-}
-.artIndex {
-  position: absolute;
-  right: 0;
-  bottom: 7%;
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 1.3px;
-}
 .heroBottom {
   display: flex;
   align-items: center;
@@ -374,7 +320,7 @@
   margin-top: 24px;
   color: var(--muted);
 }
-.workCard h3 {
+.workCard h4 {
   font-size: 27px;
   font-weight: 500;
   letter-spacing: -1px;
@@ -383,13 +329,13 @@
   align-items: baseline;
   gap: 12px;
 }
-.workCard h3 > span {
+.workCard h4 > span {
   font-family: Georgia, serif;
   font-size: 25px;
   letter-spacing: -0.8px;
   font-style: italic;
 }
-.workCard h3 b {
+.workCard h4 b {
   font-weight: 400;
   margin-left: auto;
 }
@@ -850,14 +796,6 @@
 .footer :focus-visible {
   outline-color: var(--focus-on-dark);
 }
-@keyframes draw {
-  from {
-    stroke-dashoffset: 1800;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
 @media (min-width: 1600px) {
   .site {
     max-width: 1920px;
@@ -884,15 +822,15 @@
     grid-column: 2;
     justify-self: start;
   }
-  .workCard h3 {
+  .workCard h4 {
     flex-wrap: wrap;
     font-size: 24px;
     gap: 5px 10px;
   }
-  .workCard h3 > span {
+  .workCard h4 > span {
     font-size: 22px;
   }
-  .workCard h3 b {
+  .workCard h4 b {
     display: none;
   }
   .serviceRow {
@@ -912,10 +850,6 @@
   .footerTop > div {
     grid-column: 2;
     justify-self: start;
-  }
-  .heroArt > svg {
-    width: 107%;
-    margin-left: -4%;
   }
 }
 @media (max-width: 760px) {
@@ -1031,33 +965,6 @@
     height: 44px;
     font-size: 22px;
   }
-  .heroArt {
-    height: 240px;
-    max-width: 420px;
-    width: 100%;
-    justify-self: center;
-    margin-top: 5px;
-  }
-  .heroArt > svg {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-  }
-  .artCaption {
-    right: 2%;
-    top: 10%;
-    font-size: 8px;
-  }
-  .artLabel {
-    font-size: 9px;
-    letter-spacing: 1px;
-    bottom: 11%;
-    left: 18%;
-  }
-  .artIndex {
-    font-size: 8px;
-    bottom: 0;
-  }
   .heroBottom {
     margin-top: 22px;
     padding: 17px 0;
@@ -1104,11 +1011,11 @@
     margin-top: 20px;
     font-size: 13px;
   }
-  .workCard h3 {
+  .workCard h4 {
     font-size: 25px;
     gap: 10px;
   }
-  .workCard h3 > span {
+  .workCard h4 > span {
     font-size: 24px;
   }
   .workCard > p {
@@ -1638,8 +1545,538 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+/* Live client projects */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.live {
+  margin-bottom: 110px;
+}
+.liveHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line-work);
+  padding-bottom: 18px;
+  margin-bottom: 45px;
+}
+.liveHeading h3 {
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.liveHeading p {
+  font-size: 14px;
+  color: var(--muted);
+}
+.liveGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 4%;
+}
+.liveImage {
+  aspect-ratio: 1.45;
+}
+.liveImage img {
+  object-fit: cover;
+}
+.livePhone {
+  background: #dfe3d8;
+  padding: 3% 6%;
+}
+.livePhone img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 14px;
+}
+.workCard .liveTitle {
+  font-size: 24px;
+}
+.workCard .liveTitle > span {
+  font-size: 21px;
+}
+.workCard .visit {
+  max-width: calc(100% - 32px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 @media (max-width: 760px) {
-  .artCaption {
-    display: none;
+  .live {
+    margin-bottom: 70px;
+  }
+  .liveHeading {
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 30px;
+  }
+  .liveHeading h3 {
+    font-size: 21px;
+  }
+  .liveGrid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+  .workCard .liveTitle {
+    font-size: 22px;
+  }
+  .workCard .liveTitle > span {
+    font-size: 20px;
+  }
+}
+
+/* Hero: say plainly what the studio does */
+.heroKicker {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent-text);
+  margin-bottom: 18px;
+}
+.hero h1.heroTitle {
+  font-size: clamp(34px, 4.1vw, 66px);
+}
+.heroServices {
+  list-style: none;
+  display: grid;
+  gap: 0;
+  max-width: 520px;
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.heroServices a {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding 0.2s;
+}
+.heroServices a:hover {
+  padding-left: 8px;
+}
+.heroServices strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+.heroServices span {
+  font-size: 14px;
+  color: var(--muted);
+}
+.heroProof {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.heroProof > span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--success-text);
+  background: var(--state-organized);
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+.heroProof:hover {
+  color: var(--ink);
+}
+@media (max-width: 760px) {
+  .heroKicker {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  .hero h1.heroTitle {
+    font-size: clamp(30px, 8.4vw, 44px);
+  }
+  .heroServices a {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 10px 0;
+  }
+  .heroProof {
+    font-size: 13px;
+  }
+}
+.liveDid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+}
+.liveDid b {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  border: 1px solid var(--line-work);
+  padding: 0 8px;
+  border-radius: 20px;
+}
+
+/* Hero showcase: real, live work instead of decoration */
+.showcase {
+  position: relative;
+  align-self: center;
+  min-width: 0;
+  margin: 0;
+  padding: 30px 0 20px;
+}
+.showcaseStage {
+  position: relative;
+  display: block;
+  aspect-ratio: 1.08;
+}
+.shot {
+  position: absolute;
+  animation: shotIn 0.9s cubic-bezier(0.2, 0.65, 0.2, 1) both;
+  transition: transform 0.45s cubic-bezier(0.2, 0.65, 0.2, 1);
+}
+.shotFrame {
+  overflow: hidden;
+  background: var(--surface-card);
+  border: 1px solid var(--line-card);
+  border-radius: 10px;
+  box-shadow: 0 22px 44px #202b2426;
+}
+.shotFrame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.shotBar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line-card);
+}
+.shotBar i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--line-board);
+}
+.shotBar span {
+  margin-left: 10px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+.shotBack {
+  top: 0;
+  right: 0;
+  width: 72%;
+  animation-delay: 0.05s;
+}
+.shotFront {
+  left: 0;
+  top: 33%;
+  width: 72%;
+  animation-delay: 0.2s;
+}
+.shotPhone {
+  right: 4%;
+  bottom: 0;
+  width: 23%;
+  animation-delay: 0.35s;
+}
+.shotPhone .shotFrame {
+  border: 5px solid var(--surface-dark);
+  border-radius: 22px;
+}
+.shotPhone .shotFrame img {
+  aspect-ratio: 0.47;
+  object-fit: cover;
+  object-position: top;
+}
+.shotChip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 5px 12px;
+  box-shadow: 0 6px 16px #202b2414;
+}
+.shotChip b {
+  font-weight: 600;
+  color: var(--accent-text);
+}
+.shotBack .shotChip {
+  top: -15px;
+  right: 18px;
+}
+.shotFront .shotChip {
+  left: 18px;
+  bottom: -15px;
+}
+.shotPhone .shotChip {
+  right: -8px;
+  bottom: -15px;
+}
+.showcaseStage:hover .shotBack {
+  transform: translate(6px, -6px);
+}
+.showcaseStage:hover .shotFront {
+  transform: translate(-6px, 4px);
+}
+.showcaseStage:hover .shotPhone {
+  transform: translateY(-8px);
+}
+.showcaseCaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 34px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+}
+.showcaseCaption a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.showcaseCaption a:hover {
+  color: var(--accent-text);
+}
+@keyframes shotIn {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@media (max-width: 1050px) {
+  .shotChip {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}
+@media (max-width: 760px) {
+  .showcase {
+    padding: 36px 0 0;
+  }
+  .shotBar {
+    height: 18px;
+    padding: 0 8px;
+    gap: 4px;
+  }
+  .shotBar i {
+    width: 5px;
+    height: 5px;
+  }
+  .shotBar span {
+    font-size: 8px;
+    margin-left: 6px;
+  }
+  .shotFrame {
+    border-radius: 7px;
+  }
+  .shotPhone .shotFrame {
+    border-width: 4px;
+    border-radius: 16px;
+  }
+  .shotChip {
+    font-size: 10px;
+    gap: 5px;
+    padding: 3px 8px;
+  }
+  .shotBack .shotChip {
+    top: -12px;
+    right: 8px;
+  }
+  .shotFront .shotChip {
+    left: 8px;
+    bottom: -12px;
+  }
+  .shotPhone .shotChip {
+    right: -4px;
+    bottom: -12px;
+  }
+  .showcaseCaption {
+    margin-top: 24px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 900px) {
+  .liveGrid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .liveImage {
+    aspect-ratio: 1.6;
+  }
+}
+
+/* Friendly touches carried over from the earlier site */
+.lineButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 30px;
+  background: #06c755;
+  color: #0b2612;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.lineButton:hover {
+  background: #05b04b;
+  transform: translateY(-1px);
+}
+.nav .lineButton {
+  margin-left: 6px;
+  padding: 0 18px;
+  color: #0b2612;
+}
+.nav .lineButton:hover {
+  color: #0b2612;
+}
+.lineButtonMobile {
+  display: none;
+}
+.audience {
+  padding: 100px 4%;
+  border-top: 1px solid var(--line);
+}
+.audienceHeading {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+.audienceHeading h2 {
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+}
+.audienceHeading > p:last-child {
+  font-size: 15px;
+  color: var(--muted);
+}
+.audienceList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.audienceList li {
+  background: var(--surface-card);
+  border: 1px solid var(--line-card);
+  border-radius: 14px;
+  padding: 30px 28px;
+}
+.audienceList span {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--state-organized);
+  color: var(--success-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+.audienceList h3 {
+  font-size: 21px;
+  font-weight: 600;
+  margin-top: 18px;
+}
+.audienceList p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.audienceList small {
+  display: block;
+  font-size: 13px;
+  color: var(--accent-text);
+  margin-top: 16px;
+}
+.contactDirect {
+  font-weight: 600;
+}
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  margin-top: 18px;
+}
+.phoneLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 15px;
+  border-bottom: 1px solid currentColor;
+}
+@media (max-width: 1050px) {
+  .nav {
+    gap: 18px;
+  }
+  .audienceHeading {
+    grid-template-columns: 1fr 2fr;
+  }
+  .audienceHeading > p:last-child {
+    grid-column: 2;
+  }
+  .audienceList {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+@media (max-width: 760px) {
+  .lineButtonMobile {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: 10px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+  .audience {
+    padding: 70px 4%;
+  }
+  .audienceHeading {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .audienceHeading > p:last-child {
+    grid-column: auto;
+  }
+  .audienceList li {
+    padding: 24px 22px;
   }
 }

@@ -7,6 +7,8 @@ import WorkflowPlayground from "./WorkflowPlayground";
 import ConsultationBrief from "./ConsultationBrief";
 import ConsultationLink from "./ConsultationLink";
 import AutomationShowcase from "./AutomationShowcase";
+import LiveProjects from "./LiveProjects";
+import HeroShowcase from "./HeroShowcase";
 import styles from "./studio.module.css";
 
 const services = [
@@ -23,8 +25,8 @@ const services = [
     "02",
     "讓日常，自己走下去。",
     "工作流程自動化",
-    "從表單、預約到提醒，找出值得串接的重複工作。先解決最常卡住的一步，再逐步擴充，讓系統配合你的工作方式。",
-    "表單整合 / 訂單整理 / 通知提醒",
+    "每天都在重複做一樣的事？我們幫你把表單、預約、提醒串起來，讓事情「自己動起來」。先解決最常卡住的一步，再慢慢擴充。",
+    "表單送出自動通知 / 訂單名單自動整理 / 定時發訊息提醒",
     "/works/laundry",
     "試用訂單流程原型",
   ],
@@ -32,11 +34,37 @@ const services = [
     "03",
     "讓回應，多一位幫手。",
     "LINE 與智慧客服",
-    "整理常見問題與品牌語氣，規劃 LINE 服務及客服助理。能自動處理的先處理，需要人判斷的，留下明確的接手方式。",
+    "想讓你的 LINE 有個會回答問題的小幫手嗎？常見問題客人一問就答，還能引導預約、報名或查詢；需要你判斷的，再清楚交給你接手。",
     "LINE LIFF / 常見問答 / 人工接手",
     "/works/laundry",
     "看 LINE 訂單介面示範",
   ],
+];
+
+const LINE_URL = "https://lin.ee/N4ukE55";
+
+const audiences = [
+  [
+    "民宿 / 小店家 / 創作者",
+    "讓預約、訂單、客服這些日常工作自動化，省下時間，專心經營客人的體驗。",
+    "例如：衿日林民宿官網",
+  ],
+  [
+    "一人公司 / 自由接案者",
+    "把重複的行政流程交給系統處理，專注在你最擅長的事，同時維持專業形象。",
+    "例如：表單、報價、提醒自動化",
+  ],
+  [
+    "小型協會 / 社群 / 團隊",
+    "簡化會員、活動與通知的管理，讓成員溝通更順，資訊不再散落各處。",
+    "例如：宜蘭旅遊通（協會平台）",
+  ],
+];
+
+const heroServices = [
+  ["品牌網站", "民宿官網、店家網站、舊網站改版"],
+  ["LINE 服務", "LINE 登入、領券、集章、線上訂單"],
+  ["流程自動化", "表單、預約、通知與後台整理"],
 ];
 
 export default function StudioHome() {
@@ -55,47 +83,48 @@ export default function StudioHome() {
           </div>
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
-              <h1 id="hero-title">
-                讓工作更聰明，
+              <p className={styles.heroKicker}>
+                宜蘭的網站與 LINE 系統工作室
+              </p>
+              <h1 id="hero-title" className={styles.heroTitle}>
+                幫民宿與小店，
                 <br />
-                讓生活<span className={styles.serif}>有餘裕。</span>
+                做網站、LINE
+                <br />與<span className={styles.serif}>自動化流程。</span>
               </h1>
               <p className={styles.heroDescription}>
-                有個性的網站，懂日常的系統。
-                <br />
-                我們陪民宿、小店與獨立工作者，
-                <br />
-                把心力留給真正喜歡的事。
+                我們是宜蘭的小團隊，幫民宿、小店、個人工作者和在地協會，把繁瑣的日常工作變得更聰明、更簡單。不懂技術也沒關係，從你每天最花時間的事聊起就好。
               </p>
+              <ul className={styles.heroServices} aria-label="服務項目">
+                {heroServices.map(([title, detail]) => (
+                  <li key={title}>
+                    <a href="#services">
+                      <strong>{title}</strong>
+                      <span>{detail}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
               <div className={styles.heroActions}>
                 <a className={styles.roundLink} href="#portfolio">
-                  探索我們的作品 <span aria-hidden="true">↗</span>
+                  看做過的案例 <span aria-hidden="true">↗</span>
                 </a>
-                <a className={styles.heroConsult} href="#contact">
-                  先聊聊需求
+                <a
+                  className={styles.lineButton}
+                  href={LINE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  用 LINE 直接問
+                  <span className={styles.srOnly}>（另開新視窗）</span>
                 </a>
               </div>
+              <a className={styles.heroProof} href="#portfolio">
+                <span>已上線</span>
+                宜蘭旅遊通 · 衿日林民宿 · 冬山河漫遊護照
+              </a>
             </div>
-            <div className={styles.heroArt} aria-hidden="true">
-              <div className={styles.artCaption}>
-                A LITTLE SPACE
-                <br />
-                FOR THE GOOD THINGS.
-              </div>
-              <svg viewBox="0 0 560 480" fill="none">
-                <path
-                  className={styles.ribbonBack}
-                  d="M130 345C-30 155 195 55 270 180C340 297 115 420 156 220C202-12 535 85 430 280C350 425 255 340 300 220C345 100 535 230 420 350"
-                />
-                <path
-                  className={styles.ribbon}
-                  d="M130 345C-30 155 195 55 270 180C340 297 115 420 156 220C202-12 535 85 430 280C350 425 255 340 300 220C345 100 535 230 420 350"
-                />
-                <circle cx="423" cy="353" r="18" fill="#f3efe5" />
-              </svg>
-              <span className={styles.artLabel}>把複雜理順，把時間留白。</span>
-              <span className={styles.artIndex}>FIG. 01 — 餘裕</span>
-            </div>
+            <HeroShowcase />
           </div>
           <div className={styles.heroBottom}>
             <span>WEB DESIGN & DIGITAL AUTOMATION</span>
@@ -114,13 +143,18 @@ export default function StudioHome() {
           <div className={styles.sectionHeading}>
             <p className={styles.eyebrow}>01 / SELECTED WORK</p>
             <h2 id="work-title">
-              把想像，<span className={styles.serif}>做成日常。</span>
+              我們做過的<span className={styles.serif}>案例。</span>
             </h2>
             <p>
-              從一間民宿的氣質，
+              先看已上線的真實案例，
               <br />
-              到一套系統的細節。
+              再看設計示範。
             </p>
+          </div>
+          <LiveProjects />
+          <div className={styles.liveHeading}>
+            <h3>概念作品與原型</h3>
+            <p>用來展示設計方向與互動體驗的示範作品。</p>
           </div>
           <div className={styles.workGrid}>
             <Link
@@ -140,10 +174,10 @@ export default function StudioHome() {
                 <span>01 / HOSPITALITY</span>
                 <span>概念設計</span>
               </div>
-              <h3>
+              <h4>
                 潮間 <span>Between Tides</span>
                 <b aria-hidden="true">↗</b>
-              </h3>
+              </h4>
               <p>把海的節奏，帶進一次住宿的開始。</p>
               <span className={styles.workTags}>
                 品牌敘事 · 潮汐互動 · 訂房流程示範
@@ -166,10 +200,10 @@ export default function StudioHome() {
                 <span>02 / HOSPITALITY</span>
                 <span>概念設計</span>
               </div>
-              <h3>
+              <h4>
                 霧裡山房 <span>Mist House</span>
                 <b aria-hidden="true">↗</b>
-              </h3>
+              </h4>
               <p>讓一杯茶的時間，成為網站的節奏。</p>
               <span className={styles.workTags}>
                 節氣體驗 · 泡茶計時 · 房費試算
@@ -203,9 +237,9 @@ export default function StudioHome() {
           <div className={styles.sectionHeading}>
             <p className={styles.eyebrow}>02 / WHAT WE DO</p>
             <h2 id="services-title">
-              好看之外，
+              我們可以
               <br />
-              <span className={styles.serif}>也要好用。</span>
+              <span className={styles.serif}>幫你做什麼？</span>
             </h2>
             <p>
               不必一次改變所有事情。
@@ -242,6 +276,29 @@ export default function StudioHome() {
               ),
             )}
           </div>
+        </section>
+        <section
+          id="who"
+          className={styles.audience}
+          aria-labelledby="who-title"
+        >
+          <div className={styles.audienceHeading}>
+            <p className={styles.eyebrow}>WHO WE HELP</p>
+            <h2 id="who-title">我們最常協助的對象</h2>
+            <p>
+              不論你是經營小店、自由工作者，還是小型團隊，我們都從你的日常出發，找出最適合的做法。
+            </p>
+          </div>
+          <ul className={styles.audienceList}>
+            {audiences.map(([title, desc, example], index) => (
+              <li key={title}>
+                <span>0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+                <small>{example}</small>
+              </li>
+            ))}
+          </ul>
         </section>
         <WorkflowPlayground />
 
@@ -354,6 +411,23 @@ export default function StudioHome() {
                 一個網站，一段流程，或一個還沒成形的想法。告訴我們你的工作，以及現在最常卡住的一步。
               </p>
               <p>我們會先釐清需求，再討論適合的做法、範圍與報價。</p>
+              <p className={styles.contactDirect}>
+                不想打字？歡迎直接加 LINE 或打電話，一起聊聊！
+              </p>
+              <div className={styles.contactActions}>
+                <a
+                  className={styles.lineButton}
+                  href={LINE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  加入 LINE 好友
+                  <span className={styles.srOnly}>（另開新視窗）</span>
+                </a>
+                <a className={styles.phoneLink} href="tel:0928836163">
+                  電話 0928-836-163
+                </a>
+              </div>
             </div>
             <ConsultationBrief
               id="contact-message"

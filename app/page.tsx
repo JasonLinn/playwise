@@ -1,4 +1,4 @@
-import StudioHome from "./components/studio/StudioHome";
+import FriendlyHome from "./components/friendly/FriendlyHome";
 import type { Metadata } from "next";
 
 const title = "智遊工作室 Playwise｜宜蘭網站設計・工作流程自動化";
@@ -34,5 +34,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <StudioHome />;
+  return <FriendlyHome />;
 }
