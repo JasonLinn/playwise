@@ -1,5 +1,4 @@
 import Image, { type StaticImageData } from "next/image";
-import { Noto_Sans_TC } from "next/font/google";
 import Link from "next/link";
 import {
   FiArrowRight,
@@ -22,11 +21,10 @@ import tide from "../../../public/images/studio/tide.jpg";
 import mist from "../../../public/images/studio/mist.jpg";
 import laundryLiff from "../../../public/images/studio/live/laundry-liff.jpg";
 
-const noto = Noto_Sans_TC({
-  weight: ["400", "500", "700"],
-  display: "swap",
-  preload: false,
-});
+// Load Noto Sans TC from Google Fonts in the browser. next/font/google
+// intermittently fails on Vercel's Turbopack build for this CJK font.
+const FONT_CSS =
+  "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap";
 
 const LINE_URL = "https://lin.ee/N4ukE55";
 const MAP_URL = "https://maps.app.goo.gl/V3uCz1jLPCUB6L4L7";
@@ -672,7 +670,13 @@ function Footer() {
 
 export default function FriendlyHome() {
   return (
-    <div id="top" className={`${noto.className} min-h-screen bg-white text-slate-900 antialiased [scroll-behavior:smooth]`}>
+    <div
+      id="top"
+      className="min-h-screen bg-white font-['Noto_Sans_TC','Microsoft_JhengHei','PingFang_TC',sans-serif] text-slate-900 antialiased [scroll-behavior:smooth]"
+    >
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link rel="stylesheet" href={FONT_CSS} precedence="default" />
       <a
         href="#main-content"
         className="absolute left-4 top-[-100px] z-50 rounded bg-gray-900 px-4 py-2 text-white focus:top-3"
