@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import { Noto_Sans_TC } from "next/font/google";
 import Link from "next/link";
 import {
   FiArrowRight,
@@ -20,6 +21,12 @@ import dsrpass from "../../../public/images/studio/live/dsrpass.jpg";
 import tide from "../../../public/images/studio/tide.jpg";
 import mist from "../../../public/images/studio/mist.jpg";
 import laundryLiff from "../../../public/images/studio/live/laundry-liff.jpg";
+
+const noto = Noto_Sans_TC({
+  weight: ["400", "500", "700"],
+  display: "swap",
+  preload: false,
+});
 
 const LINE_URL = "https://lin.ee/N4ukE55";
 const MAP_URL = "https://maps.app.goo.gl/V3uCz1jLPCUB6L4L7";
@@ -185,35 +192,41 @@ const faqs = [
 
 const blue = "text-[#1a73e8]";
 const btnPrimary =
-  "inline-flex items-center justify-center gap-2 rounded-md bg-[#1a73e8] px-5 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-[#1662c4]";
+  "inline-flex items-center justify-center gap-2 rounded-xl bg-[#1a73e8] px-6 py-3 text-base font-medium text-white shadow-[0_6px_16px_-6px_rgba(26,115,232,0.6)] transition-all hover:-translate-y-0.5 hover:bg-[#1662c4]";
 const btnSecondary =
-  "inline-flex items-center justify-center gap-2 rounded-md border border-[#1a73e8] bg-white px-5 py-3 text-base font-semibold text-[#1a73e8] transition-colors hover:bg-blue-50";
+  "inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3 text-base font-medium text-[#1a73e8] transition-all hover:-translate-y-0.5 hover:border-[#1a73e8] hover:bg-blue-50/60";
+const card =
+  "rounded-2xl bg-white ring-1 ring-slate-200/70 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_-12px_rgba(15,23,42,0.12)]";
+const cardHover =
+  "transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(15,23,42,0.04),0_20px_40px_-16px_rgba(15,23,42,0.22)]";
 const container = "mx-auto max-w-6xl px-5 sm:px-8";
 
 function NewTab() {
   return <span className="sr-only">（另開新視窗）</span>;
 }
 
-function SectionTitle({ title, sub }: { title: string; sub: string }) {
+function SectionTitle({ eyebrow, title, sub }: { eyebrow: string; title: string; sub: string }) {
   return (
-    <div className="mx-auto mb-12 max-w-2xl text-center md:mb-14">
-      <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">{title}</h2>
-      <p className="text-lg text-gray-600">{sub}</p>
+    <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
+      <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-[#1a73e8]">{eyebrow}</p>
+      <h2 className="mb-4 text-3xl font-bold tracking-wide text-slate-900 md:text-[2.4rem] md:leading-tight">{title}</h2>
+      <p className="text-balance text-lg leading-relaxed text-slate-500">{sub}</p>
     </div>
   );
 }
 
 function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-gray-100 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-slate-200/60 bg-white/80 backdrop-blur-md">
       <div className={`${container} flex h-16 items-center justify-between gap-4`}>
         <a href="#top" className="flex items-center gap-2">
-          <span className={`text-xl font-bold md:text-2xl ${blue}`}>智遊工作室</span>
-          <span className="hidden text-sm text-gray-400 sm:inline">Playwise</span>
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#1a73e8] to-teal-400 text-sm font-bold text-white" aria-hidden="true">智</span>
+          <span className="text-lg font-bold tracking-wide text-slate-900 md:text-xl">智遊工作室</span>
+          <span className="hidden text-xs uppercase tracking-[0.2em] text-slate-400 sm:inline">Playwise</span>
         </a>
         <nav aria-label="主要導覽" className="hidden items-center gap-7 lg:flex">
           {nav.map(([href, label]) => (
-            <a key={href} href={href} className="text-gray-700 transition-colors hover:text-[#1a73e8]">
+            <a key={href} href={href} className="text-[0.95rem] text-slate-600 transition-colors hover:text-[#1a73e8]">
               {label}
             </a>
           ))}
@@ -252,7 +265,7 @@ function HeroCollage() {
     <a
       href="#cases"
       aria-label="看已上線的真實案例：衿日林民宿、宜蘭旅遊通、冬山河漫遊護照"
-      className="group relative block aspect-[1.1] overflow-hidden rounded-2xl bg-gradient-to-br from-blue-400 to-teal-400 shadow-xl"
+      className="group relative block aspect-[1.1] overflow-hidden rounded-3xl bg-gradient-to-br from-[#5b9cf6] via-[#4fb3e8] to-[#3cc8b4] shadow-[0_30px_60px_-24px_rgba(26,115,232,0.45)] ring-1 ring-white/40"
     >
       <div className="absolute right-[5%] top-[15%] w-[66%] overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-500 group-hover:-translate-y-1">
         <div className="flex h-5 items-center gap-1 border-b border-gray-100 px-2" aria-hidden="true">
@@ -273,7 +286,7 @@ function HeroCollage() {
       <div className="absolute bottom-[6%] right-[6%] w-[22%] overflow-hidden rounded-[18px] border-4 border-gray-800 bg-white shadow-xl transition-transform duration-500 group-hover:-translate-y-2">
         <Image src={dsrpass} alt="" sizes="(max-width: 1024px) 22vw, 12vw" loading="eager" className="aspect-[0.47] object-cover object-top" />
       </div>
-      <span className="absolute left-[5%] top-[6%] rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-gray-700 shadow sm:text-sm">
+      <span className="absolute left-[5%] top-[6%] rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur sm:text-sm">
         已上線的真實作品
       </span>
     </a>
@@ -282,23 +295,29 @@ function HeroCollage() {
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-blue-50 to-white py-14 md:py-20">
-      <div className={`${container} grid grid-cols-1 items-center gap-12 lg:grid-cols-2`}>
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/80 to-white py-16 md:py-24">
+      <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-blue-200/40 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-24 top-24 h-80 w-80 rounded-full bg-teal-200/40 blur-3xl" aria-hidden="true" />
+      <div className={`${container} relative grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_1fr]`}>
         <div>
-          <p className={`mb-4 text-base font-semibold ${blue}`}>智遊工作室｜宜蘭</p>
-          <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-sm font-medium text-[#1a73e8] ring-1 ring-blue-100">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal-400" aria-hidden="true" />
+            宜蘭的網站與 LINE 系統工作室
+          </p>
+          <h1 className="mb-6 text-4xl font-bold leading-[1.25] tracking-wide text-slate-900 md:text-[3.4rem]">
             讓工作更輕鬆，
             <br />
-            讓生活更自由
+            讓生活
+            <span className="bg-gradient-to-r from-[#1a73e8] to-teal-500 bg-clip-text text-transparent">更自由</span>
           </h1>
-          <p className="mb-6 max-w-xl text-lg leading-relaxed text-gray-700">
+          <p className="mb-7 max-w-xl text-lg leading-[1.9] text-slate-600">
             我們幫民宿、小店、個人工作者和在地協會做
-            <strong className="text-gray-900">網站、LINE 服務與自動化流程</strong>
+            <strong className="font-medium text-slate-900">網站、LINE 服務與自動化流程</strong>
             ，把繁瑣的日常工作變得更聰明、更簡單。不懂技術也沒關係，從你每天最花時間的事聊起就好。
           </p>
           <ul className="mb-8 flex flex-wrap gap-2" aria-label="服務項目">
             {["品牌網站", "LINE 服務", "流程自動化"].map((item) => (
-              <li key={item} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-100">
+              <li key={item} className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3.5 py-1.5 text-sm text-slate-700 ring-1 ring-slate-200/80">
                 <FiCheck className={`h-4 w-4 ${blue}`} aria-hidden="true" />
                 {item}
               </li>
@@ -313,8 +332,8 @@ function Hero() {
               <NewTab />
             </a>
           </div>
-          <a href="#cases" className="mt-6 inline-flex flex-wrap items-center gap-2 text-sm text-gray-600 hover:text-[#1a73e8]">
-            <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-800">已上線</span>
+          <a href="#cases" className="mt-7 inline-flex flex-wrap items-center gap-2 text-sm text-slate-500 transition-colors hover:text-[#1a73e8]">
+            <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 ring-1 ring-emerald-100">已上線</span>
             宜蘭旅遊通 · 衿日林民宿 · 冬山河漫遊護照
           </a>
         </div>
@@ -326,26 +345,28 @@ function Hero() {
 
 function Services() {
   return (
-    <section id="services" className="scroll-mt-16 bg-gray-50 py-20">
+    <section id="services" className="scroll-mt-16 bg-slate-50/70 py-20 md:py-28">
       <div className={container}>
-        <SectionTitle title="我們可以幫你做什麼？" sub="讓繁瑣的流程自動化，專注在真正重要的事上" />
+        <SectionTitle eyebrow="Services" title="我們可以幫你做什麼？" sub="讓繁瑣的流程自動化，專注在真正重要的事上" />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {services.map(({ icon: Icon, title, description, items, link }) => (
-            <article key={title} className="flex flex-col rounded-lg bg-white p-8 shadow-md transition-shadow hover:shadow-lg">
-              <Icon className={`mb-4 h-8 w-8 ${blue}`} aria-hidden="true" />
-              <h3 className="mb-3 text-xl font-bold text-gray-900">{title}</h3>
-              <p className="mb-5 text-gray-600">{description}</p>
-              <ul className="mb-6 space-y-2 text-gray-700">
+            <article key={title} className={`flex flex-col p-8 ${card} ${cardHover}`}>
+              <span className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 ${blue}`}>
+                <Icon className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <h3 className="mb-3 text-xl font-bold tracking-wide text-slate-900">{title}</h3>
+              <p className="mb-6 leading-[1.85] text-slate-600">{description}</p>
+              <ul className="mb-7 space-y-2.5 border-t border-slate-100 pt-5 text-slate-700">
                 {items.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-teal-500" aria-hidden="true">•</span>
+                  <li key={item} className="flex items-start gap-2.5">
+                    <FiCheck className="mt-1 h-4 w-4 flex-none text-teal-500" aria-hidden="true" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <Link href={link[0]} prefetch={false} className={`mt-auto inline-flex items-center gap-1 font-semibold ${blue} hover:underline`}>
+              <Link href={link[0]} prefetch={false} className={`group/link mt-auto inline-flex items-center gap-1 font-medium ${blue}`}>
                 {link[1]}
-                <FiArrowRight className="h-4 w-4" aria-hidden="true" />
+                <FiArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" aria-hidden="true" />
               </Link>
             </article>
           ))}
@@ -357,9 +378,9 @@ function Services() {
 
 function Cases() {
   return (
-    <section id="cases" className="scroll-mt-16 bg-white py-20">
+    <section id="cases" className="scroll-mt-16 bg-white py-20 md:py-28">
       <div className={container}>
-        <SectionTitle title="真實案例" sub="替真實客戶做好、已經上線的網站與服務" />
+        <SectionTitle eyebrow="Live projects" title="真實案例" sub="替真實客戶做好、已經上線的網站與服務" />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {cases.map((item) => (
             <a
@@ -367,11 +388,11 @@ function Cases() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md transition-shadow hover:shadow-xl"
+              className={`group flex flex-col overflow-hidden ${card} ${cardHover}`}
             >
               <div
                 className={`relative flex aspect-[1.5] items-center justify-center overflow-hidden ${
-                  item.phone ? "bg-gradient-to-br from-blue-100 to-teal-100 py-4" : "bg-gray-100"
+                  item.phone ? "bg-gradient-to-br from-blue-50 to-teal-50 py-4" : "bg-slate-100"
                 }`}
               >
                 <Image
@@ -386,20 +407,20 @@ function Cases() {
                 />
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <span className="mb-2 inline-block self-start rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-[#1a73e8]">
+                <span className="mb-3 inline-block self-start rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-[#1a73e8]">
                   {item.type}
                 </span>
-                <h3 className="mb-2 text-xl font-bold text-gray-900 group-hover:text-[#1a73e8]">{item.name}</h3>
-                <p className="mb-4 text-gray-600">{item.summary}</p>
-                <p className="mb-1 text-sm font-semibold text-gray-900">我們做的</p>
+                <h3 className="mb-2 text-xl font-bold tracking-wide text-slate-900 transition-colors group-hover:text-[#1a73e8]">{item.name}</h3>
+                <p className="mb-5 leading-[1.85] text-slate-600">{item.summary}</p>
+                <p className="mb-2 text-xs font-medium tracking-[0.15em] text-slate-400">我們做的</p>
                 <ul className="mb-5 flex flex-wrap gap-1.5">
                   {item.did.map((d) => (
-                    <li key={d} className="rounded bg-gray-100 px-2 py-0.5 text-sm text-gray-700">
+                    <li key={d} className="rounded-md bg-slate-50 px-2 py-0.5 text-sm text-slate-600 ring-1 ring-slate-200/70">
                       {d}
                     </li>
                   ))}
                 </ul>
-                <span className={`mt-auto inline-flex items-center gap-1 text-sm font-semibold ${blue}`}>
+                <span className={`mt-auto inline-flex items-center gap-1 border-t border-slate-100 pt-4 text-sm font-medium ${blue}`}>
                   {item.domain}
                   <FiExternalLink className="h-4 w-4" aria-hidden="true" />
                   <NewTab />
@@ -415,21 +436,21 @@ function Cases() {
 
 function Demos() {
   return (
-    <section id="portfolio" className="scroll-mt-16 bg-gray-50 py-20">
+    <section id="portfolio" className="scroll-mt-16 bg-slate-50/70 py-20 md:py-28">
       <div className={container}>
-        <SectionTitle title="設計示範與互動原型" sub="點進去可以實際操作，感受網站和系統用起來的樣子" />
+        <SectionTitle eyebrow="Demos" title="設計示範與互動原型" sub="點進去可以實際操作，感受網站和系統用起來的樣子" />
         <Link
           href="/works/laundry"
           prefetch={false}
-          className="group mb-8 grid grid-cols-1 overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg md:grid-cols-2"
+          className={`group mb-8 grid grid-cols-1 overflow-hidden md:grid-cols-2 ${card} ${cardHover}`}
         >
           <div className="p-8 md:p-10">
-            <span className="mb-3 inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">可以試用</span>
-            <h3 className="mb-3 text-2xl font-bold text-gray-900 group-hover:text-[#1a73e8]">洗衣廠 LINE 訂單原型</h3>
-            <p className="mb-5 text-gray-600">
+            <span className="mb-4 inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700 ring-1 ring-teal-100">可以試用</span>
+            <h3 className="mb-3 text-2xl font-bold tracking-wide text-slate-900 transition-colors group-hover:text-[#1a73e8]">洗衣廠 LINE 訂單原型</h3>
+            <p className="mb-6 leading-[1.85] text-slate-600">
               品項、數量、取送時間散在對話裡，容易反覆確認。我們把這些資訊收進同一段流程，送出前再讓客人核對。
             </p>
-            <ul className="mb-6 space-y-2 text-gray-700">
+            <ul className="mb-7 space-y-2.5 text-slate-700">
               {["調整品項數量", "選擇取送日期與時段", "送出前檢查金額與訂單摘要"].map((t) => (
                 <li key={t} className="flex items-center gap-2">
                   <FiCheck className="h-4 w-4 text-teal-500" aria-hidden="true" />
@@ -437,12 +458,12 @@ function Demos() {
                 </li>
               ))}
             </ul>
-            <span className={`inline-flex items-center gap-1 font-semibold ${blue}`}>
+            <span className={`inline-flex items-center gap-1 font-medium ${blue}`}>
               試用洗衣訂單原型
               <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </span>
           </div>
-          <div className="flex items-end justify-center bg-gradient-to-br from-blue-400 to-teal-400 px-8 pt-10">
+          <div className="flex items-end justify-center bg-gradient-to-br from-[#5b9cf6] via-[#4fb3e8] to-[#3cc8b4] px-8 pt-12">
             <div className="h-[330px] w-[220px] overflow-hidden rounded-t-[30px] border-[6px] border-b-0 border-gray-800 bg-white shadow-2xl transition-transform duration-500 group-hover:-translate-y-2 md:h-[370px] md:w-[240px]">
               <Image
                 src={laundryLiff}
@@ -459,7 +480,7 @@ function Demos() {
               key={demo.href}
               href={demo.href}
               prefetch={false}
-              className="group overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg"
+              className={`group overflow-hidden ${card} ${cardHover}`}
             >
               <div className="relative aspect-[1.5] overflow-hidden bg-gray-100">
                 <Image
@@ -471,13 +492,13 @@ function Demos() {
                 />
               </div>
               <div className="p-5">
-                <h3 className="mb-1 font-bold text-gray-900 group-hover:text-[#1a73e8]">{demo.title}</h3>
-                <p className="text-sm text-gray-600">{demo.description}</p>
+                <h3 className="mb-1.5 font-bold tracking-wide text-slate-900 transition-colors group-hover:text-[#1a73e8]">{demo.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-500">{demo.description}</p>
               </div>
             </Link>
           ))}
         </div>
-        <p className="mt-6 text-center text-sm text-gray-500">以上為設計示範與原型，用來展示設計與互動，不提供實際訂房或下單。</p>
+        <p className="mt-8 text-center text-sm text-slate-400">以上為設計示範與原型，用來展示設計與互動，不提供實際訂房或下單。</p>
       </div>
     </section>
   );
@@ -485,21 +506,22 @@ function Demos() {
 
 function Clients() {
   return (
-    <section id="clients" className="scroll-mt-16 bg-white py-20">
+    <section id="clients" className="scroll-mt-16 bg-white py-20 md:py-28">
       <div className={container}>
         <SectionTitle
+          eyebrow="Who we help"
           title="我們最常協助的對象"
           sub="不論你是經營小店、自由工作者，還是小型團隊，我們都能為你量身打造最適合的解決方案"
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {clients.map(({ icon: Icon, title, description, example }) => (
-            <div key={title} className="rounded-lg border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow">
-              <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 ${blue}`}>
-                <Icon className="h-8 w-8" aria-hidden="true" />
+            <div key={title} className={`p-8 text-center ${card} ${cardHover}`}>
+              <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-teal-50 ring-1 ring-blue-100 ${blue}`}>
+                <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="mb-3 text-xl font-bold text-gray-900">{title}</h3>
-              <p className="mb-4 text-gray-600">{description}</p>
-              <p className="text-sm font-medium text-teal-700">{example}</p>
+              <h3 className="mb-3 text-xl font-bold tracking-wide text-slate-900">{title}</h3>
+              <p className="mb-5 leading-[1.85] text-slate-600">{description}</p>
+              <p className="inline-block rounded-full bg-teal-50 px-3 py-1 text-sm text-teal-700">{example}</p>
             </div>
           ))}
         </div>
@@ -510,30 +532,30 @@ function Clients() {
 
 function Process() {
   return (
-    <section id="process" className="scroll-mt-16 bg-gray-50 py-20">
+    <section id="process" className="scroll-mt-16 bg-slate-50/70 py-20 md:py-28">
       <div className={container}>
-        <SectionTitle title="合作流程" sub="先聊生活，再聊技術。沒有規格書也可以開始" />
+        <SectionTitle eyebrow="How we work" title="合作流程" sub="先聊生活，再聊技術。沒有規格書也可以開始" />
         <ol className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {steps.map(([title, text], index) => (
-            <li key={title} className="rounded-lg bg-white p-6 shadow-sm">
-              <span className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1a73e8] font-bold text-white">
-                {index + 1}
+            <li key={title} className={`p-7 ${card}`}>
+              <span className="mb-5 block text-sm font-medium tracking-[0.2em] text-[#1a73e8]">
+                STEP {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mb-2 text-lg font-bold text-gray-900">{title}</h3>
-              <p className="text-gray-600">{text}</p>
+              <h3 className="mb-2 text-lg font-bold tracking-wide text-slate-900">{title}</h3>
+              <p className="leading-[1.85] text-slate-600">{text}</p>
             </li>
           ))}
         </ol>
         <div className="mx-auto mt-14 max-w-3xl">
-          <h3 className="mb-5 text-center text-2xl font-bold text-gray-900">常見問題</h3>
+          <h3 className="mb-6 text-center text-2xl font-bold tracking-wide text-slate-900">常見問題</h3>
           <div className="space-y-3">
             {faqs.map(([q, a]) => (
-              <details key={q} className="group rounded-lg bg-white p-5 shadow-sm">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-gray-900 [&::-webkit-details-marker]:hidden">
+              <details key={q} className={`group px-6 py-5 ${card}`}>
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-slate-900 [&::-webkit-details-marker]:hidden">
                   {q}
                   <span className={`text-xl transition-transform group-open:rotate-45 ${blue}`} aria-hidden="true">＋</span>
                 </summary>
-                <p className="mt-3 text-gray-600">{a}</p>
+                <p className="mt-3 leading-[1.85] text-slate-600">{a}</p>
               </details>
             ))}
           </div>
@@ -547,13 +569,14 @@ function Contact() {
   return (
     <section id="contact" className="scroll-mt-16 py-20">
       <div className={container}>
-        <div className="grid grid-cols-1 overflow-hidden rounded-xl bg-white shadow-lg md:grid-cols-[1.4fr_1fr]">
+        <div className={`grid grid-cols-1 overflow-hidden md:grid-cols-[1.4fr_1fr] ${card}`}>
           <div className="p-10 md:p-12">
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">想知道我們能怎麼幫你？</h2>
-            <p className="mb-6 text-lg text-gray-600">
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-[#1a73e8]">Contact</p>
+            <h2 className="mb-6 text-3xl font-bold tracking-wide text-slate-900 md:text-4xl">想知道我們能怎麼幫你？</h2>
+            <p className="mb-7 text-lg leading-[1.85] text-slate-600">
               每個品牌、每位工作者的需求都不同，我們希望能了解你的情況，提供最適合你的解決方案。歡迎加入我們的 LINE，一起聊聊！
             </p>
-            <div className="mb-8 space-y-3 text-gray-700">
+            <div className="mb-8 space-y-3 text-slate-700">
               <p className="flex items-center gap-2">
                 <FiPhone aria-hidden="true" />
                 電話：
@@ -572,13 +595,13 @@ function Contact() {
               href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-md bg-[#06c755] px-6 py-3 text-base font-bold text-[#0b2612] transition-colors hover:bg-[#05b04b] md:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-[#06c755] px-7 py-3 text-base font-bold text-[#0b2612] shadow-[0_6px_16px_-6px_rgba(6,199,85,0.6)] transition-all hover:-translate-y-0.5 hover:bg-[#05b04b] md:w-auto"
             >
               加入 LINE 好友
               <NewTab />
             </a>
           </div>
-          <div className="flex flex-col justify-center bg-gradient-to-br from-blue-400 to-teal-400 p-10 text-white md:p-12">
+          <div className="flex flex-col justify-center bg-gradient-to-br from-[#5b9cf6] via-[#4fb3e8] to-[#3cc8b4] p-10 text-white md:p-12">
             <h3 className="mb-4 text-2xl font-bold">第一則訊息，可以這樣開始</h3>
             <ul className="space-y-2 text-white/95">
               <li>・我經營／從事：</li>
@@ -596,12 +619,12 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 py-12 text-white">
+    <footer className="bg-slate-900 py-14 text-white">
       <div className={container}>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <h2 className="mb-4 text-xl font-bold">智遊工作室</h2>
-            <p className="mb-2 text-gray-300">讓工作更輕鬆，讓生活更自由</p>
+            <p className="mb-2 text-slate-300">讓工作更輕鬆，讓生活更自由</p>
             <p className="text-sm text-gray-400">營業人名稱：智遊工作室 · 統一編號：60165085</p>
           </div>
           <div>
@@ -609,14 +632,14 @@ function Footer() {
             <ul className="space-y-2">
               {nav.map(([href, label]) => (
                 <li key={href}>
-                  <a href={href} className="text-gray-300 hover:text-white">{label}</a>
+                  <a href={href} className="text-slate-300 hover:text-white">{label}</a>
                 </li>
               ))}
             </ul>
           </div>
           <div>
             <h2 className="mb-4 text-xl font-bold">聯絡我們</h2>
-            <div className="mb-4 space-y-2 text-gray-300">
+            <div className="mb-4 space-y-2 text-slate-300">
               <p>
                 電話：<a href="tel:0928836163" className="hover:text-white">0928-836-163</a>
               </p>
@@ -639,7 +662,7 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+        <div className="mt-10 border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
           <p>&copy; {new Date().getFullYear()} 智遊工作室. 保留所有權利。</p>
         </div>
       </div>
@@ -649,7 +672,7 @@ function Footer() {
 
 export default function FriendlyHome() {
   return (
-    <div id="top" className="min-h-screen bg-white text-gray-900 [scroll-behavior:smooth]">
+    <div id="top" className={`${noto.className} min-h-screen bg-white text-slate-900 antialiased [scroll-behavior:smooth]`}>
       <a
         href="#main-content"
         className="absolute left-4 top-[-100px] z-50 rounded bg-gray-900 px-4 py-2 text-white focus:top-3"
