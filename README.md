@@ -4,6 +4,8 @@
 
 民宿概念作品：[設計與維護](docs/showcase-design.md) · [2026-10-28 預覽驗收](docs/showcase-review-20261028.md)。
 
+LINE 官方帳號（圖文選單＋LIFF＋自動回覆）：[規劃](docs/line-oa-liff-20261125.md) · [上線設定](line/README.md)。
+
 最新進度：[2026-10-29 官網改版與品質驗收](docs/studio-quality-review-20261029.md)。旅宿作品前次更新見[文案修訂與預覽](docs/showcase-copy-review-20261028.md)。
 
 ## 🌟 專案簡介
