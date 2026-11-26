@@ -28,7 +28,7 @@ export default function BookingPage() {
   const [form, setForm, clearDraft, loaded] = useDraft<BookingData>("booking", EMPTY);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const [done, setDone] = useState<null | { preview?: boolean; sentToChat?: boolean; rows: [string, string][] }>(null);
+  const [done, setDone] = useState<null | { preview?: boolean; rows: [string, string][] }>(null);
   const days = useMemo(upcomingWeekdays, []);
   const set = <K extends keyof BookingData>(key: K, value: BookingData[K]) => setForm((f) => ({ ...f, [key]: value }));
 
@@ -50,8 +50,8 @@ export default function BookingPage() {
     const result = await submit(parsed.payload);
     setSending(false);
     if (!result.ok) return setError(result.error);
-    setDone({ preview: result.preview, sentToChat: result.sentToChat, rows: summarize(parsed.payload) });
-    clearDraft();
+    setDone({ preview: result.preview, rows: summarize(parsed.payload) });
+    if (!result.preview) clearDraft();
     window.scrollTo({ top: 0 });
   };
 
@@ -63,7 +63,6 @@ export default function BookingPage() {
           message="我們確認時間後會在聊天室回覆你；如果時段不方便，也會提議其他時間。"
           rows={done.rows}
           preview={done.preview}
-          sentToChat={done.sentToChat}
         />
       </Page>
     );

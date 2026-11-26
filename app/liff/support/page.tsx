@@ -13,7 +13,7 @@ export default function SupportPage() {
   const [form, setForm, clearDraft, loaded] = useDraft<SupportData>("support", EMPTY);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const [done, setDone] = useState<null | { preview?: boolean; sentToChat?: boolean; rows: [string, string][] }>(null);
+  const [done, setDone] = useState<null | { preview?: boolean; rows: [string, string][] }>(null);
   const set = <K extends keyof SupportData>(key: K, value: SupportData[K]) => setForm((f) => ({ ...f, [key]: value }));
 
   useEffect(() => {
@@ -32,8 +32,8 @@ export default function SupportPage() {
     const result = await submit(parsed.payload);
     setSending(false);
     if (!result.ok) return setError(result.error);
-    setDone({ preview: result.preview, sentToChat: result.sentToChat, rows: summarize(parsed.payload) });
-    clearDraft();
+    setDone({ preview: result.preview, rows: summarize(parsed.payload) });
+    if (!result.preview) clearDraft();
     window.scrollTo({ top: 0 });
   };
 
@@ -45,7 +45,6 @@ export default function SupportPage() {
           message="我們會依急迫度安排處理，有進度會在聊天室告訴你。有截圖的話，直接傳到聊天室就可以。"
           rows={done.rows}
           preview={done.preview}
-          sentToChat={done.sentToChat}
           onAgain={() => setDone(null)}
         />
       </Page>

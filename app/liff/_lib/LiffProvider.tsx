@@ -2,10 +2,10 @@
 
 // LIFF 初始化與共用操作。沒有設定 NEXT_PUBLIC_LIFF_ID（或網址加 ?preview=1）時進入「預覽模式」，
 // 用假資料讓一般瀏覽器也能看畫面與走完流程，不會真的送出。
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { Liff } from "@line/liff";
 import { LIFF_ID } from "@/app/lib/line/content";
-import { chatText, type FormPayload } from "@/app/lib/line/forms";
+import type { FormPayload } from "@/app/lib/line/forms";
 
 type Profile = { userId?: string; displayName: string; pictureUrl?: string };
 
@@ -26,7 +26,7 @@ type State = {
   error: string | null;
 };
 
-export type SubmitResult = { ok: true; preview?: boolean; sentToChat?: boolean } | { ok: false; error: string };
+export type SubmitResult = { ok: true; preview?: boolean } | { ok: false; error: string };
 
 type Ctx = State & {
   submit: (payload: FormPayload) => Promise<SubmitResult>;
@@ -50,6 +50,8 @@ function previewEnv(): LiffEnv {
 
 export function LiffProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<State>({ status: "loading", mode: "liff", liff: null, profile: null, env: null, error: null });
+
+  const requestIds = useRef<Partial<Record<FormPayload["type"], string>>>({});
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -108,30 +110,32 @@ export function LiffProvider({ children }: { children: ReactNode }) {
         return { ok: false, error: "請先登入 LINE" };
       }
 
-      // 1. 在 LINE 聊天室裡開啟時，把摘要以使用者名義送進聊天室（工作室在聊天室就看得到，Webhook 會回覆確認）
-      let sentToChat = false;
-      if (liff.isInClient() && liff.getContext()?.type === "utou") {
-        try {
-          await liff.sendMessages([{ type: "text", text: chatText(payload) }]);
-          sentToChat = true;
-        } catch (e) {
-          console.warn("sendMessages failed", e);
-        }
-      }
-
-      // 2. 送到後端：驗證身分、通知工作室、轉存名單
+      // 表單送進工作室收件表，不把可能含個資的摘要送到目前的聊天室。
+      const storageKey = `playwise-liff:request:${payload.type}`;
       try {
+        let saved: string | null = null;
+        try { saved = localStorage.getItem(storageKey); } catch { /* 仍可在這個頁面重試 */ }
+        const requestId = requestIds.current[payload.type] ??
+          (saved && /^[0-9a-f-]{36}$/i.test(saved) ? saved : crypto.randomUUID());
+        requestIds.current[payload.type] = requestId;
+        try { localStorage.setItem(storageKey, requestId); } catch { /* 保留記憶體中的單號 */ }
+
         const res = await fetch("/api/liff/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ payload, idToken: liff.getIDToken(), sentToChat }),
+          body: JSON.stringify({ payload, idToken: liff.getIDToken(), requestId }),
         });
-        const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
-        if (res.ok && data.ok) return { ok: true, sentToChat };
-        if (sentToChat) return { ok: true, sentToChat };
-        return { ok: false, error: data.error || "送出失敗，請稍後再試" };
+        const data = await res.json().catch(() => null);
+        if (res.ok && data?.ok === true && /^[0-9a-f]{64}$/.test(data.receiptId ?? "")) {
+          delete requestIds.current[payload.type];
+          try {
+            if (localStorage.getItem(storageKey) === requestId) localStorage.removeItem(storageKey);
+          } catch { /* 收件已完成 */ }
+          return { ok: true };
+        }
+        return { ok: false, error: typeof data?.error === "string" ? data.error : "無法確認收件，請稍後再試" };
       } catch {
-        return sentToChat ? { ok: true, sentToChat } : { ok: false, error: "網路不穩，請稍後再試" };
+        return { ok: false, error: "無法確認收件，請稍後再試" };
       }
     },
     [state.mode, state.liff],

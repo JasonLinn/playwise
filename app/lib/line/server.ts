@@ -14,8 +14,9 @@ export const lineEnv = {
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean),
-  /** 選填：同時把表單 POST 到這個網址（例如 Google Apps Script → 試算表當客戶名單）。 */
+  /** 表單收件必填：工作室的 Apps Script web app 與共用密鑰。 */
   forwardUrl: process.env.INQUIRY_FORWARD_URL || "",
+  forwardSecret: process.env.INQUIRY_FORWARD_SECRET || "",
   /** 測試用：設為 1 時不真的呼叫 LINE API，只把要送的訊息印在 log。 */
   dryRun: process.env.LINE_API_DRY_RUN === "1",
 };
@@ -48,6 +49,7 @@ async function call(path: string, body: unknown): Promise<boolean> {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${lineEnv.accessToken}` },
     body: JSON.stringify(body),
+    signal: AbortSignal.timeout(5_000),
   });
   if (!res.ok) {
     console.error(`[line] ${path} ${res.status}: ${await res.text().catch(() => "")}`);
@@ -90,21 +92,32 @@ export async function verifyIdToken(idToken: string): Promise<VerifiedUser | nul
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({ id_token: idToken, client_id: lineEnv.loginChannelId }),
+    signal: AbortSignal.timeout(5_000),
   }).catch(() => null);
   if (!res?.ok) return null;
-  const data = (await res.json()) as { sub?: string; name?: string; picture?: string };
-  return data.sub ? { userId: data.sub, name: data.name || "LINE 使用者", picture: data.picture } : null;
+  const data = (await res.json().catch(() => null)) as { sub?: string; name?: string; picture?: string } | null;
+  if (!data) return null;
+  return typeof data.sub === "string" && data.sub ? { userId: data.sub, name: data.name || "LINE 使用者", picture: data.picture } : null;
 }
 
-export async function forward(payload: unknown): Promise<boolean> {
-  if (!lineEnv.forwardUrl) return false;
-  const res = await fetch(lineEnv.forwardUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  }).catch((e) => {
-    console.error("[line] forward failed", e);
+export async function storeInquiry(
+  payload: { receiptId: string } & Record<string, unknown>,
+): Promise<{ duplicate: boolean } | null> {
+  if (!lineEnv.forwardUrl || !lineEnv.forwardSecret) return null;
+  try {
+    const res = await fetch(lineEnv.forwardUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...payload, secret: lineEnv.forwardSecret }),
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (!res.ok) return null;
+    const ack = await res.json();
+    if (ack?.ok !== true || ack.receiptId !== payload.receiptId || typeof ack.duplicate !== "boolean") return null;
+    return { duplicate: ack.duplicate };
+  } catch {
+    // 不記錄客戶表單內容或收件密鑰。
+    console.warn("[line] inquiry storage could not be confirmed");
     return null;
-  });
-  return Boolean(res?.ok);
+  }
 }

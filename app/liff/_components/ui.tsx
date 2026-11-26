@@ -244,14 +244,12 @@ export function Success({
   message,
   rows,
   preview,
-  sentToChat,
   onAgain,
 }: {
   title: string;
   message: string;
   rows: [string, string][];
   preview?: boolean;
-  sentToChat?: boolean;
   onAgain?: () => void;
 }) {
   const { close, env } = useLiff();
@@ -261,11 +259,10 @@ export function Success({
         <span className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-500 ring-8 ring-emerald-50/60">
           <FiCheck className="h-8 w-8" aria-hidden="true" />
         </span>
-        <h2 className="text-xl font-bold text-slate-900">{title}</h2>
+        <h2 className="text-xl font-bold text-slate-900">{preview ? "預覽完成（未送出）" : title}</h2>
         <p className="mt-2 leading-relaxed text-slate-600">{message}</p>
-        {sentToChat && <p className="mt-2 text-sm text-slate-500">摘要已傳到聊天室，之後的聯絡都會在那裡進行。</p>}
       </section>
-      {preview && <Notice>這是預覽模式，資料沒有真的送出。在 LINE 裡開啟才會通知工作室。</Notice>}
+      {preview && <Notice>這是預覽模式，資料沒有送出。</Notice>}
       <section className={`${card} p-5`}>
         <h3 className="mb-3 text-sm font-medium text-slate-500">你填寫的內容</h3>
         <Summary rows={rows} />

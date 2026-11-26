@@ -1,44 +1,74 @@
 /**
- * 選用：把 LIFF 表單自動記到 Google 試算表，當作簡易客戶名單。
- *
- * 設定方式：
- * 1. 開一份新的 Google 試算表 → 擴充功能 → Apps Script，貼上這份程式碼。
- * 2. 專案設定 → 指令碼屬性，新增 SECRET（自己取一串亂碼）。
- * 3. 部署 → 新增部署作業 → 類型選「網頁應用程式」，執行身分「我」，存取權「所有人」。
- * 4. 複製網址，在 Vercel 設定 INQUIRY_FORWARD_URL = 網址?secret=你的SECRET
- *
- * 每種表單（需求諮詢／預約諮詢／維護回報）會各自寫到同名的工作表。
+ * 工作室 LIFF 收件表。先新增 SECRET 指令碼屬性，再將綁定在試算表的
+ * Apps Script 部署為以擁有者身分執行的 Web App，見 line/README.md。
  */
 function doPost(e) {
-  var secret = PropertiesService.getScriptProperties().getProperty('SECRET');
-  if (secret && (!e.parameter || e.parameter.secret !== secret)) {
-    return ContentService.createTextOutput('forbidden');
+  function json(data) {
+    return ContentService.createTextOutput(JSON.stringify(data))
+      .setMimeType(ContentService.MimeType.JSON);
   }
-  var body = JSON.parse(e.postData.contents);
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(body.tag) || ss.insertSheet(body.tag);
-  var summary = body.summary || {};
-  var keys = Object.keys(summary);
 
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(['送出時間', 'LINE 名稱', 'LINE userId', '狀態'].concat(keys));
-    sheet.setFrozenRows(1);
+  var properties = PropertiesService.getScriptProperties();
+  var secret = properties.getProperty('SECRET');
+  var spreadsheetId = properties.getProperty('SPREADSHEET_ID');
+  var body;
+  try {
+    body = JSON.parse(e.postData.contents);
+  } catch (_) {
+    return json({ ok: false });
   }
-  // 依現有標題欄位寫入，新欄位自動加在最後
-  var header = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
-  keys.forEach(function (k) {
-    if (header.indexOf(k) === -1) {
-      header.push(k);
-      sheet.getRange(1, header.length).setValue(k);
+  if (!secret || !spreadsheetId || !body || body.secret !== secret) return json({ ok: false });
+
+  var tags = { inquiry: '需求諮詢', booking: '預約諮詢', support: '維護回報' };
+  var tag = tags[body.type];
+  if (typeof tag !== 'string' || body.tag !== tag || typeof body.receiptId !== 'string' ||
+      !/^[0-9a-f]{64}$/.test(body.receiptId)) {
+    return json({ ok: false });
+  }
+
+  var lock = LockService.getScriptLock();
+  if (!lock.tryLock(7000)) return json({ ok: false });
+  try {
+    var ss = SpreadsheetApp.openById(spreadsheetId);
+    var sheet = ss.getSheetByName(tag) || ss.insertSheet(tag);
+    var summary = body.summary || {};
+    var keys = ['收件編號'].concat(Object.keys(summary));
+
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(['送出時間', 'LINE 名稱', 'LINE userId', '狀態'].concat(keys));
+      sheet.setFrozenRows(1);
     }
-  });
-  var row = header.map(function (h) {
-    if (h === '送出時間') return new Date(body.submittedAt);
-    if (h === 'LINE 名稱') return body.user ? body.user.name : '';
-    if (h === 'LINE userId') return body.user ? body.user.userId : '';
-    if (h === '狀態') return '新進';
-    return summary[h] || '';
-  });
-  sheet.appendRow(row);
-  return ContentService.createTextOutput('ok');
+    var header = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    keys.forEach(function (key) {
+      if (header.indexOf(key) === -1) {
+        header.push(key);
+        sheet.getRange(1, header.length).setValue(key);
+      }
+    });
+    var rowCount = sheet.getLastRow();
+    if (rowCount > 1 && sheet.getRange(2, header.indexOf('收件編號') + 1, rowCount - 1, 1)
+        .createTextFinder(body.receiptId).matchEntireCell(true).findNext()) {
+      return json({ ok: true, receiptId: body.receiptId, duplicate: true });
+    }
+
+    function cellText(value) {
+      var text = String(value == null ? '' : value);
+      return /^\s*[=+\-@]/.test(text) ? "'" + text : text;
+    }
+    var row = header.map(function (name) {
+      if (name === '送出時間') return new Date(body.submittedAt);
+      if (name === 'LINE 名稱') return cellText(body.user && body.user.name);
+      if (name === 'LINE userId') return cellText(body.user && body.user.userId);
+      if (name === '狀態') return '新進';
+      if (name === '收件編號') return body.receiptId;
+      return cellText(summary[name]);
+    });
+    sheet.appendRow(row);
+    SpreadsheetApp.flush();
+    return json({ ok: true, receiptId: body.receiptId, duplicate: false });
+  } catch (_) {
+    return json({ ok: false });
+  } finally {
+    lock.releaseLock();
+  }
 }
