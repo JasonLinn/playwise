@@ -598,6 +598,9 @@ function Contact() {
               加入 LINE 好友
               <NewTab />
             </a>
+            <p className="mt-3 text-sm">
+              <Link href="/line" className={`${blue} hover:underline`}>查看 LINE 好友 QR 碼</Link>
+            </p>
           </div>
           <div className="flex flex-col justify-center bg-gradient-to-br from-[#5b9cf6] via-[#4fb3e8] to-[#3cc8b4] p-10 text-white md:p-12">
             <h3 className="mb-4 text-2xl font-bold">第一則訊息，可以這樣開始</h3>

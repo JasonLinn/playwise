@@ -1,11 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Metadata } from 'next';
+import { pageMetadata } from "../site-metadata";
 
-export const metadata: Metadata = {
-  title: "智遊工作室 | LINE 好友",
-  description: "掃描 QR 碼加入智遊工作室的 LINE 好友，獲取更多服務資訊。",
-};
+export const metadata = pageMetadata("/line");
 
 export default function LinePage() {
   return (

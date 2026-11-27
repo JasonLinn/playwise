@@ -114,11 +114,11 @@ export default function BNBPage() {
                 <div className={styles.heroLeft}>
                     <div className={styles.heroLogo}>
                         <div className={styles.mainKanji}>日式</div>
-                        <div className={styles.subText}>
+                        <h1 className={styles.subText}>
                             <span className={styles.jpStyle}>日式民宿</span>
                             <span className={styles.dot}></span>
                             <span className={styles.enName}>Hinoki Forest Guesthouse</span>
-                        </div>
+                        </h1>
                     </div>
                     <div className={styles.heroContact}>
                         <p>虛構旅宿・官網概念設計</p>
