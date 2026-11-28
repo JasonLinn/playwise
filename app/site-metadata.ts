@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteOrigin = "https://playwise-nine.vercel.app";
+export const siteName = "智遊工作室 Playwise";
 
 type PageInfo = {
   title: string;
@@ -60,7 +61,7 @@ export function pageMetadata(path: keyof typeof publicPages): Metadata {
       title,
       description,
       url,
-      siteName: "智遊工作室 Playwise",
+      siteName,
       locale: "zh_TW",
       type: "website",
       images,
